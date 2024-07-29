@@ -1,0 +1,128 @@
+body {
+    background-color: rgb(225, 242, 252);
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 30%;
+    height: 550px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: inline-block;
+    box-shadow: 0px 3px 10px 5px rgb(148, 149, 150);
+    margin: 15px;
+}
+
+.container>img {
+    width: 100%;
+    height: 65%;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+.row {
+    position: relative; /* Để nút heart có thể được định vị tương đối với nó */
+}
+
+/* Bảng tên  */
+.name-pet {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(61, 141, 220);
+    text-align: center;
+    position: relative; /* Để nút heart có thể được định vị tương đối với nó */
+}
+
+/* Nút Thích */
+.heart {
+    border: none;
+    background-color: rgb(225, 242, 252);
+    color: rgb(252, 158, 158);
+    font-size: 40px;
+    position: absolute; /* Định vị tuyệt đối so với phần tử chứa .content */
+    right: 5%; /* Cố định ở góc phải của phần tử chứa */
+    top: 5%; /* Đặt ở giữa phần tử chứa về chiều dọc */
+    cursor: pointer; /* Thay đổi con trỏ chuột khi hover */
+    transition: color 0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+.heart:hover {
+    color: rgb(219, 13, 13);
+}
+
+.heart:active {
+    transform: translateY(2px);
+}
+
+.heart:focus {
+    color: rgb(219, 13, 13);
+}
+.heart.clicked {
+    background-color: rgb(219, 13, 13); /* Màu sắc khi giữ trạng thái đã nhấn */
+}
+
+
+/* Giá tiền */
+.text-price {
+    font-size: 30px;
+    color: rgb(61, 141, 220);
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.text-price>.price {
+    color: rgb(248, 95, 95);
+    text-decoration: line-through;
+}
+
+/* XEM, Đặt hàng */
+.button {
+    width: 150px;
+    height: 50px;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    box-shadow: 0 4px #999;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #45a049;
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.button.clicked {
+    background-color: rgb(219, 13, 13);
+}
+
+.container>.view-detail {
+    position: absolute;
+    bottom: 2%;
+    left: 10%;
+}
+
+.container>.order {
+    position: absolute;
+    bottom: 2%;
+    right: 10%;
+}
