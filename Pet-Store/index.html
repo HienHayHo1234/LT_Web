@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cửa Hàng Thú Cưng</title>
     <link rel="stylesheet" href="asset/css/index.css">
+    <link rel="icon" type="image/x-icon" href="asset/images/logo.ico">
 </head>
-<body>
-    <header>
-        <h1>Chào Mừng Đến Với Cửa Hàng Thú Cưng</h1>
+
+<body>  
+    <header>    
+        <div class="header-container">
+
+            <div class="logo-container">
+                <a href="#home">
+                    <img src="asset/images/logo.jpg" alt="Logo Cửa Hàng Thú Cưng">
+                </a>
+            </div>
+
+            <div class="buttons-container">
+                <a href="#cart">
+                    <img class="circle-button" src="asset/images/cart.png" alt="Cart">
+                </a>
+                <a href="#login">
+                    <img class="circle-button" src="asset/images/login.png" alt="Login">
+                </a>
+            </div>
+            
+        </div>
     </header>
+    
+    
     <nav>
         <ul>
             <li><a href="#home">Trang Chủ</a></li>
-            <li><a href="#pets">Thú Cưng</a></li>
+            <li><a href="#pets">Sản Phẩm</a></li>
             <li><a href="#about">Giới Thiệu</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
+            <li><a href="pages/giohang.html">Giỏ hàng</a></li>
         </ul>
     </nav>
+
     <main>
         <section id="home">
             <h2>Trang Chủ</h2>
@@ -45,9 +69,11 @@
             <p>Liên hệ với chúng tôi qua email: contact@petstore.com</p>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2024 Cửa Hàng Thú Cưng. Bảo lưu mọi quyền.</p>
     </footer>
+    <script src="asset/js/index.js"></script>
     <script src="asset/js/index.js"></script>
 </body>
 </html>

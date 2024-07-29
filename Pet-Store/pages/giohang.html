@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Thú Cưng</title>
+    <link rel="stylesheet" href="../asset/css/index.css">
+</head>
+<body>
+    <header>
+        <h1>Chào Mừng Đến Với Cửa Hàng Thú Cưng</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Trang Chủ</a></li>
+            <li><a href="#pets">Thú Cưng</a></li>
+            <li><a href="#about">Giới Thiệu</a></li>
+            <li><a href="#contact">Liên Hệ</a></li>
+            <li><a href="giohang.html">Giỏ hàng</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="container"></div>
+
+    <script>
+        fetch('convet.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('container').innerHTML = data;
+            });
+    </script>
+    </main>
+    <footer>
+        <p>&copy; 2024 Cửa Hàng Thú Cưng. Bảo lưu mọi quyền.</p>
+    </footer>
+    <script src="../asset/js/index.js"></script>
+</body>
+</html>

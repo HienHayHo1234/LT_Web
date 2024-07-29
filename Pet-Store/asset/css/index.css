@@ -2,6 +2,46 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: white;
+}   
+
+.header-container {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Đẩy logo sang bên trái và các nút sang bên phải */
+}
+
+.logo-container {
+    display: flex;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+}
+
+
+
+.logo-container img {
+    width: 90px;
+    height: 90px;
+}
+
+.circle-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.circle-button:hover {
+    background-color: #0056b3;
     background-color: #f9f9f9;
 }
 
@@ -16,10 +56,26 @@ nav ul {
     padding: 0;
     margin: 0;
     background-color: #333;
+    background-color: #007bff;
+    background-color: #333;
     display: flex;
     justify-content: center;
 }
 
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #0059b8;
+}
     nav ul li {
         margin: 0 15px;
     }
@@ -47,6 +103,10 @@ main {
     background-color: #fff;
 }
 
+.pet img {
+    max-width: 100%;
+    height: auto;
+}
     .pet img {
         max-width: 100%;
         height: auto;
