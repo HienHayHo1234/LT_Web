@@ -1,46 +1,39 @@
-<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <title></title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body>
-      <div class="container">
-          <label for="usename">User Name:</label><br>
-          <input type="text" id="usename" ><br>
-          <label for="password">Password:</label><br>
-          <input type="password" id="password"><br>
-      </div>
-      <div>
-          <button onclick="validateForm()">Submit</button>
-      </div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form action="Version.php" method="post" class="container">
+        <label for="username">User Name:</label><br>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <div>
+            <label><input name="status" type="checkbox"> Remember me</label>
+        </div>
+        <hr>
+        <div>
+            <input type="submit" value="Login">
+        </div>
+    </form>
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if (username === '' || password === '') {
+                alert('Please fill out both fields.');
+                return false;
+            }
+            return true;
+        }
+
+        document.querySelector('form').onsubmit = function() {
+            return validateForm();
+        };
+    </script>
+</body>
 </html>
-=======
-<!DOCTYPE HTML>
-<HTML>
-    <HEAD>
-        <META charset = "utf-8"/>
-        <TITLE> login </TITLE>
-        <link rel="stylesheet"  href="login.css">
-    </HEAD>
-    <BODY>
-        <form action="Version.php" method="post" class="container">
-            <label for="fname">User Name:</label>
-            <input type="text" id="fname" ><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" ><br><br>
-            <div>
-            <label><input name="status" type="checkbox"/>Remember me</label>
-            </div>
-            <hr>
-            <div>
-            <input type="submit" value="Login"/>
-            </div>
-        </form>
-    </BODY>
-</HTML>
->>>>>>> Stashed changes
