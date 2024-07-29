@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+<<<<<<< Updated upstream
     background-color: white;
 }   
 
@@ -42,17 +43,31 @@ body {
 
 .circle-button:hover {
     background-color: #0056b3;
+=======
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #ffcc00;
+    padding: 20px;
+    text-align: center;
+>>>>>>> Stashed changes
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
+<<<<<<< Updated upstream
     background-color: #007bff;
+=======
+    background-color: #333;
+>>>>>>> Stashed changes
     display: flex;
     justify-content: center;
 }
 
+<<<<<<< Updated upstream
 nav ul li {
     margin: 0 15px;
 }
@@ -67,6 +82,22 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #0059b8;
 }
+=======
+    nav ul li {
+        margin: 0 15px;
+    }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+
+            nav ul li a:hover {
+                background-color: #555;
+            }
+>>>>>>> Stashed changes
 
 main {
     padding: 20px;
@@ -80,10 +111,17 @@ main {
     background-color: #fff;
 }
 
+<<<<<<< Updated upstream
 .pet img {
     max-width: 100%;
     height: auto;
 }
+=======
+    .pet img {
+        max-width: 100%;
+        height: auto;
+    }
+>>>>>>> Stashed changes
 
 footer {
     background-color: #333;
