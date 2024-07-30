@@ -5,7 +5,7 @@ body {
 
 .container {
     position: relative;
-    width: 30%;
+    width: 300px;
     height: 550px;
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
@@ -13,7 +13,9 @@ body {
     border-bottom-right-radius: 30px;
     display: inline-block;
     box-shadow: 0px 3px 10px 5px rgb(148, 149, 150);
-    margin: 15px;
+    margin: 10px 15px 10px 15px;
+    padding: 3px;
+    background-color: rgb(225, 242, 252);
 }
 
 .container>img {
@@ -44,8 +46,8 @@ body {
     color: rgb(252, 158, 158);
     font-size: 40px;
     position: absolute; /* Định vị tuyệt đối so với phần tử chứa .content */
-    right: 5%; /* Cố định ở góc phải của phần tử chứa */
-    top: 5%; /* Đặt ở giữa phần tử chứa về chiều dọc */
+    right: 3%; /* Cố định ở góc phải của phần tử chứa */
+    top: -5%; /* Đặt ở giữa phần tử chứa về chiều dọc */
     cursor: pointer; /* Thay đổi con trỏ chuột khi hover */
     transition: color 0.3s ease; /* Hiệu ứng chuyển màu */
 }
@@ -68,10 +70,10 @@ body {
 
 /* Giá tiền */
 .text-price {
-    font-size: 30px;
+    font-size: 22px;
     color: rgb(61, 141, 220);
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
     font-style: italic;
 }
 
@@ -82,16 +84,16 @@ body {
 
 /* XEM, Đặt hàng */
 .button {
-    width: 150px;
+    width: 130px;
     height: 50px;
-    padding: 10px 20px;
-    margin: 10px;
+    padding: 5px;
+    margin: 10px 5px 10px 10px;
     background-color: #4CAF50;
     color: white;
     border: 2px solid #4CAF50;
     border-radius: 5px;
     font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
@@ -118,11 +120,11 @@ body {
 .container>.view-detail {
     position: absolute;
     bottom: 2%;
-    left: 10%;
+    left: 2%;
 }
 
 .container>.order {
     position: absolute;
     bottom: 2%;
-    right: 10%;
+    right: 2%;
 }
