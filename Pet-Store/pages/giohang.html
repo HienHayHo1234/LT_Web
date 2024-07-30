@@ -11,25 +11,14 @@
     <title>Parrot</title>
 </head>
 <body>  
-    <header>    
-        <div class="header-container">
-
-            <div class="logo-container">
-                <a href="#home">
-                    <img src="../asset/images/logo.jpg" alt="Logo Cửa Hàng Thú Cưng">
-                </a>
-            </div>
-
-            <div class="buttons-container">
-                <a href="#cart">
-                    <img class="circle-button" src="../asset/images/cart.png" alt="Cart">
-                </a>
-                <a href="#login">
-                    <img class="circle-button" src="../asset/images/login.png" alt="Login">
-                </a>
-            </div>
-            
-        </div>
+    <header id="header-container">    
+        <script>
+            fetch("../Includes/header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                });
+        </script>
     </header>
     
     <nav>
@@ -54,18 +43,16 @@
             <button class="heart" id="button1">❤</button>
             <button class="button order" id="button3">Đặt hàng</button>
         </div>
-
-        <!-- <script>
-            fetch('convet.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('container').innerHTML = data;
-                });
-        </script> -->
     </main>
 
-    <footer>
-        <p>&copy; 2024 Cửa Hàng Thú Cưng. Bảo lưu mọi quyền.</p>
+    <footer id="footer-container">
+        <script>
+            fetch('../Includes/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+        </script>
     </footer>
 </body>
 </html>
