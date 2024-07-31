@@ -7,23 +7,31 @@
     <link rel="stylesheet" href="../asset/css/cart.css">
     <script src="../asset/js/parrot.js"></script>
     <link rel="stylesheet" href="../asset/css/index.css">
-    <link rel="icon" type="image/x-icon" href="../asset/images/logo.ico">
+    <link rel="icon" type="image/x-icon" href="../asset/images/icon/logo.ico">
     <title>Parrot</title>
 </head>
 <body>  
-    <header id="header-container">    
-        <script>
-            fetch("../Includes/header.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                });
-        </script>
+    <header>    
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="../asset/images/icon/logo.jpg" alt="Logo Cửa Hàng Thú Cưng">
+                </a>
+            </div>
+            <div class="buttons-container">
+                <a href="cart.html">
+                    <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
+                </a>
+                <a href="login.html">
+                    <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
+                </a>
+            </div>
+        </div>
     </header>
     
     <nav>
         <ul>
-            <li><a href="#home">Trang Chủ</a></li>
+            <li><a href="index.html">Trang Chủ</a></li>
             <li><a href="parrot.html">Sản Phẩm</a></li>
             <li><a href="#about">Giới Thiệu</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
