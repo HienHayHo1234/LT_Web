@@ -9,9 +9,6 @@ header {
     background-color: white;
     text-align: center;
 }
-main {
-    padding: 20px;
-}
 footer {
     background-color: blue;
     color: white;
@@ -35,8 +32,6 @@ footer {
     gap: 20px;
 }
 
-
-
 .logo-container img {
     width: 90px;
     height: 90px;
@@ -46,7 +41,7 @@ footer {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: blue;
+    background-color: palevioletred;
     border: none;
     cursor: pointer;
     background-size: 60%;
@@ -64,7 +59,7 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: blue;
+    background-color: palevioletred;
     display: flex;
     justify-content: center;
 }
