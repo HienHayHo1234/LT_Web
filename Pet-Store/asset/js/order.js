@@ -1,5 +1,4 @@
-// convet.js
-
+// Nút đặt hàng
 function addToCart(id, name, price) {
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
 
@@ -14,5 +13,4 @@ function addToCart(id, name, price) {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert('Đã thêm vào giỏ hàng');
 }
