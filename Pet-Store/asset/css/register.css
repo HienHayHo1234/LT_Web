@@ -1,3 +1,4 @@
+/* Căn chỉnh cơ bản cho body */
 body {
     font-family: Arial, sans-serif; /* Đặt font chữ cho toàn bộ trang */
     display: flex; /* Sử dụng flexbox để căn giữa nội dung */
@@ -12,6 +13,7 @@ body {
     overflow: hidden; /* Ẩn phần tử tràn ra ngoài */
 }
 
+/* Phần tử ảo để tạo hiệu ứng nền mờ */
 body::before {
     content: ""; /* Tạo một phần tử ảo trước phần tử body */
     position: absolute; /* Vị trí tuyệt đối để phủ toàn bộ body */
@@ -24,14 +26,15 @@ body::before {
     z-index: -1; /* Đưa phần tử này ra phía sau nội dung chính */
 }
 
+/* Định dạng container cho form */
 .container {
     min-width: 300px; /* Đặt chiều rộng tối thiểu cho container */
     max-width: 450px; /* Đặt chiều rộng tối đa cho container */
     width: 100%; /* Đảm bảo container chiếm toàn bộ chiều rộng có sẵn của cha */
-    padding: 30px 40px; /* Thêm khoảng cách bên trong container, với padding ngang nhiều hơn để có thêm không gian cho nội dung */
-    background-color: rgba(255, 255, 255, 0.95); /* Màu nền trắng nhạt, với độ trong suốt nhỏ hơn để tăng độ nổi bật */
-    border-radius: 10px; /* Làm cong các góc của container nhiều hơn để tạo cảm giác mềm mại */
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Thêm bóng đổ mạnh hơn để tạo độ sâu cho container */
+    padding: 30px 40px; /* Thêm khoảng cách bên trong container */
+    background-color: rgba(255, 255, 255, 0.95); /* Màu nền trắng nhạt */
+    border-radius: 10px; /* Làm cong các góc của container */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Thêm bóng đổ mạnh để tạo độ sâu */
     position: relative; /* Thiết lập vị trí tương đối cho container */
     z-index: 1; /* Đảm bảo container nằm trên các phần tử khác nếu cần */
     backdrop-filter: blur(10px); /* Áp dụng hiệu ứng mờ cho phần nền phía sau để tạo sự tương phản */
@@ -43,7 +46,7 @@ body::before {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.2); /* Tăng cường bóng đổ khi hover để nhấn mạnh hiệu ứng nổi */
 }
 
-
+/* Định dạng nhãn */
 label {
     font-size: 15px; /* Đặt kích thước font chữ cho nhãn */
     color: #333; /* Đặt màu chữ cho nhãn */
@@ -52,6 +55,7 @@ label {
     font-weight: bold; /* Làm chữ đậm cho nhãn */
 }
 
+/* Định dạng trường nhập liệu */
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -65,6 +69,7 @@ input[type="password"] {
     transition: border-color 0.3s ease; /* Hiệu ứng chuyển đổi màu viền khi tập trung vào */
 }
 
+/* Hiệu ứng khi trường nhập liệu được tập trung */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
@@ -72,6 +77,7 @@ input[type="password"]:focus {
     outline: none; /* Loại bỏ viền mặc định khi tập trung vào */
 }
 
+/* Định dạng nút gửi */
 button {
     background-color: #4CAF50; /* Đặt màu nền cho nút */
     color: white; /* Đặt màu chữ cho nút */
@@ -89,12 +95,14 @@ button:hover {
     background-color: #45a049; /* Thay đổi màu nền khi di chuột qua nút */
 }
 
+/* Định dạng đoạn văn */
 p {
     text-align: center; /* Căn giữa văn bản trong đoạn văn */
     margin-top: 20px; /* Thêm khoảng cách trên đoạn văn */
     color: #333; /* Đặt màu chữ cho đoạn văn */
 }
 
+/* Định dạng liên kết */
 a {
     color: #4CAF50; /* Đặt màu cho liên kết */
     text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
@@ -103,4 +111,58 @@ a {
 
 a:hover {
     text-decoration: underline; /* Thêm gạch chân khi di chuột qua liên kết */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; /* Giảm padding cho các màn hình nhỏ hơn */
+        border-radius: 8px; /* Làm cong góc ít hơn cho các màn hình nhỏ */
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Giảm bóng đổ cho các màn hình nhỏ */
+    }
+
+    label {
+        font-size: 14px; /* Giảm kích thước font chữ cho nhãn trên màn hình nhỏ */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 13px; /* Giảm kích thước font chữ cho các trường nhập liệu */
+    }
+
+    button {
+        font-size: 14px; /* Giảm kích thước font chữ cho nút trên màn hình nhỏ */
+        padding: 10px 15px; /* Giảm padding cho nút trên màn hình nhỏ */
+    }
+
+    p {
+        font-size: 14px; /* Giảm kích thước font chữ cho đoạn văn trên màn hình nhỏ */
+    }
+}
+
+/* Responsive Design cho các màn hình nhỏ hơn */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px; /* Giảm padding thêm cho các màn hình rất nhỏ */
+    }
+
+    label {
+        font-size: 13px; /* Giảm kích thước font chữ cho nhãn */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 12px; /* Giảm kích thước font chữ cho các trường nhập liệu */
+    }
+
+    button {
+        font-size: 13px; /* Giảm kích thước font chữ cho nút */
+        padding: 8px 12px; /* Giảm padding cho nút */
+    }
+
+    p {
+        font-size: 13px; /* Giảm kích thước font chữ cho đoạn văn */
+    }
 }

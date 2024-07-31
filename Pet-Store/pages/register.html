@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Đăng Ký</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../asset/css/register.css" rel="stylesheet">
-</head>
-<body>
-    <form action="version.php" method="post" class="container" id="registerForm">
-        <label for="username">Tên Người Dùng:</label>
-        <input type="text" id="username" name="username" required><br>
+  <head>
+      <title></title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="../asset/css/login.css" rel="stylesheet">
+      <link href="../asset/css/index.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>    
+        <div class="header-container">
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="../asset/images/icon/logo.jpg" alt="Logo Cửa Hàng Thú Cưng">
+                </a>
+            </div>
 
-        <label for="password">Mật Khẩu:</label>
-        <input type="password" id="password" name="password" required><br>
-
-        <label for="confirmPassword">Xác Nhận Mật Khẩu:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
-
-        <div>
-            <button type="button" onclick="validateForm()">Gửi</button>
-            <button type="button" onclick="clearForm()">Xóa</button>
+            <div class="buttons-container">
+                <a href="cart.html">
+                    <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
+                </a>
+                <a href="login.html">
+                    <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
+                </a>
+            </div>
+            
         </div>
-        <br>
-    <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
-    </form>
-    
-
-    <script>
-        function validateForm() {
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-
-            if (password !== confirmPassword) {
-                alert("Mật khẩu không khớp. Vui lòng kiểm tra lại.");
-                return false;
-            } else {
-                document.getElementById("registerForm").submit();
-            }
-        }
-
-        function clearForm() {
-            document.getElementById("registerForm").reset();
-        }
-    </script>
-</body>
+    </header>
+    <nav>
+        <ul> 
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="#pets">Sản Phẩm</a></li>
+            <li><a href="#about">Giới Thiệu</a></li>
+            <li><a href="#contact">Liên Hệ</a></li>
+            <li><a href="cart.html">Giỏ hàng</a></li>
+        </ul>
+    </nav>
+      <div class="container">
+          <label for="usename">User Name:</label><br>
+          <input type="text" id="usename" ><br>
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" ><br>
+          <label for="password">Password:</label><br>
+          <input type="text" id="password" ><br>
+          <label for="confirmPassword">Confirm Password:</label><br>
+          <input type="text" id="confirmPassword" ><br>
+      </div>
+      <div>
+          <button onclick="validateForm()">Submit</button>
+          <button onclick="clearForm()">Clear</button>
+      </div>
+  </body>
 </html>
