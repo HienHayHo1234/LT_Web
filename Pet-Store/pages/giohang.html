@@ -7,30 +7,39 @@
     <link rel="stylesheet" href="../asset/css/giohang.css">
     <script src="../asset/js/parrot.js"></script>
     <link rel="stylesheet" href="../asset/css/index.css">
-    <link rel="icon" type="image/x-icon" href="../asset/images/logo.ico">
+    <link rel="icon" type="image/x-icon" href="../asset/images/icon/logo.ico">
     <title>Parrot</title>
 </head>
 <body>  
-    <header id="header-container">    
-        <script>
-            fetch("../Includes/header.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                });
-        </script>
+    <header>    
+        <div class="header-container">
+
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="../asset/images/icon/logo.jpg" alt="Logo Cửa Hàng Thú Cưng">
+                </a>
+            </div>
+
+            <div class="buttons-container">
+                <a href="giohang.html">
+                    <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
+                </a>
+                <a href="register.html">
+                    <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
+                </a>
+            </div>
+            
+        </div>
     </header>
-    
     <nav>
         <ul>
-            <li><a href="#home">Trang Chủ</a></li>
+            <li><a href="index.html">Trang Chủ</a></li>
             <li><a href="#pets">Sản Phẩm</a></li>
             <li><a href="#about">Giới Thiệu</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
             <li><a href="giohang.html">Giỏ hàng</a></li>
         </ul>
     </nav>
-
     <main>
         <div class="container">
             <img src="../asset/images/vet/green-parrot.jpg" alt="Vẹt xanh">
@@ -45,14 +54,8 @@
         </div>
     </main>
 
-    <footer id="footer-container">
-        <script>
-            fetch('../Includes/footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-container').innerHTML = data;
-                });
-        </script>
+    <footer>
+        <p>&copy; 2024 Cửa Hàng Thú Cưng. Bảo lưu mọi quyền.</p>
     </footer>
 </body>
 </html>
