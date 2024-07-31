@@ -1,67 +1,106 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url("../images/logo.jpg");
+    font-family: Arial, sans-serif; /* Đặt font chữ cho toàn bộ trang */
+    display: flex; /* Sử dụng flexbox để căn giữa nội dung */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100vh; /* Chiều cao toàn bộ màn hình */
+    margin: 0; /* Xóa margin mặc định của body */
+    background-image: url("../images/background-register.jpg"); /* Đặt hình nền */
+    background-size: cover; /* Đảm bảo hình nền phủ đầy màn hình */
+    background-position: center; /* Đặt vị trí hình nền ở giữa */
+    position: relative; /* Thiết lập vị trí tương đối cho body */
+    overflow: hidden; /* Ẩn phần tử tràn ra ngoài */
 }
 
 body::before {
-    content: "";
-    position: absolute;
+    content: ""; /* Tạo một phần tử ảo trước phần tử body */
+    position: absolute; /* Vị trí tuyệt đối để phủ toàn bộ body */
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    backdrop-filter: blur(2px);
-    z-index: -1;
+    background-color: rgba(255, 255, 255, 0.8); /* Màu nền trắng mờ */
+    backdrop-filter: blur(5px); /* Áp dụng hiệu ứng mờ cho nền */
+    z-index: -1; /* Đưa phần tử này ra phía sau nội dung chính */
 }
 
 .container {
-    max-width: 300px;
-    padding: 20px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px 0px rgba(78, 77, 77, 0.2);
+    min-width: 300px; /* Đặt chiều rộng tối thiểu cho container */
+    max-width: 450px; /* Đặt chiều rộng tối đa cho container */
+    width: 100%; /* Đảm bảo container chiếm toàn bộ chiều rộng có sẵn của cha */
+    padding: 30px 40px; /* Thêm khoảng cách bên trong container, với padding ngang nhiều hơn để có thêm không gian cho nội dung */
+    background-color: rgba(255, 255, 255, 0.95); /* Màu nền trắng nhạt, với độ trong suốt nhỏ hơn để tăng độ nổi bật */
+    border-radius: 10px; /* Làm cong các góc của container nhiều hơn để tạo cảm giác mềm mại */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Thêm bóng đổ mạnh hơn để tạo độ sâu cho container */
+    position: relative; /* Thiết lập vị trí tương đối cho container */
+    z-index: 1; /* Đảm bảo container nằm trên các phần tử khác nếu cần */
+    backdrop-filter: blur(10px); /* Áp dụng hiệu ứng mờ cho phần nền phía sau để tạo sự tương phản */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển đổi mượt mà cho các thay đổi về kích thước và bóng đổ */
 }
 
+.container:hover {
+    transform: translateY(-5px); /* Nhấc container lên một chút khi hover để tạo hiệu ứng nổi */
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.2); /* Tăng cường bóng đổ khi hover để nhấn mạnh hiệu ứng nổi */
+}
+
+
 label {
-    font-size: 14px;
-    color: #333333;
-    display: block;
-    margin-bottom: 5px;
+    font-size: 15px; /* Đặt kích thước font chữ cho nhãn */
+    color: #333; /* Đặt màu chữ cho nhãn */
+    display: block; /* Đảm bảo nhãn chiếm toàn bộ chiều rộng */
+    margin-bottom: 8px; /* Thêm khoảng cách dưới mỗi nhãn */
+    font-weight: bold; /* Làm chữ đậm cho nhãn */
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
+    width: 100%; /* Chiều rộng toàn bộ cho các trường nhập liệu */
+    padding: 10px; /* Thêm khoảng cách bên trong các trường nhập liệu */
+    margin-bottom: 15px; /* Thêm khoảng cách dưới mỗi trường nhập liệu */
+    border: 1px solid #ccc; /* Đặt viền cho các trường nhập liệu */
+    border-radius: 5px; /* Làm cong góc các trường nhập liệu */
+    box-sizing: border-box; /* Tính toán kích thước bao gồm cả padding và border */
+    font-size: 14px; /* Đặt kích thước font chữ cho các trường nhập liệu */
+    transition: border-color 0.3s ease; /* Hiệu ứng chuyển đổi màu viền khi tập trung vào */
 }
 
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #4CAF50; /* Thay đổi màu viền khi tập trung vào */
+    outline: none; /* Loại bỏ viền mặc định khi tập trung vào */
 }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
+button {
+    background-color: #4CAF50; /* Đặt màu nền cho nút */
+    color: white; /* Đặt màu chữ cho nút */
+    padding: 12px 20px; /* Thêm khoảng cách bên trong nút */
+    border: none; /* Loại bỏ viền cho nút */
+    border-radius: 5px; /* Làm cong các góc của nút */
+    cursor: pointer; /* Thay đổi con trỏ chuột khi di chuột qua nút */
+    font-size: 16px; /* Đặt kích thước font chữ cho nút */
+    width: 100%; /* Chiều rộng toàn bộ cho nút */
+    margin-top: 10px; /* Thêm khoảng cách trên nút */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền khi di chuột qua */
 }
 
-hr {
-    border: none;
-    border-top: 1px solid #eeeeee;
-    margin: 20px 0;
+button:hover {
+    background-color: #45a049; /* Thay đổi màu nền khi di chuột qua nút */
+}
+
+p {
+    text-align: center; /* Căn giữa văn bản trong đoạn văn */
+    margin-top: 20px; /* Thêm khoảng cách trên đoạn văn */
+    color: #333; /* Đặt màu chữ cho đoạn văn */
+}
+
+a {
+    color: #4CAF50; /* Đặt màu cho liên kết */
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    font-weight: bold; /* Làm chữ đậm cho liên kết */
+}
+
+a:hover {
+    text-decoration: underline; /* Thêm gạch chân khi di chuột qua liên kết */
 }
