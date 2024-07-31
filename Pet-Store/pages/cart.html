@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../asset/css/giohang.css">
+    <link rel="stylesheet" href="../asset/css/cart.css">
     <script src="../asset/js/parrot.js"></script>
     <link rel="stylesheet" href="../asset/css/index.css">
     <link rel="icon" type="image/x-icon" href="../asset/images/logo.ico">
@@ -24,15 +24,15 @@
     <nav>
         <ul>
             <li><a href="#home">Trang Chủ</a></li>
-            <li><a href="#pets">Sản Phẩm</a></li>
+            <li><a href="parrot.html">Sản Phẩm</a></li>
             <li><a href="#about">Giới Thiệu</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
-            <li><a href="giohang.html">Giỏ hàng</a></li>
+            <li><a href="cart.html">Giỏ hàng</a></li>
         </ul>
     </nav>
 
     <main>
-        <div class="container">
+        <!-- <div class="container">
             <img src="../asset/images/vet/green-parrot.jpg" alt="Vẹt xanh">
             <div class="text">
                 <p class="name-pet">Vẹt xanh</p>
@@ -42,7 +42,13 @@
             </div>
             <button class="heart" id="button1">❤</button>
             <button class="button order" id="button3">Đặt hàng</button>
+        </div> -->
+
+        <div class="container">
+            <div id="cart-items"></div>
         </div>
+    
+        <script src="../asset/js/cart.js"></script>
     </main>
 
     <footer id="footer-container">
