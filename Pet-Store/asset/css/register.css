@@ -35,15 +35,39 @@ body::before {
     background-color: rgba(255, 255, 255, 0.95); /* Màu nền trắng nhạt */
     border-radius: 10px; /* Làm cong các góc của container */
     box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Thêm bóng đổ mạnh để tạo độ sâu */
-    position: relative; /* Thiết lập vị trí tương đối cho container */
+    position:relative; /* Thiết lập vị trí tương đối cho container */
     z-index: 1; /* Đảm bảo container nằm trên các phần tử khác nếu cần */
     backdrop-filter: blur(10px); /* Áp dụng hiệu ứng mờ cho phần nền phía sau để tạo sự tương phản */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển đổi mượt mà cho các thay đổi về kích thước và bóng đổ */
+    display: flex; /* Sử dụng flexbox để căn chỉnh nội dung bên trong */
+    flex-direction: column; /* Đặt chiều dọc cho các phần tử bên trong container */
+    align-items: center; /* Căn giữa các phần tử theo chiều ngang */
 }
 
-.container:hover {
-    transform: translateY(-5px); /* Nhấc container lên một chút khi hover để tạo hiệu ứng nổi */
-    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.2); /* Tăng cường bóng đổ khi hover để nhấn mạnh hiệu ứng nổi */
+/* Định dạng phần chứa các nút */
+.button-container {
+    display: flex; /* Sử dụng flexbox để căn chỉnh các nút nằm ngang */
+    justify-content: space-between; /* Căn chỉnh các nút cách đều nhau */
+    gap: 10px; /* Khoảng cách giữa các nút */
+    margin-top: 20px; /* Khoảng cách trên các nút */
+    width: 100%; /* Đảm bảo phần chứa nút chiếm toàn bộ chiều rộng của container */
+}
+
+/* Định dạng nút gửi */
+button {
+    background-color: #4CAF50; /* Đặt màu nền cho nút */
+    color: white; /* Đặt màu chữ cho nút */
+    padding: 12px 20px; /* Thêm khoảng cách bên trong nút */
+    border: none; /* Loại bỏ viền cho nút */
+    border-radius: 5px; /* Làm cong các góc của nút */
+    cursor: pointer; /* Thay đổi con trỏ chuột khi di chuột qua nút */
+    font-size: 16px; /* Đặt kích thước font chữ cho nút */
+    flex: 1; /* Chiều rộng của các nút sẽ phân phối đều trong phần chứa */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền khi di chuột qua */
+}
+
+button:hover {
+    background-color: #45a049; /* Thay đổi màu nền khi di chuột qua nút */
 }
 
 /* Định dạng nhãn */
@@ -77,24 +101,6 @@ input[type="password"]:focus {
     outline: none; /* Loại bỏ viền mặc định khi tập trung vào */
 }
 
-/* Định dạng nút gửi */
-button {
-    background-color: #4CAF50; /* Đặt màu nền cho nút */
-    color: white; /* Đặt màu chữ cho nút */
-    padding: 12px 20px; /* Thêm khoảng cách bên trong nút */
-    border: none; /* Loại bỏ viền cho nút */
-    border-radius: 5px; /* Làm cong các góc của nút */
-    cursor: pointer; /* Thay đổi con trỏ chuột khi di chuột qua nút */
-    font-size: 16px; /* Đặt kích thước font chữ cho nút */
-    width: 100%; /* Chiều rộng toàn bộ cho nút */
-    margin-top: 10px; /* Thêm khoảng cách trên nút */
-    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền khi di chuột qua */
-}
-
-button:hover {
-    background-color: #45a049; /* Thay đổi màu nền khi di chuột qua nút */
-}
-
 /* Định dạng đoạn văn */
 p {
     text-align: center; /* Căn giữa văn bản trong đoạn văn */
@@ -107,10 +113,16 @@ a {
     color: #4CAF50; /* Đặt màu cho liên kết */
     text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
     font-weight: bold; /* Làm chữ đậm cho liên kết */
+    display: flex; /* Sử dụng flexbox để căn chỉnh logo nằm ngang với các nút */
+    justify-content: center; /* Căn giữa logo */
+    align-items: center; /* Căn giữa logo */
+    margin-top: 20px; /* Khoảng cách trên logo */
 }
 
-a:hover {
-    text-decoration: underline; /* Thêm gạch chân khi di chuột qua liên kết */
+/* Định dạng hình ảnh logo */
+a img {
+    width: 100px; /* Đặt chiều rộng cho hình ảnh logo */
+    height: auto; /* Đảm bảo chiều cao được điều chỉnh tự động để giữ tỷ lệ */
 }
 
 /* Responsive Design */
