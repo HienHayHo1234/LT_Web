@@ -3,18 +3,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: white;
-    background-image: url('../images/banner/banner-bg.jpg'); /* Đường dẫn tới hình ảnh nền */
-    background-size: cover; /* Kích thước ảnh phù hợp với kích thước màn hình */
-    background-repeat: repeat; /* Không lặp lại hình ảnh nền */
-    background-attachment: fixed; /* Giữ cố định hình nền khi cuộn trang */
-    background-position: center; /* Căn giữa hình nền */
-    color: white; /* Màu text */
-}
-
-nav {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
 }   
 
 header {
@@ -22,6 +10,7 @@ header {
     text-align: center;
 }
 footer {
+    background-color: palevioletred;
     color: white;
     text-align: center; 
     padding: 10px 0;
@@ -52,6 +41,7 @@ footer {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    background-color: palevioletred;
     border: none;
     cursor: pointer;
     background-size: 60%;
@@ -60,7 +50,7 @@ footer {
 }
 
 .circle-button:hover {
-    background-color: rgb(255, 132, 173);
+    background-color: rgb(255, 133, 174);
 }
 
 
@@ -69,7 +59,7 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-
+    background-color: palevioletred;
     display: flex;
     justify-content: center;
 }
@@ -79,9 +69,14 @@ nav ul li {
 }
 
 nav ul li a {
+    color: white;
     text-decoration: none;
     padding: 14px 20px;
     display: block;
+}
+
+nav ul li a:hover {
+    background-color: rgb(255, 133, 174);
 }
     nav ul li {
         margin: 0 15px;
@@ -93,11 +88,6 @@ nav ul li a {
             padding: 14px 20px;
             display: block;
         }
-
- nav ul li a:hover {
-    background-color: rgb(255, 123, 167)
-}
-
 .pet {
     border: 1px solid #ddd;
     padding: 10px;
@@ -114,4 +104,3 @@ nav ul li a {
     max-width: 100%;
     height: auto;
 }
-
