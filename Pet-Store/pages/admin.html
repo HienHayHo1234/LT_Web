@@ -6,38 +6,22 @@
     <title>Admin - Thêm Sản Phẩm</title>
     <link rel="stylesheet" href="../asset/css/admin.css">
 </head>
-<body>
-    <main>
-        <a href="parrot.html" class="back-link">Quay Lại</a>
-        <h1>Thêm Sản Phẩm Mới</h1>
-        <form id="pet-form">
-            <div class="form-group">
-                <label for="pet-id">ID:</label>
-                <input type="text" id="pet-id" name="pet-id" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-name">Tên:</label>
-                <input type="text" id="pet-name" name="pet-name" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-price">Giá:</label>
-                <input type="number" id="pet-price" name="pet-price" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-price-sale">Giá Khuyến Mãi:</label>
-                <input type="number" id="pet-price-sale" name="pet-price-sale" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-quantity">Số Lượng:</label>
-                <input type="number" id="pet-quantity" name="pet-quantity" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-image">URL Hình Ảnh:</label>
-                <input type="file" id="pet-image" name="pet-image" required>
-            </div>
-            <button type="submit">Thêm Sản Phẩm</button>
-        </form>
+<body class="grid-container">
+    <header class="item-header">
+        <img src="../asset/images/icon/logo.png" alt="logoweb">
+    </header>
+    <nav class="item-menu">
+        <button id="" onclick="clickButtonAdd()">Thêm sản phẩm</button>
+        <button id="">Xem sản phẩm</button>
+        <button id="">Xem đơn hàng</button>
+        <button id=""></button>
+        <button id=""></button>
+    </nav>
+    <main class="item-main">
+        <div id="add-form"></div>
+        
     </main>
+    <footer class="item-footer"></footer>
     <!-- Script -->
     <script src="../asset/js/pets.js"></script>
     <script src="../asset/js/admin.js"></script>

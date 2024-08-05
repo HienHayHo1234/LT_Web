@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../asset/css/cart.css">
     <link rel="stylesheet" href="../asset/css/index.css">
+    <link rel="stylesheet" href="../asset/css/cart.css">
     <link rel="icon" type="image/x-icon" href="../asset/images/icon/logo.ico">
-    <!-- script -->
-    <script src="../asset/js/order.js"></script>
-    <script src="../asset/js/cart.js"></script>
-    <title>Parrot</title>
+    <title>Cart</title>
 </head>
-<body>  
+<body>
     <header>    
         <div class="header-container">
             <div class="logo-container">
@@ -28,13 +25,21 @@
                     <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
                 </a>
             </div>
+            
         </div>
     </header>
-    
+
     <nav>
         <ul>
             <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="parrot.html">Sản Phẩm</a></li>
+            <li class="dropdown">
+                <a class="dropdown-btn">Sản Phẩm</a>
+                <div class="dropdown-content">
+                    <a href="pets/cat.html">Mèo</a>
+                    <a href="#dogs">Chó</a>
+                    <a href="pets/parrot.html">Vẹt</a>
+                </div>
+            </li>
             <li><a href="#about">Giới Thiệu</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
             <li><a href="cart.html">Giỏ hàng</a></li>
@@ -55,19 +60,14 @@
             <button class="button order" id="button3">Đặt hàng</button>
         </div> -->
 
-        <!-- Nơi hiện đơn hàng -->
         <div id="cart-items"></div>
-
+        <!-- script -->
+        <script src="../asset/js/order.js"></script>
+        <script src="../asset/js/cart.js"></script>
     </main>
-
-    <footer id="footer-container">
-        <script>
-            fetch('../Includes/footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-container').innerHTML = data;
-                });
-        </script>
+    
+    <footer>
+        <p>&copy; 2024 Cửa Hàng Thú Cưng. Bảo lưu mọi quyền.</p>
     </footer>
 </body>
 </html>

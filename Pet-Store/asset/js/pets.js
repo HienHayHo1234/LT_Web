@@ -1,13 +1,3 @@
-const parrot = {
-    urlImg: '../asset/images/vet/green-parrot.jpg',
-    id: "green-parrot",
-    name: "Vẹt xanh",
-    price: 1000000,
-    priceSale: 890000,
-    quanlity: 1,
-    quanlityStore: null
-};
-
 // pet.js
 const pet = {
     id: '',
@@ -32,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Tạo nội dung HTML từ dữ liệu
         petContainer.innerHTML = `
             <div class="container">
-                <img src="../asset/images/vet/${petData.urlImg}" alt="${petData.name}">
+                <img src="../../asset/images/parrot/${petData.urlImg}" alt="${petData.name}">
                 <div class="row">
                     <p class="name-pet">${petData.name}</p>
                     <button class="heart" id="button1">❤</button>

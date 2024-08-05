@@ -1,35 +1,57 @@
-// Đảm bảo rằng file pets.js đã được tải trước khi chạy mã này
-document.getElementById('pet-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Tạo đối tượng pet
-    const pet = {
-        id: document.getElementById('pet-id').value,
-        name: document.getElementById('pet-name').value,
-        price: parseInt(document.getElementById('pet-price').value),
-        priceSale: parseInt(document.getElementById('pet-price-sale').value),
-        quantity: parseInt(document.getElementById('pet-quantity').value),
-        urlImg: ''
-    };
+// admin.js
+function clickButtonAdd() {
+    document.getElementById('add-form').innerHTML = `
+        <a href="pets/parrot.html" class="back-link">Quay Lại</a>
+        <h1>Thêm Sản Phẩm Mới</h1>
+        <form id="pet-form">
+            <div class="form-group">
+                <label for="pet-id">ID:</label>
+                <input type="text" id="pet-id" name="pet-id" required>
+            </div>
+            <div class="form-group">
+                <label for="pet-name">Tên:</label>
+                <input type="text" id="pet-name" name="pet-name" required>
+            </div>
+            <div class="form-group">
+                <label for="pet-price">Giá:</label>
+                <input type="number" id="pet-price" name="pet-price" required>
+            </div>
+            <div class="form-group">
+                <label for="pet-price-sale">Giá Khuyến Mãi:</label>
+                <input type="number" id="pet-price-sale" name="pet-price-sale" required>
+            </div>
+            <div class="form-group">
+                <label for="pet-quantity">Số Lượng:</label>
+                <input type="number" id="pet-quantity" name="pet-quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="pet-image">URL Hình Ảnh:</label>
+                <input type="file" id="pet-image" name="pet-image" required>
+            </div>
+            <button type="submit">Thêm Sản Phẩm</button>
+        </form>
+    `;
 
-    // Xử lý file hình ảnh
-    const fileInput = document.getElementById('pet-image');
-    if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
+    // Gán sự kiện submit sau khi form được thêm vào DOM
+    document.getElementById('pet-form').addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        // Cập nhật urlImg với tên của hình ảnh
-        pet.urlImg = file.name;
+        const pet = {
+            id: document.getElementById('pet-id').value,
+            name: document.getElementById('pet-name').value,
+            price: parseInt(document.getElementById('pet-price').value),
+            priceSale: parseInt(document.getElementById('pet-price-sale').value),
+            quantity: parseInt(document.getElementById('pet-quantity').value),
+            urlImg: ''
+        };
 
-        // Lưu đối tượng pet vào localStorage
-        localStorage.setItem(pet.id, JSON.stringify(pet));
-
-    } else {
-        alert('Vui lòng chọn một hình ảnh.');
-    }
-});
-
-// Xóa toàn bộ localStorage khi trang được tải
-// window.addEventListener('load', function() {
-//     localStorage.clear();
-// });
-
+        const fileInput = document.getElementById('pet-image');
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            pet.urlImg = file.name;
+            localStorage.setItem(pet.id, JSON.stringify(pet));
+        } else {
+            alert('Vui lòng chọn một hình ảnh.');
+        }
+    });
+}
