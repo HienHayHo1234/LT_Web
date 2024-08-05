@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Tạo nội dung HTML từ dữ liệu
         petContainer.innerHTML = `
             <div class="container">
-                <img src="${petData.urlImg}" alt="${petData.name}">
+                <img src="../asset/images/vet/${petData.urlImg}" alt="${petData.name}">
                 <div class="row">
                     <p class="name-pet">${petData.name}</p>
                     <button class="heart" id="button1">❤</button>
