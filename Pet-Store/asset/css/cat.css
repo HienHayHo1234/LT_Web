@@ -1,0 +1,15 @@
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.product {
+    flex: 1 1 25%;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+}
+.product img {
+    width: 200px; /* Chiều rộng cố định */
+    height: 200px; /* Chiều cao cố định */
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy khung mà không bị méo */
+}

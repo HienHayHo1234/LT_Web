@@ -29,9 +29,16 @@
     </header>
 
     <nav>
-        <ul> 
+        <ul>
             <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="#pets">Sản Phẩm</a></li>
+            <li class="dropdown">
+                <a class="dropdown-btn">Sản Phẩm</a>
+                <div class="dropdown-content">
+                    <a href="cat.html">Mèo</a>
+                    <a href="#dogs">Chó</a>
+                    <a href="#birds">Vẹt</a>
+                </div>
+            </li>
             <li><a href="#about">Giới Thiệu</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
             <li><a href="cart.html">Giỏ hàng</a></li>
@@ -41,13 +48,19 @@
     <section class="slider">
         <div class="slides">
             <div class="slide active">
-                <img src="../asset/images/banner/1.png" alt="Slide 1">
+                <img src="../asset/images/banner/5.jpg" alt="Slide 1">
             </div>
             <div class="slide">
-                <img src="../asset/images/banner/2.png" alt="Slide 2">
+                <img src="../asset/images/banner/6.jpg" alt="Slide 2">
             </div>
             <div class="slide">
-                <img src="../asset/images/banner/4.jpg" alt="Slide 3">
+                <img src="../asset/images/banner/7.jpg" alt="Slide 3">
+            </div>
+            <div class="slide">
+                <img src="../asset/images/banner/2.jpg" alt="Slide 4">
+            </div>
+            <div class="slide">
+                <img src="../asset/images/banner/3.jpg" alt="Slide 5">
             </div>
         </div>
     </section>
@@ -63,26 +76,26 @@
         <section class="pet">
             <div>
                 <h3>Chó</h3>
-                <img src="../asset/images/dog/head.jpg" alt="Chó">
+                <a href="#"><img src="../asset/images/dog/head.png" alt="Chó"></a>
                 <p>Chó là loài vật nuôi trung thành và đáng yêu.</p>
             </div>
 
             <div>
                 <h3>Mèo</h3>
-                <img src="../asset/images/cat/head.jpg" alt="Mèo">
+                <a href="cat.html"><img src="../asset/images/cat/head.png" alt="Mèo"></a>
                 <p>Mèo là loài vật nuôi thanh lịch và dễ thương.</p>
             </div>
 
             <div>
                 <h3>Vẹt</h3>
-                <img src="../asset/images/parrot/head.jpg" alt="Vẹt">
+                <a href="#"><img src="../asset/images/parrot/head.png" alt="Vẹt"></a>
                 <p>Chim là loài vật nuôi đáng yêu và đáng eu</p>
             </div>
 
         </section>
 
         <section id="product">
-            <h2>Sa</h2>
+            <h2>Sản Phẩm</h2>
             <p>Cửa hàng thú cưng của chúng tôi cam kết cung cấp những dịch vụ tốt nhất.</p>
         </section>
 
