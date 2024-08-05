@@ -4,18 +4,25 @@ body {
     padding: 0;
     background-color: white;
 }   
-
+body main{
+    margin: 10px;
+    padding: 10px;
+}  
 header {
     background-color: white;
     text-align: center;
+    background-image: url('../images/head-bg.jpg');     
+    background-size: auto;
 }
+
 footer {
-    background-color: palevioletred;
+    background-color: rgb(67, 124, 154);
     color: white;
     text-align: center; 
     padding: 10px 0;
 }
 .header-container {
+    margin-left: 20px;
     margin-right: 20px;
     display: flex;
     align-items: center;
@@ -33,15 +40,15 @@ footer {
 }
 
 .logo-container img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
 }
 
 .circle-button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: palevioletred;
+    background-color: rgb(67, 124, 154);
     border: none;
     cursor: pointer;
     background-size: 60%;
@@ -50,16 +57,18 @@ footer {
 }
 
 .circle-button:hover {
-    background-color: rgb(255, 133, 174);
+    background-color: rgb(90, 140, 154);
 }
-
+nav ul li a:hover {
+    background-color: rgb(90, 140, 154);
+}
 
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: palevioletred;
+    background-color: rgb(67, 124, 154);
     display: flex;
     justify-content: center;
 }
@@ -75,19 +84,18 @@ nav ul li a {
     display: block;
 }
 
-nav ul li a:hover {
-    background-color: rgb(255, 133, 174);
-}
-    nav ul li {
-        margin: 0 15px;
-    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-            display: block;
-        }
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
 .pet {
     border: 1px solid #ddd;
     padding: 10px;
@@ -104,3 +112,4 @@ nav ul li a:hover {
     max-width: 100%;
     height: auto;
 }
+
