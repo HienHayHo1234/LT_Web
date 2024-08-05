@@ -10,7 +10,7 @@ function loadCart() {
         itemDiv.className = 'container';
 
         itemDiv.innerHTML = `
-            <img src="../asset/images/vet/${id}.jpg" alt="${item.name}">
+            <img src="../asset/images/parrot/${id}.jpg" alt="${item.name}">
             <div class="text">
                 <p class="name-pet">${item.name}</p>
                 <p>Giá: <span class="price">${item.price.toLocaleString()}đ</span> ➱ ${(item.price).toLocaleString()}đ </p>

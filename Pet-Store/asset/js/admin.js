@@ -1,41 +1,7 @@
-// Đảm bảo rằng file pets.js đã được tải trước khi chạy mã này
-document.getElementById('pet-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Tạo đối tượng pet
-    const pet = {
-        id: document.getElementById('pet-id').value,
-        name: document.getElementById('pet-name').value,
-        price: parseInt(document.getElementById('pet-price').value),
-        priceSale: parseInt(document.getElementById('pet-price-sale').value),
-        quantity: parseInt(document.getElementById('pet-quantity').value),
-        urlImg: ''
-    };
-
-    // Xử lý file hình ảnh
-    const fileInput = document.getElementById('pet-image');
-    if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
-        
-        // Cập nhật urlImg với tên của hình ảnh
-        pet.urlImg = file.name;
-
-        // Lưu đối tượng pet vào localStorage
-        localStorage.setItem(pet.id, JSON.stringify(pet));
-
-    } else {
-        alert('Vui lòng chọn một hình ảnh.');
-    }
-});
-
-// Xóa toàn bộ localStorage khi trang được tải
-// window.addEventListener('load', function() {
-//     localStorage.clear();
-// });
-
+// admin.js
 function clickButtonAdd() {
     document.getElementById('add-form').innerHTML = `
-        <a href="parrot.html" class="back-link">Quay Lại</a>
+        <a href="pets/parrot.html" class="back-link">Quay Lại</a>
         <h1>Thêm Sản Phẩm Mới</h1>
         <form id="pet-form">
             <div class="form-group">
@@ -65,4 +31,27 @@ function clickButtonAdd() {
             <button type="submit">Thêm Sản Phẩm</button>
         </form>
     `;
+
+    // Gán sự kiện submit sau khi form được thêm vào DOM
+    document.getElementById('pet-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const pet = {
+            id: document.getElementById('pet-id').value,
+            name: document.getElementById('pet-name').value,
+            price: parseInt(document.getElementById('pet-price').value),
+            priceSale: parseInt(document.getElementById('pet-price-sale').value),
+            quantity: parseInt(document.getElementById('pet-quantity').value),
+            urlImg: ''
+        };
+
+        const fileInput = document.getElementById('pet-image');
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            pet.urlImg = file.name;
+            localStorage.setItem(pet.id, JSON.stringify(pet));
+        } else {
+            alert('Vui lòng chọn một hình ảnh.');
+        }
+    });
 }
