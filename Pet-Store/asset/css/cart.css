@@ -35,7 +35,7 @@ main {
     padding: 0;
 }
 
-img {
+.container img {
     width: 40%;
     height: 75%;
     border-top-left-radius: 100px;
