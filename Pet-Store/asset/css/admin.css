@@ -5,6 +5,51 @@ body {
     padding: 0;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header'
+      'menu main main'
+      'footer footer footer';
+    padding: 10px;
+    grid-gap: 20px;
+}
+
+.item-header { 
+    grid-area: header;
+}
+.item-header img {
+    height: 100px;
+}
+.item-menu { 
+    grid-area: menu;
+}
+.item-main { 
+    grid-area: main; 
+}
+.item-footer {  
+    grid-area: footer;
+    height: 100px;
+}
+
+.grid-dashboard {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+nav {
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+footer {
+    background-color: blue;
+    color: white;
+    text-align: center; 
+    padding: 10px 0;
+}
+
 main {
     width: 50%;
     margin: 50px auto;
@@ -39,12 +84,14 @@ input {
 
 button {
     display: block;
-    width: 100%;
+    width: 80%;
+    margin: 10px auto;
     padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: #96c6fd;
+    color: rgb(10, 0, 0);
     border: none;
     border-radius: 5px;
+    box-shadow: 0 5px 5px 3px rgba(60, 58, 58, 0);
     cursor: pointer;
 }
 

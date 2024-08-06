@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="../asset/css/index.css">
     <link rel="stylesheet" href="../asset/css/banner.css">
     <link rel="icon" type="image/x-icon" href="../asset/images/icon/logo.ico">
-    <img src="../asset/images/banner/banner-bg.jpg">
+
 </head>
 <body>  
     <header>    
-        <div class="header-container">
+        <div class="header-container">  
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="../asset/images/icon/logo1.png" alt="Logo Cửa Hàng Thú Cưng">
+                    <img src="../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
                 </a>
             </div>
             <div class="buttons-container">
@@ -29,50 +29,74 @@
     </header>
 
     <nav>
-        <ul> 
+        <ul>
             <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="#pets">Sản Phẩm</a></li>
+            <li class="dropdown">
+                <a class="dropdown-btn">Sản Phẩm</a>
+                <div class="dropdown-content">
+                    <a href="pets/cat.html">Mèo</a>
+                    <a href="#dogs">Chó</a>
+                    <a href="pets/parrot.html">Vẹt</a>
+                </div>
+            </li>
             <li><a href="#about">Giới Thiệu</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
             <li><a href="cart.html">Giỏ hàng</a></li>
         </ul>
     </nav>
 
-    <main>
-        <section class="slider">
-            <div class="slides">
-                <div class="slide active">
-                    <img src="../asset/images/banner/1.jpg" alt="Slide 1">
-                </div>
-                <div class="slide">
-                    <img src="../asset/images/banner/2.jpg" alt="Slide 2">
-                </div>
-                <div class="slide">
-                    <img src="../asset/images/banner/3.jpg" alt="Slide 3">
-                </div>
+    <section class="slider">
+        <div class="slides">
+            <div class="slide active">
+                <img src="../asset/images/banner/1.png" alt="Slide 1">
             </div>
-        </section>
-
+            <div class="slide">
+                <img src="../asset/images/banner/2.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="../asset/images/banner/3.jpg" alt="Slide 3">
+            </div>
+            <div class="slide">
+                <img src="../asset/images/banner/4.jpg" alt="Slide 4">
+            </div>
+            <div class="slide">
+                <img src="../asset/images/banner/5.jpg" alt="Slide 5">
+            </div>
+            <div class="slide">
+                <img src="../asset/images/banner/6.jpg" alt="Slide 6">
+            </div>
+        </div>
+    </section>
+    <main>
         <section>
             <h2>Trang Chủ</h2>
             <p>Chúng tôi cung cấp các loại thú cưng đáng yêu và khỏe mạnh.</p>
         </section>
-        <section id="pets">
-            <h2>Thú Cưng</h2>
-            <div class="pet">
+
+        <h2>Thú Cưng</h2>
+        <section class="pet">
+            <div>
                 <h3>Chó</h3>
-                <img src="../asset/images/dog.jpg" alt="Chó">
+                <a href="pets/dog.html"><img src="../asset/images/dog/head.png" alt="Chó"></a>
                 <p>Chó là loài vật nuôi trung thành và đáng yêu.</p>
             </div>
-            <div class="pet">
+
+            <div>
                 <h3>Mèo</h3>
-                <img src="../asset/images/cat.jpg" alt="Mèo">
+                <a href="pets/cat.html"><img src="../asset/images/cat/head.png" alt="Mèo"></a>
                 <p>Mèo là loài vật nuôi thanh lịch và dễ thương.</p>
             </div>
+
+            <div>
+                <h3>Vẹt</h3>
+                <a href="pets/parrot.html"><img src="../asset/images/parrot/head.png" alt="Vẹt"></a>
+                <p>Chim là loài vật nuôi đáng yêu và đáng eu</p>
+            </div>
+
         </section>
 
-        <section id="about">
-            <h2>Giới Thiệu</h2>
+        <section id="product">
+            <h2>Sản Phẩm</h2>
             <p>Cửa hàng thú cưng của chúng tôi cam kết cung cấp những dịch vụ tốt nhất.</p>
         </section>
 

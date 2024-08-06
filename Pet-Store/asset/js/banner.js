@@ -3,19 +3,18 @@ const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
 
 function showSlides() {
-    // Calculate the width of a slide
-    const slideWidth = slides[0].clientWidth;
-
-    // Update the transform property to show the next slide
-    const offset = -slideIndex * slideWidth;
-    document.querySelector('.slides').style.transform = `translateX(${offset}px)`;
+    // Hide all slides
+    slides.forEach(slide => slide.classList.remove('active'));
     
     // Move to the next slide
     slideIndex++;
-    if (slideIndex >= totalSlides) {
-        slideIndex = 0;
+    if (slideIndex > totalSlides) {
+        slideIndex = 1;
     }
-
+    
+    // Show the current slide
+    slides[slideIndex - 1].classList.add('active');
+    
     // Automatically move to the next slide after 3 seconds
     setTimeout(showSlides, 3000);
 }
