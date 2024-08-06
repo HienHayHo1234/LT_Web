@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Tạo container cho sản phẩm
     const mainContainer = document.querySelector('main'); // Chọn thẻ <main>
+    const mainContainerId = mainContainer.getAttribute('id');
 
     if (mainContainer) {
-        displayAllPets(mainContainer); // Gọi hàm hiển thị tất cả sản phẩm
+        displayAllPets(mainContainer, mainContainerId); // Gọi hàm hiển thị tất cả sản phẩm
     }
 });
 
-function displayAllPets(mainContainer) {
+function displayAllPets(mainContainer, mainContainerId) {
     // Xóa nội dung cũ của mainContainer trước khi thêm sản phẩm mới
     mainContainer.innerHTML = '';
 
@@ -15,7 +16,7 @@ function displayAllPets(mainContainer) {
         const petId = localStorage.key(i);
 
         // Kiểm tra xem id có chứa chuỗi 'parrot' không
-        if (petId.includes('parrot')) {
+        if (petId.includes(mainContainerId)) {
             const petData = JSON.parse(localStorage.getItem(petId));
 
             if (petData) {
@@ -23,7 +24,7 @@ function displayAllPets(mainContainer) {
                 petDiv.className = 'pet-container';
                 petDiv.innerHTML = `
                     <div class="container">
-                        <img src="../../asset/images/parrot/${petData.urlImg}" alt="${petData.name}">
+                        <img src="../../asset/images/${mainContainerId}/${petData.urlImg}" alt="${petData.name}">
                         <div class="row">
                             <p class="name-pet">${petData.name}</p>
                             <button class="heart" id="button1">❤</button>
