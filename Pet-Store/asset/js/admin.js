@@ -1,7 +1,6 @@
-// admin.js
 function clickButtonAdd() {
     document.getElementById('add-form').innerHTML = `
-        <a href="pets/parrot.html" class="back-link">Quay Lại</a>
+        <a href="parrot.html" class="back-link">Quay Lại</a>
         <h1>Thêm Sản Phẩm Mới</h1>
         <form id="pet-form">
             <div class="form-group">
@@ -32,7 +31,6 @@ function clickButtonAdd() {
         </form>
     `;
 
-    // Gán sự kiện submit sau khi form được thêm vào DOM
     document.getElementById('pet-form').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -50,6 +48,9 @@ function clickButtonAdd() {
             const file = fileInput.files[0];
             pet.urlImg = file.name;
             localStorage.setItem(pet.id, JSON.stringify(pet));
+
+            // Chuyển đến trang parrot.html
+            window.location.href = `pets/parrot.html`;
         } else {
             alert('Vui lòng chọn một hình ảnh.');
         }

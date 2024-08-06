@@ -1,38 +1,40 @@
-// pet.js
-const pet = {
-    id: '',
-    name: '',
-    price: 0,
-    priceSale: 0,
-    quantity: 0,
-    quantityStore: 0,
-    urlImg: ''
-};
+document.addEventListener('DOMContentLoaded', function() {
+    // Tạo container cho sản phẩm
+    const mainContainer = document.querySelector('main'); // Chọn thẻ <main>
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Lấy container để hiển thị sản phẩm
-    const petContainer = document.getElementById('pet-container');
-
-    // Lấy dữ liệu từ localStorage
-    const petId = 'green-parrot'; // Bạn có thể thay đổi id theo ý muốn
-    const petData = JSON.parse(localStorage.getItem(petId));
-
-    if (petData) {
-        // Tạo nội dung HTML từ dữ liệu
-        petContainer.innerHTML = `
-            <div class="container">
-                <img src="../../asset/images/parrot/${petData.urlImg}" alt="${petData.name}">
-                <div class="row">
-                    <p class="name-pet">${petData.name}</p>
-                    <button class="heart" id="button1">❤</button>
-                </div>
-                <p class="text-price">Giá: <span class="price">${petData.price.toLocaleString()}đ</span> ➱ ${petData.priceSale.toLocaleString()}đ </p>
-                <button class="button view-detail" id="button2">Xem chi tiết</button>
-                <button class="button order" id="button3" onclick="addToCart('${petData.id}', '${petData.name}', ${petData.price})">Đặt hàng</button>
-            </div>
-        `;
-    } else {
-        petContainer.innerHTML = '<p>Không có dữ liệu sản phẩm để hiển thị.</p>';
+    if (mainContainer) {
+        displayAllPets(mainContainer); // Gọi hàm hiển thị tất cả sản phẩm
     }
 });
+
+function displayAllPets(mainContainer) {
+    // Xóa nội dung cũ của mainContainer trước khi thêm sản phẩm mới
+    mainContainer.innerHTML = '';
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const petId = localStorage.key(i);
+
+        // Kiểm tra xem id có chứa chuỗi 'parrot' không
+        if (petId.includes('parrot')) {
+            const petData = JSON.parse(localStorage.getItem(petId));
+
+            if (petData) {
+                const petDiv = document.createElement('div');
+                petDiv.className = 'pet-container';
+                petDiv.innerHTML = `
+                    <div class="container">
+                        <img src="../../asset/images/parrot/${petData.urlImg}" alt="${petData.name}">
+                        <div class="row">
+                            <p class="name-pet">${petData.name}</p>
+                            <button class="heart" id="button1">❤</button>
+                        </div>
+                        <p class="text-price">Giá: <span class="price">${petData.price.toLocaleString()}đ</span> ➱ ${petData.priceSale.toLocaleString()}đ </p>
+                        <button class="button view-detail" id="button2">Xem chi tiết</button>
+                        <button class="button order" id="button3" onclick="addToCart('${petData.id}', '${petData.name}', ${petData.price})">Đặt hàng</button>
+                    </div>
+                `;
+                mainContainer.appendChild(petDiv);
+            }
+        }
+    }
+}
