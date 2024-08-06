@@ -1,3 +1,12 @@
+.infor{
+    display: flex;
+    text-align: left;
+    height: 48px;   
+}
+.infor a{
+    font-weight: bold;
+}
+
 nav li a, .dropdown-btn {
     display: inline-block;
     text-align: center;
@@ -42,7 +51,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center; 
-    background-image: url('../images/head-bg4.jpg'); 
+    background-image: url('../images/background/head-bg4.jpg'); 
 }   
 body main{
     margin: 10px;
@@ -50,7 +59,7 @@ body main{
 }  
 header {
     margin-top: 10px;
-    background-image: url('../images/head-bg4.jpg');     
+    background-image: url('../images/background/head-bg4.jpg');     
 }
 
 footer {
@@ -98,6 +107,7 @@ footer {
 .circle-button:hover {
     background-color: rgb(90, 140, 154);
 }
+
 nav ul li a:hover {
     background-color: rgb(90, 140, 154);
 }
@@ -143,10 +153,6 @@ nav ul li a {
 .pet div{
     border: 2px solid rgb(148, 148, 148);
     padding: 20px;  
-}
-.pet img {
-    max-width: 100%;
-    height: auto;
 }
 .pet img {
     max-width: 100%;

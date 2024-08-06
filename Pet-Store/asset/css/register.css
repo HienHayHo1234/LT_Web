@@ -6,7 +6,7 @@ body {
     align-items: center; /* Căn giữa theo chiều dọc */
     height: 100vh; /* Chiều cao toàn bộ màn hình */
     margin: 0; /* Xóa margin mặc định của body */
-    background-image: url("../images/background-register.jpg"); /* Đặt hình nền */
+    background-image: url("../images/background/background-register.jpg"); /* Đặt hình nền */
     background-size: cover; /* Đảm bảo hình nền phủ đầy màn hình */
     background-position: center; /* Đặt vị trí hình nền ở giữa */
     position: relative; /* Thiết lập vị trí tương đối cho body */
