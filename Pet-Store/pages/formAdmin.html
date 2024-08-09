@@ -8,10 +8,10 @@
 </head>
 <body>
     <main>
-        <!-- <div id="add-form">
-            <a href="parrot.html" class="back-link">Quay Lại</a>
+        <div id="add-form">
+            <a href="pets/parrot.php" class="back-link">Quay Lại</a>
             <h1>Thêm Sản Phẩm Mới</h1>
-            <form id="pet-form">
+            <form id="pet-form" action="../config/config.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="pet-id">ID:</label>
                     <input type="text" id="pet-id" name="pet-id" required>
@@ -38,23 +38,6 @@
                 </div>
                 <button type="submit">Thêm Sản Phẩm</button>
             </form>
-        </div> -->
-
-        <div id="category-pet">
-            <h2>Danh Mục Thú Cưng</h2>
-            <table class="grid-dashbroad" id="category-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Product rows will be appended here -->
-                </tbody>
-            </table>
         </div>
     </main>
 </body>
