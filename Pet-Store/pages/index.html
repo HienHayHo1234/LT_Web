@@ -6,6 +6,7 @@
     <title>Cửa Hàng Thú Cưng</title>
     <link rel="stylesheet" href="../asset/css/index.css">
     <link rel="stylesheet" href="../asset/css/banner.css">
+    <link rel="stylesheet" href="../asset/css/search.css">
     <link rel="icon" type="image/x-icon" href="../asset/images/icon/logo.ico">
 
 </head>
@@ -66,6 +67,15 @@
             <li><a href="#about">Giới Thiệu</a></li>
             <li><a href="#contact">Liên Hệ</a></li>
             <li><a href="cart.html">Giỏ hàng</a></li>
+            <div class ="phai">
+                <li class="search-container">
+                    <img class="search-icon" src="../asset/images/icon/search.png" alt="Search Icon">
+                    <form name="formtim" action="kqtim.php" method="get" class="search-form" onsubmit="return checksearch();">
+                        <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
+                        <input name="btntim" id="btntim" type="submit" value="TÌM" />
+                    </form>
+                </li>
+            </div>
         </ul>
     </nav>
 
