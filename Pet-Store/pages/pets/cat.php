@@ -13,7 +13,7 @@ try {
     // Thực hiện truy vấn để lấy tất cả các sản phẩm thuộc danh mục 'parrot'
     $stmt = $conn->prepare("SELECT * FROM pets WHERE idLoai = :idLoai");
     $stmt->bindParam(':idLoai', $idLoai);
-    $idLoai = 'parrot'; // Danh mục cần lọc
+    $idLoai = 'cat'; // Danh mục cần lọc
     $stmt->execute();
 
     // Lưu kết quả truy vấn vào một mảng
