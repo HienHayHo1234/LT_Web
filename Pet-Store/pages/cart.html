@@ -11,40 +11,8 @@
 </head>
 <body>
     <header>    
-        <div class="header-container">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
-                </a>
-            </div>
-            <div class="buttons-container">
-                <a href="cart.html">
-                    <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
-                </a>
-                <a href="login.html">
-                    <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
-                </a>
-            </div>
-            
-        </div>
+        <div data-include-html="../Includes/header.html"></div>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Trang Chủ</a></li>
-            <li class="dropdown">
-                <a class="dropdown-btn">Sản Phẩm</a>
-                <div class="dropdown-content">
-                    <a href="pets/cat.html">Mèo</a>
-                    <a href="#dogs">Chó</a>
-                    <a href="pets/parrot.html">Vẹt</a>
-                </div>
-            </li>
-            <li><a href="#about">Giới Thiệu</a></li>
-            <li><a href="#contact">Liên Hệ</a></li>
-            <li><a href="cart.html">Giỏ hàng</a></li>
-        </ul>
-    </nav>
 
     <main>
         <!-- <div class="container">
@@ -64,8 +32,10 @@
         <script src="../asset/js/cart.js"></script>
     </main>
     
-    <footer>
-        <p>&copy; 2024 Cửa Hàng Thú Cưng. Bảo lưu mọi quyền.</p>
-    </footer>
+    
+    <script src="../asset/js/load.js"></script>
 </body>
+<footer>
+    <div data-include-html="../Includes/footer.html"></div>
+</footer>
 </html>
