@@ -98,3 +98,27 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+/* CSS cho phần chọn danh mục */
+select {
+    width: 100%;
+    padding: 12px; /* Tăng padding để làm cho select lớn hơn */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    /* Tùy chọn thêm: tăng chiều cao và chiều rộng của select */
+}
+
+select:focus {
+    border-color: #96c6fd;
+    outline: none;
+}
+
+/* CSS cho phần chọn option (tùy chỉnh kích thước text) */
+option {
+    font-size: 16px; /* Đặt kích thước font cho option */
+}
+

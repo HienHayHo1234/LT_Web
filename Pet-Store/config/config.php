@@ -13,16 +13,28 @@ try {
     // Kiểm tra nếu form được gửi bằng phương thức POST
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Lấy dữ liệu từ form
-        $id = $_POST['pet-id'];
         $name = $_POST['pet-name'];
         $price = $_POST['pet-price'];
         $priceSale = $_POST['pet-price-sale'];
         $quantity = $_POST['pet-quantity'];
+        $idLoai = $_POST['pet-idLoai'];  // Nhận giá trị từ select
 
         // Xử lý file upload
         $imageName = basename($_FILES["pet-image"]["name"]);
-        $targetDir = "D:/GitHub/LT_Web/Pet-Store/asset/uploads/";  // Thư mục lưu trữ hình ảnh với đường dẫn tuyệt đối
+        $targetDir = "../asset/uploads/";  // Thư mục lưu trữ hình ảnh với đường dẫn tương đối
         $targetFile = $targetDir . $imageName;
+
+        // Xác thực tệp
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+        $fileExtension = strtolower(pathinfo($imageName, PATHINFO_EXTENSION));
+
+        if (!in_array($fileExtension, $allowedExtensions)) {
+            die("Chỉ hỗ trợ các định dạng hình ảnh: jpg, jpeg, png, gif.");
+        }
+
+        if ($_FILES["pet-image"]["size"] > 5000000) { // Ví dụ: 5MB
+            die("Kích thước tệp quá lớn.");
+        }
 
         // Kiểm tra sự tồn tại của thư mục và tạo nếu không tồn tại
         if (!file_exists($targetDir)) {
@@ -32,22 +44,24 @@ try {
         // Kiểm tra và di chuyển file upload vào thư mục lưu trữ
         if (move_uploaded_file($_FILES["pet-image"]["tmp_name"], $targetFile)) {
             // Chèn dữ liệu vào bảng `pets`
-            $stmt = $conn->prepare("INSERT INTO pets (id, name, price, priceSale, quantity, urlImg) 
-                                    VALUES (:id, :name, :price, :priceSale, :quantity, :urlImg)");
-            $stmt->bindParam(':id', $id);
+            $stmt = $conn->prepare("INSERT INTO pets (name, price, priceSale, quantity, urlImg, idLoai) 
+                                    VALUES (:name, :price, :priceSale, :quantity, :urlImg, :idLoai)");
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':priceSale', $priceSale);
             $stmt->bindParam(':quantity', $quantity);
-            $stmt->bindParam(':urlImg', $targetFile);
+            $stmt->bindParam(':urlImg', $targetFile);  // Lưu đường dẫn tương đối
+            $stmt->bindParam(':idLoai', $idLoai);       // Thêm giá trị idLoai
 
             $stmt->execute();
 
             echo "Thêm sản phẩm thành công!";
         } else {
+            error_log("Có lỗi xảy ra khi tải lên hình ảnh.");
             echo "Có lỗi xảy ra khi tải lên hình ảnh.";
         }
     }
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    error_log("Connection failed: " . $e->getMessage());
+    echo "Kết nối cơ sở dữ liệu thất bại.";
 }

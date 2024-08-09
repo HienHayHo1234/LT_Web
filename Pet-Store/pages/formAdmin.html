@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../asset/css/admin.css">
-    <title>Lưu form Admin</title>
+    <title>Thêm Sản Phẩm Mới</title>
 </head>
 <body>
     <main>
@@ -33,7 +33,16 @@
                     <input type="number" id="pet-quantity" name="pet-quantity" required>
                 </div>
                 <div class="form-group">
-                    <label for="pet-image">URL Hình Ảnh:</label>
+                    <label for="pet-idLoai">Danh Mục:</label>
+                    <select id="pet-idLoai" name="pet-idLoai" required>
+                        <!-- Thay thế các tùy chọn dưới đây bằng các danh mục thực tế từ cơ sở dữ liệu -->
+                        <option value="cat">Mèo</option>
+                        <option value="dog">Chó</option>
+                        <option value="parrot">Vẹt</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pet-image">Hình Ảnh:</label>
                     <input type="file" id="pet-image" name="pet-image" required>
                 </div>
                 <button type="submit">Thêm Sản Phẩm</button>
