@@ -13,6 +13,7 @@ try {
     // Kiểm tra nếu form được gửi bằng phương thức POST
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Lấy dữ liệu từ form
+        $id = $_POST['pet-id'];
         $name = $_POST['pet-name'];
         $price = $_POST['pet-price'];
         $priceSale = $_POST['pet-price-sale'];
@@ -43,9 +44,19 @@ try {
 
         // Kiểm tra và di chuyển file upload vào thư mục lưu trữ
         if (move_uploaded_file($_FILES["pet-image"]["tmp_name"], $targetFile)) {
+            // Kiểm tra nếu ID đã tồn tại trong cơ sở dữ liệu
+            $checkIdStmt = $conn->prepare("SELECT COUNT(*) FROM pets WHERE id = :id");
+            $checkIdStmt->bindParam(':id', $id);
+            $checkIdStmt->execute();
+
+            if ($checkIdStmt->fetchColumn() > 0) {
+                die("ID sản phẩm đã tồn tại. Vui lòng chọn ID khác.");
+            }
+
             // Chèn dữ liệu vào bảng `pets`
-            $stmt = $conn->prepare("INSERT INTO pets (name, price, priceSale, quantity, urlImg, idLoai) 
-                                    VALUES (:name, :price, :priceSale, :quantity, :urlImg, :idLoai)");
+            $stmt = $conn->prepare("INSERT INTO pets (id, name, price, priceSale, quantity, urlImg, idLoai) 
+                                    VALUES (:id, :name, :price, :priceSale, :quantity, :urlImg, :idLoai)");
+            $stmt->bindParam(':id', $id);           // Lưu giá trị id
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':priceSale', $priceSale);
@@ -63,5 +74,5 @@ try {
     }
 } catch (PDOException $e) {
     error_log("Connection failed: " . $e->getMessage());
-    echo "Kết nối cơ sở dữ liệu thất bại.";
+    echo "Kết nối cơ sở dữ liệu thất bại: " . $e->getMessage();
 }
