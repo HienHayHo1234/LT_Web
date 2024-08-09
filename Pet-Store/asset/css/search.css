@@ -1,0 +1,52 @@
+/* Container cho search */
+.search-container {
+    position: relative; /* Đặt vị trí tương đối để các phần tử bên trong có thể sử dụng vị trí tuyệt đối */
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử bên trong */
+    align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+    margin-left: auto; /* Đẩy container tìm kiếm sang bên phải */
+}
+
+/* Định dạng biểu tượng tìm kiếm */
+.search-icon {
+    cursor: pointer; /* Thay đổi con trỏ chuột thành dạng con trỏ tay khi hover vào biểu tượng */
+    margin-left: 20px; /* Thêm khoảng cách bên trái biểu tượng tìm kiếm */
+    width: 25px; /* Đặt chiều rộng cho biểu tượng tìm kiếm */
+    height: 25px; /* Đặt chiều cao cho biểu tượng tìm kiếm */
+}
+.phai{
+    display: flex;
+    justify-content: right; 
+    align-content: center;
+}
+/* Định dạng form tìm kiếm */
+.search-form {
+    display: none; /* Ẩn form tìm kiếm ban đầu */
+    right: 0; /* Đặt form ở bên phải của container cha */
+    top: 50%; /* Đặt form ở giữa theo chiều dọc của container cha */
+    background-color: white; /* Đặt màu nền trắng cho form */
+    border: 1px solid #ccc; /* Thêm đường viền màu xám nhạt cho form */
+    border-radius: 5px; /* Bo tròn các góc của form */
+    padding: 5px; /* Thêm khoảng đệm xung quanh form */
+    z-index: 2; /* Đảm bảo form nằm trên các phần tử khác */
+}
+
+/* Định dạng ô nhập liệu tìm kiếm */
+.search-form input[type="text"] {
+    border: none; /* Loại bỏ đường viền của ô nhập liệu */
+    outline: none; /* Loại bỏ viền khi ô nhập liệu được chọn */
+}
+
+/* Định dạng nút submit */
+.search-form input[type="submit"] {
+    border: none; /* Loại bỏ đường viền của nút */
+    background-color: #007BFF; /* Đặt màu nền xanh dương cho nút */
+    color: white; /* Đặt màu chữ trắng cho nút */
+    cursor: pointer; /* Thay đổi con trỏ chuột thành dạng con trỏ tay khi hover vào nút */
+    border-radius: 5px; /* Bo tròn các góc của nút */
+    padding: 5px 10px; /* Thêm khoảng đệm bên trong nút */
+}
+
+/* Hiển thị form tìm kiếm khi trỏ chuột vào biểu tượng tìm kiếm */
+.search-container:hover .search-form {
+    display: block; /* Hiển thị form tìm kiếm khi hover vào container chứa biểu tượng tìm kiếm */
+}
