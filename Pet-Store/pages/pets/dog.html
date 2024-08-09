@@ -6,26 +6,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../asset/css/pets.css">
     <link rel="stylesheet" href="../../asset/css/index.css">
+    <link rel="stylesheet" href="../../asset/css/banner.css">
+    <link rel="stylesheet" href="../../asset/css/search.css">
     <link rel="icon" type="image/x-icon" href="../../asset/images/logo.ico">
     <title>Parrot</title>
 </head>
 <body>
     <header>    
-        <div class="header-container">
-            <div class="logo-container">
-                <a href="../index.html">
-                    <img src="../../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
-                </a>
-            </div>
-            <div class="buttons-container">
-                <a href="../cart.html">
-                    <img class="circle-button" src="../../asset/images/icon/cart.png" alt="Cart">
-                </a>
-                <a href="../login.html">
-                    <img class="circle-button" src="../../asset/images/icon/login.png" alt="Login">
-                </a>
-            </div>
-        </div>
+        <div data-include-html="../Includes/header.html"></div>
     </header>
     
     <nav>
@@ -51,11 +39,13 @@
     </main>
     
     <footer>
-        <p>&copy; 2024 Cửa Hàng Thú Cưng. Bảo lưu mọi quyền.</p>
+        <div data-include-html="../../Includes/footer.html"></div>
     </footer>
 
     <!-- Script -->
     <script src="../../asset/js/pets.js"></script>
     <script src="../../asset/js/order.js"></script> <!-- Script xử lý các hành động liên quan đến đơn hàng -->
+    <script src="../asset/js/load.js"></script>
+
 </body>
 </html>

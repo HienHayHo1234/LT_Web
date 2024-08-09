@@ -32,46 +32,16 @@ try {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../asset/css/pets.css">
     <link rel="stylesheet" href="../../asset/css/index.css">
+    <link rel="stylesheet" href="../../asset/css/search.css">
+
     <link rel="icon" type="image/x-icon" href="../../asset/images/logo.ico">
     <title>Parrot</title>
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo-container">
-                <a href="../index.html">
-                    <img src="../../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
-                </a>
-            </div>
-            <div class="buttons-container">
-                <a href="../cart.html">
-                    <img class="circle-button" src="../../asset/images/icon/cart.png" alt="Cart">
-                </a>
-                <a href="../login.html">
-                    <img class="circle-button" src="../../asset/images/icon/login.png" alt="Login">
-                </a>
-            </div>
-        </div>
+    <header>    
+        <div data-include-html="../../Includes/header.html"></div>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="../index.html">Trang Chủ</a></li>
-            <li class="dropdown">
-                <a class="dropdown-btn">Sản Phẩm</a>
-                <div class="dropdown-content">
-                    <a href="cat.php">Mèo</a>
-                    <a href="dog.php">Chó</a>
-                    <a href="parrot.php">Vẹt</a>
-                </div>
-            </li>
-            <li><a href="#about">Giới Thiệu</a></li>
-            <li><a href="#contact">Liên Hệ</a></li>
-            <li><a href="../cart.html">Giỏ hàng</a></li>
-            <li><a href="../admin.html">Admin</a></li>
-        </ul>
-    </nav>
 
     <main>
         <?php if (!empty($pets)): ?>
@@ -97,9 +67,10 @@ try {
         <?php endif; ?>
     </main>
 
+    <script src="../../asset/js/load.js"></script>
+
     <footer>
-        <p>&copy; 2024 Cửa Hàng Thú Cưng. Bảo lưu mọi quyền.</p>
+        <div data-include-html="../../Includes/footer.html"></div>
     </footer>
 </body>
-
 </html>

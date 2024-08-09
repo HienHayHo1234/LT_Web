@@ -98,8 +98,9 @@ try {
     </main>
 
     <footer>
-        <p>&copy; 2024 Cửa Hàng Thú Cưng. Bảo lưu mọi quyền.</p>
+        <div data-include-html="../../Includes/footer.html"></div>
     </footer>
 </body>
+<script src="../../asset/js/load.js"></script>
 
 </html>
