@@ -57,12 +57,15 @@ function removeFromCart(petId) {
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // Có thể thêm mã xử lý khác nếu cần
+            // Kiểm tra phản hồi từ máy chủ để xác định xem sản phẩm đã bị xóa thành công chưa
+            console.log(xhr.responseText);
+
+            // Làm mới lại trang để cập nhật giao diện giỏ hàng
+            location.reload(); // Hoặc có thể sử dụng updateCartDisplay() nếu bạn muốn cập nhật mà không tải lại toàn bộ trang
         }
     };
 
     xhr.send("action=remove&pet_id=" + encodeURIComponent(petId));
 }
-
 // Gọi hàm để cập nhật giao diện khi tải trang
 document.addEventListener('DOMContentLoaded', updateCartDisplay);
