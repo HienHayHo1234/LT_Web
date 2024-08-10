@@ -19,8 +19,8 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
-
-<div class="pets-gird">
+<link rel="stylesheet" href="../asset/css/pets.css">
+<div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
     <div class="container-pets">

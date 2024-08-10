@@ -13,7 +13,7 @@
         <div id="add-form">
             <a href="pets/parrot.php" class="back-link">Quay Lại</a>
             <h1>Thêm Sản Phẩm Mới</h1>
-            <form id="pet-form" action="../config/config.php" method="POST" enctype="multipart/form-data">
+            <form id="pet-form" action="../config/upload_form.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="pet-id">ID:</label>
                     <input type="text" id="pet-id" name="pet-id" required>
