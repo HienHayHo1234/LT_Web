@@ -1,9 +1,6 @@
 <?php
 // Khai báo các thông số kết nối cơ sở dữ liệu
-$host = "localhost";
-$dbname = "pet-store";
-$username = "root";
-$password = "";
+require '../config/config.php';
 
 try {
     // Tạo đối tượng PDO để kết nối với cơ sở dữ liệu MySQL
