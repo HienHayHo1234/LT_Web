@@ -10,19 +10,21 @@
       <div class="container">
           <label for="usename">User Name</label>
           <input type="text" id="usename" ><br>
-          <label for="email">Email</label><br>
+          <label for="email">Email</label>
           <input type="email" id="email" ><br>
-          <label for="password">Password</label><br>
+          <label for="password">Password</label>
           <input type="text" id="password" ><br>
-          <label for="confirmPassword">Confirm Password</label><br>
+          <label for="confirmPassword">Confirm Password</label>
           <input type="text" id="confirmPassword" ><br>
           <div class="button-container">
               <button onclick="validateForm()">Submit</button>
               <button onclick="clearForm()">Clear</button>
           </div>
           <p>Or</p>
-          <a href="index.html"><img src="../asset/images/icon/logo.png" alt="Logo"></a>
+          <a href="index.php?page=start"><img src="../asset/images/icon/logo.png" alt="Logo"></a>
+          <div class="login-link">
+              <p>Bạn đã có tài khoản? <a href="login.php">Đăng nhập</a></p>
+          </div>
       </div>
   </body>
-
 </html>

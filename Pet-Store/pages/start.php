@@ -1,26 +1,28 @@
 <script src="../asset/js/load.js"></script>
+<link rel="stylesheet" href="../asset/css/product.css">
 <section class="slider">
-        <div class="slides">
-            <div class="slide active">
-                <img src="../asset/images/banner/1.png" alt="Slide 1">
-            </div>
-            <div class="slide">
-                <img src="../asset/images/banner/2.jpg" alt="Slide 2">
-            </div>
-            <div class="slide">
-                <img src="../asset/images/banner/3.jpg" alt="Slide 3">
-            </div>
-            <div class="slide">
-                <img src="../asset/images/banner/4.jpg" alt="Slide 4">
-            </div>
-            <div class="slide">
-                <img src="../asset/images/banner/5.jpg" alt="Slide 5">
-            </div>
-            <div class="slide">
-                <img src="../asset/images/banner/6.jpg" alt="Slide 6">
-            </div>
+    <div class="slides">
+        <div class="slide active">
+            <img src="../asset/images/banner/1.png" alt="Slide 1">
         </div>
-    </section>
+        <div class="slide">
+            <img src="../asset/images/banner/2.jpg" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img src="../asset/images/banner/3.jpg" alt="Slide 3">
+        </div>
+        <div class="slide">
+            <img src="../asset/images/banner/4.jpg" alt="Slide 4">
+        </div>
+        <div class="slide">
+            <img src="../asset/images/banner/5.jpg" alt="Slide 5">
+        </div>
+        <div class="slide">
+            <img src="../asset/images/banner/6.jpg" alt="Slide 6">
+        </div>
+    </div>
+    <script src="../asset/js/banner.js"></script>
+</section>
 <h2>Thú Cưng</h2>
 <section class="pet">
     <div>
@@ -45,5 +47,5 @@
 
 <section id="product">
     <h2>Sản Phẩm</h2>
-    <p>Cửa hàng thú cưng của chúng tôi cam kết cung cấp những dịch vụ tốt nhất.</p>
+    <?php require_once("pets.php"); ?>
 </section>

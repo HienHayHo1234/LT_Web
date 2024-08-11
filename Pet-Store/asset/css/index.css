@@ -25,7 +25,7 @@ nav li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgb(67, 124, 154);
+    background-color: rgb(124, 170, 195);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
     z-index: 1;
@@ -49,11 +49,10 @@ body {
     margin: 0;
     padding: 0;
     text-align: center; 
-    background-image: url('../images/background/head-bg4.jpg'); 
+    background-image: url('../images/background/head-bg4.jpg');
 }   
 
 header {
-    margin-top: 10px;
     background-image: url('../images/background/head-bg4.jpg');     
 }
 
@@ -65,12 +64,10 @@ footer {
 }
 
 .header-container {
-    margin-left: 20px;
-    margin-right: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0; /* Đẩy logo sang bên trái và các nút sang bên phải */
+    padding: 20px; /* Đẩy logo sang bên trái và các nút sang bên phải */
 }
 
 .logo-container {
@@ -102,12 +99,23 @@ footer {
 .circle-button:hover {
     background-color: rgb(90, 140, 154);
 }
+nav {
+    background-color: rgb(67, 124, 154);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-nav ul li a:hover {
+nav>ul>li>a:hover {
     background-color: rgb(90, 140, 154);
 }
 
-nav ul {
+nav>ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -115,22 +123,22 @@ nav ul {
     display: flex;
     justify-content: left;
 }
-nav ul li {
+nav>ul>li {
     margin: 0 15px;
 }
 
-nav ul li a {
+nav>ul>li>a {
     color: white;
     text-decoration: none;
     padding: 14px 20px;
     display: block;
 }
 
-nav ul li {
+nav>ul>li {
     margin: 0 15px;
 }
 
-nav ul li a {
+nav>ul>li>a {
     color: white;
     text-decoration: none;
     padding: 14px 20px;
@@ -151,4 +159,24 @@ nav ul li a {
     max-width: 100%;
     height: auto;
 }
+
+.nav-cart {
+    position: relative;
+    display: inline-block; /* Đảm bảo phần tử li không kéo dài toàn bộ chiều ngang */
+}
+
+.nav-cart > .text-cart {
+    display: inline-block; /* Căn chỉnh văn bản "Giỏ hàng" để không bị chồng lên hình ảnh */
+    vertical-align: middle; /* Căn chỉnh theo chiều dọc */
+    margin-right: 10px; /* Khoảng cách giữa văn bản và biểu tượng */
+}
+
+.new-icon-cart {
+    width: 30px;
+    position: absolute; /* Đặt vị trí tuyệt đối để căn chỉnh */
+    top: 50%; /* Đặt vị trí từ trên xuống giữa phần tử li */
+    right: 0; /* Đặt biểu tượng ở góc phải của phần tử li */
+    transform: translateY(-90%); /* Căn chỉnh dọc */
+}
+
 

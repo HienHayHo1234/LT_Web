@@ -1,63 +1,71 @@
-function loadCart() {
-    // Lấy dữ liệu giỏ hàng từ localStorage, mặc định là đối tượng rỗng
-    let cart = JSON.parse(localStorage.getItem('cart')) || {};
-    
-    // Chọn thẻ <main> trong HTML
-    let mainContainer = document.querySelector('main');
-    
-    if (mainContainer) {
-        // Lặp qua tất cả các mục trong giỏ hàng
-        for (let id in cart) {
-            let item = cart[id];
+// Hàm để cập nhật giỏ hàng và hiển thị
+function updateCartDisplay() {
+    var cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+    var cartIcon = document.querySelector('.nav-cart img');
 
-            // Tạo div chứa thông tin sản phẩm
-            let itemDiv = document.createElement('div');
-            itemDiv.className = 'cart-items'; // Thay đổi class nếu cần
-
-            // Thêm thông tin sản phẩm vào div
-            itemDiv.innerHTML = `
-                <div class="container">
-                    <img src="../asset/images/parrot/${id}.jpg" alt="${item.name}">
-                    <div class="text">
-                        <p class="name-pet">${item.name}</p>
-                        <p>Giá: <span class="price">${item.price.toLocaleString()}đ</span> ➱ ${(item.price).toLocaleString()}đ </p>
-                        <p class="count">Số lượng: ${item.quantity}</p>
-                        <p class="text-price">Tổng số tiền: ${(item.price * item.quantity).toLocaleString()}đ</p>
-                    </div>
-                    <button class="heart">❤</button>
-                    <button class="button cancel" onclick="removeFromCart('${id}')">Hủy đặt hàng</button>
-                    <button class="button order" id="button3">Đặt hàng</button>
-                </div>
-            `;
-
-            // Thêm div sản phẩm vào container giỏ hàng
-            mainContainer.appendChild(itemDiv);
+    if (cartCount > 0) {
+        // Hiển thị ảnh thông báo giỏ hàng có sản phẩm
+        if (!cartIcon) {
+            cartIcon = document.createElement('img');
+            cartIcon.className = 'new-icon-cart';
+            cartIcon.src = '../asset/images/icon/new-cart.png';
+            document.querySelector('.nav-cart').appendChild(cartIcon);
         }
     } else {
-        console.error('Không tìm thấy thẻ <main> trong trang.');
+        // Ẩn hoặc xóa ảnh thông báo giỏ hàng không có sản phẩm
+        if (cartIcon) {
+            cartIcon.remove();
+        }
     }
 }
 
-function removeFromCart(id) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+// Hàm thêm sản phẩm vào giỏ hàng
+function addToPet(petId) {
+    var cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+    localStorage.setItem('cartCount', cartCount + 1);
 
-    if (cart[id]) {
-        if (cart[id].quantity > 1) {
-            // Giảm số lượng nếu nhiều hơn 1
-            cart[id].quantity -= 1;
-        } else {
-            // Xóa mặt hàng khỏi giỏ hàng nếu số lượng là 1
-            delete cart[id];
+    // Cập nhật giao diện giỏ hàng
+    updateCartDisplay();
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../config/order.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Có thể thêm mã xử lý khác nếu cần
         }
+    };
 
-        // Cập nhật giỏ hàng trong localStorage
-        localStorage.setItem('cart', JSON.stringify(cart));
-        // Tải lại giỏ hàng trên giao diện sau khi xóa
-        loadCart();
-    } else {
-        alert('Sản phẩm không có trong giỏ hàng');
-    }
+    xhr.send("action=add&pet_id=" + encodeURIComponent(petId));
 }
 
-// Gọi loadCart để hiển thị giỏ hàng khi trang được tải
-document.addEventListener('DOMContentLoaded', loadCart);
+// Hàm xóa sản phẩm khỏi giỏ hàng
+function removeFromCart(petId) {
+    var cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+
+    if (cartCount > 0) {
+        localStorage.setItem('cartCount', cartCount - 1);
+    }
+
+    // Cập nhật giao diện giỏ hàng
+    updateCartDisplay();
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../config/order.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Kiểm tra phản hồi từ máy chủ để xác định xem sản phẩm đã bị xóa thành công chưa
+            console.log(xhr.responseText);
+
+            // Làm mới lại trang để cập nhật giao diện giỏ hàng
+            location.reload(); // Hoặc có thể sử dụng updateCartDisplay() nếu bạn muốn cập nhật mà không tải lại toàn bộ trang
+        }
+    };
+
+    xhr.send("action=remove&pet_id=" + encodeURIComponent(petId));
+}
+// Gọi hàm để cập nhật giao diện khi tải trang
+document.addEventListener('DOMContentLoaded', updateCartDisplay);

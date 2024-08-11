@@ -1,23 +1,20 @@
-body {
-    background-color: rgb(225, 242, 252);
-    min-width: 650px;
-}
 /* Tạo lưới chia khu cho main */
-main {
+.cart-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(400px, auto);
     gap: 20px;
+    padding: 20px;
 }
 /* Chỉnh kích thước để chia cột lưới theo size từng thiết bị */
 /* 1 ô khi dưới 1250px */
 @media (max-width: 1250px) { 
-    main {
+    .cart-grid {
         grid-template-columns: 1fr;
     }
 }
 
-.container {
+.container-cart {
     position: relative;
     width: 600px;
     height: 400px;
@@ -29,12 +26,7 @@ main {
     background-color: rgb(225, 242, 252);
 }
 
-#header-container {
-    margin: 0;
-    padding: 0;
-}
-
-.container img {
+.imgCart {
     width: 40%;
     height: 75%;
     border-top-left-radius: 100px;
@@ -68,7 +60,7 @@ main {
 }
 
 /* Nút Thích */
-.heart {
+.heart-cart {
     width: 80px;
     height: 80px;
     border: none;
@@ -85,24 +77,24 @@ main {
     transition: transform 1s ease;
 }
 
-.heart:hover {
+.heart-cart:hover {
     color: rgb(219, 13, 13);
     background-color: rgb(30, 87, 120);
     cursor: pointer;
     transform: rotate(-360deg);
 }
 
-.heart:active {
+.heart-cart:active {
     transform: translateY(2px);
 }
 
-.heart:focus {
+.heart-cart:focus {
     color: rgb(219, 13, 13);
     background-color: rgb(30, 87, 120);
     cursor: pointer;
     transform: rotate(360deg);
 }
-.heart.clicked {
+.heart-cart.clicked {
     background-color: rgb(219, 13, 13); /* Màu sắc khi giữ trạng thái đã nhấn */
 }
 
