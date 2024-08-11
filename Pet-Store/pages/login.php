@@ -1,4 +1,43 @@
+<?php
+// Khai báo các thông số kết nối cơ sở dữ liệu
+$host = "localhost";
+$dbname = "pet-store";
+$username = "root";
+$password = "";
 
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Kết nối thất bại: " . $e->getMessage());
+}
+
+// Xử lý form đăng nhập
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Kiểm tra dữ liệu đầu vào
+    if (empty($username) || empty($password)) {
+        echo "Vui lòng nhập đầy đủ thông tin.";
+    } else {
+        // Kiểm tra thông tin đăng nhập
+        $sql = "SELECT * FROM users WHERE username = :username";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && password_verify($password, $user['password'])) {
+            // Đăng nhập thành công
+            header("Location: ../index.php"); // Cung cấp đường dẫn chính xác đến trang bạn muốn chuyển hướng
+            exit();
+        } else {
+            echo "Tên đăng nhập hoặc mật khẩu không đúng.";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,28 +47,14 @@
     <link rel="stylesheet" href="../asset/css/login.css">
 </head>
 <header>
-    <div class="header-container">
-
         <div class="logo-container">
             <a href="index.html">
                 <img src="../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
             </a>
         </div>
-
-        <div class="buttons-container">
-            <a href="cart.html">
-                <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
-            </a>
-            <a href="login.html">
-                <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
-            </a>
-        </div>
-
-    </div>
 </header>
-
 <body>
-    <form action="Version.php" method="post" class="container">
+    <form action="login.php" method="post" class="container">
         <label for="username">User Name:</label><br>
         <input type="text" id="username" name="username"><br><br>
         <label for="password">Password:</label><br>
