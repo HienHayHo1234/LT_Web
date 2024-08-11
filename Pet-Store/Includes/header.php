@@ -79,12 +79,19 @@
                 Giới Thiệu
             </a>
         </li>
-        <li class="nav-cart">
+        <li>
             <a class="text-cart" href="../pages/index.php?page=cart">
                 <img src="../asset/images/icon/cart-ico.png" alt="Cart Icon" />
                 Giỏ hàng
             </a>
             <!-- Ảnh sẽ được tạo ra và chèn vào đây nếu có sản phẩm trong giỏ hàng -->
+        </li>
+        
+        <li>
+            <a href="../pages/index.php?page=admin">
+                <img src="../asset/images/icon/admin-ico.png" alt="Admin Icon" />
+                Admin
+            </a>
         </li>
         <li class="search-container">
             <img class="search-icon" src="../asset/images/icon/search.png" alt="Search Icon">
@@ -92,12 +99,6 @@
                 <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
                 <input name="btntim" id="btntim" type="submit" value="TÌM" />
             </form>
-        </li>
-        <li>
-            <a href="../pages/index.php?page=admin">
-                <img src="../asset/images/icon/admin-ico.png" alt="Admin Icon" />
-                Admin
-            </a>
-        </li>
+        </li>   
     </ul>
 </nav>

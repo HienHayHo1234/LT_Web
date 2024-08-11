@@ -58,7 +58,6 @@
     </main>
     <footer class="item-footer"></footer>
     <!-- Script -->
-    <script src="../asset/js/admin.js"></script>
 </body>
 
 </html>

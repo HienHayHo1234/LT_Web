@@ -7,7 +7,7 @@ try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Thực hiện truy vấn để lấy tất cả các sản phẩm thuộc danh mục 'parrot'
+    // Thực hiện truy vấn để lấy tất cả các sản phẩm thuộc danh mục 'cat'
     $stmt = $conn->prepare("SELECT * FROM pets WHERE idLoai = :idLoai");
     $stmt->bindParam(':idLoai', $idLoai);
     $idLoai = 'dog'; // Danh mục cần lọc
@@ -19,7 +19,6 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
-
 
 <div class="pets-grid">
     <?php if (!empty($pets)): ?>
@@ -34,9 +33,10 @@ try {
             ➱
             <?php echo number_format($pet['priceSale'], 0, ',', '.'); ?>đ</p>
         <button class="button view-detail" id="button2">Xem chi tiết</button>
-        <button class="button order" id="button3"
-            onclick="addToCart('<?php echo htmlspecialchars($pet['id']); ?>', '<?php echo htmlspecialchars($pet['name']); ?>', <?php echo htmlspecialchars($pet['price']); ?>)">Đặt
-            hàng</button>
+        <button class="button order" id="order-cat"
+            onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">
+            Thêm giỏ hàng
+        </button>
     </div>
     <?php endforeach; ?>
     <?php else: ?>
