@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <header>
         <div class="logo-container">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
             </a>
         </div>

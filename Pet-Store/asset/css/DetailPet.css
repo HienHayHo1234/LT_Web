@@ -1,0 +1,22 @@
+.product-detail-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.detail-img {
+    width: 50%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.text-price, .text-price-sale {
+    font-size: 18px;
+    color: #333;
+}
+
+.price-sale {
+    color: #e74c3c;
+    font-weight: bold;
+}
