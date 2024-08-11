@@ -8,24 +8,11 @@
     <link rel="stylesheet" href="../asset/css/login.css">
 </head>
 <header>
-    <div class="header-container">
-
         <div class="logo-container">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
             </a>
         </div>
-
-        <div class="buttons-container">
-            <a href="cart.html">
-                <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
-            </a>
-            <a href="login.html">
-                <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
-            </a>
-        </div>
-
-    </div>
 </header>
 
 <body>
@@ -43,7 +30,7 @@
         </div>
         <br>
         <p>Hoặc</p><br>
-        <p>Chưa có tài khoản?<a href="register.html">Đăng ký</a></p>
+        <p>Chưa có tài khoản?<a href="register.php">Đăng ký</a></p>
     </form>
     <script>
     function validateForm() {

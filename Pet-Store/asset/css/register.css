@@ -1,180 +1,107 @@
-/* Căn chỉnh cơ bản cho body */
+/* Đặt hộp kích thước */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif; /* Đặt font chữ cho toàn bộ trang */
-    display: flex; /* Sử dụng flexbox để căn giữa nội dung */
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    height: 100vh; /* Chiều cao toàn bộ màn hình */
-    margin: 0; /* Xóa margin mặc định của body */
-    background-image: url("../images/background/background-register.jpg"); /* Đặt hình nền */
-    background-size: cover; /* Đảm bảo hình nền phủ đầy màn hình */
-    background-position: center; /* Đặt vị trí hình nền ở giữa */
-    position: relative; /* Thiết lập vị trí tương đối cho body */
-    overflow: hidden; /* Ẩn phần tử tràn ra ngoài */
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-/* Phần tử ảo để tạo hiệu ứng nền mờ */
-body::before {
-    content: ""; /* Tạo một phần tử ảo trước phần tử body */
-    position: absolute; /* Vị trí tuyệt đối để phủ toàn bộ body */
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.8); /* Màu nền trắng mờ */
-    backdrop-filter: blur(5px); /* Áp dụng hiệu ứng mờ cho nền */
-    z-index: -1; /* Đưa phần tử này ra phía sau nội dung chính */
-}
-
-/* Định dạng container cho form */
 .container {
-    min-width: 300px; /* Đặt chiều rộng tối thiểu cho container */
-    max-width: 450px; /* Đặt chiều rộng tối đa cho container */
-    width: 100%; /* Đảm bảo container chiếm toàn bộ chiều rộng có sẵn của cha */
-    padding: 30px 40px; /* Thêm khoảng cách bên trong container */
-    background-color: rgba(255, 255, 255, 0.95); /* Màu nền trắng nhạt */
-    border-radius: 10px; /* Làm cong các góc của container */
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Thêm bóng đổ mạnh để tạo độ sâu */
-    position:relative; /* Thiết lập vị trí tương đối cho container */
-    z-index: 1; /* Đảm bảo container nằm trên các phần tử khác nếu cần */
-    backdrop-filter: blur(10px); /* Áp dụng hiệu ứng mờ cho phần nền phía sau để tạo sự tương phản */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển đổi mượt mà cho các thay đổi về kích thước và bóng đổ */
-    display: flex; /* Sử dụng flexbox để căn chỉnh nội dung bên trong */
-    flex-direction: column; /* Đặt chiều dọc cho các phần tử bên trong container */
-    align-items: center; /* Căn giữa các phần tử theo chiều ngang */
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
 }
 
-/* Định dạng phần chứa các nút */
-.button-container {
-    display: flex; /* Sử dụng flexbox để căn chỉnh các nút nằm ngang */
-    justify-content: space-between; /* Căn chỉnh các nút cách đều nhau */
-    gap: 10px; /* Khoảng cách giữa các nút */
-    margin-top: 20px; /* Khoảng cách trên các nút */
-    width: 100%; /* Đảm bảo phần chứa nút chiếm toàn bộ chiều rộng của container */
+/* Tiêu đề form đăng ký */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-/* Định dạng nút gửi */
-button {
-    background-color: #4CAF50; /* Đặt màu nền cho nút */
-    color: white; /* Đặt màu chữ cho nút */
-    padding: 12px 20px; /* Thêm khoảng cách bên trong nút */
-    border: none; /* Loại bỏ viền cho nút */
-    border-radius: 5px; /* Làm cong các góc của nút */
-    cursor: pointer; /* Thay đổi con trỏ chuột khi di chuột qua nút */
-    font-size: 16px; /* Đặt kích thước font chữ cho nút */
-    flex: 1; /* Chiều rộng của các nút sẽ phân phối đều trong phần chứa */
-    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền khi di chuột qua */
-}
-
-button:hover {
-    background-color: #45a049; /* Thay đổi màu nền khi di chuột qua nút */
-}
-
-/* Định dạng nhãn */
+/* Nhãn và các trường nhập liệu */
 label {
-    font-size: 15px; /* Đặt kích thước font chữ cho nhãn */
-    color: #333; /* Đặt màu chữ cho nhãn */
-    display: block; /* Đảm bảo nhãn chiếm toàn bộ chiều rộng */
-    margin-bottom: 8px; /* Thêm khoảng cách dưới mỗi nhãn */
-    font-weight: bold; /* Làm chữ đậm cho nhãn */
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
 }
 
-/* Định dạng trường nhập liệu */
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 100%; /* Chiều rộng toàn bộ cho các trường nhập liệu */
-    padding: 10px; /* Thêm khoảng cách bên trong các trường nhập liệu */
-    margin-bottom: 15px; /* Thêm khoảng cách dưới mỗi trường nhập liệu */
-    border: 1px solid #ccc; /* Đặt viền cho các trường nhập liệu */
-    border-radius: 5px; /* Làm cong góc các trường nhập liệu */
-    box-sizing: border-box; /* Tính toán kích thước bao gồm cả padding và border */
-    font-size: 14px; /* Đặt kích thước font chữ cho các trường nhập liệu */
-    transition: border-color 0.3s ease; /* Hiệu ứng chuyển đổi màu viền khi tập trung vào */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #555;
 }
 
-/* Hiệu ứng khi trường nhập liệu được tập trung */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #4CAF50; /* Thay đổi màu viền khi tập trung vào */
-    outline: none; /* Loại bỏ viền mặc định khi tập trung vào */
+    border-color: #4CAF50;
+    outline: none;
 }
 
-/* Định dạng đoạn văn */
+/* Nút submit và clear */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    width: 48%;
+    padding: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #3e8e41;
+}
+
+/* Dòng chữ "Or" và logo */
 p {
-    text-align: center; /* Căn giữa văn bản trong đoạn văn */
-    margin-top: 20px; /* Thêm khoảng cách trên đoạn văn */
-    color: #333; /* Đặt màu chữ cho đoạn văn */
+    margin: 20px 0;
+    color: #666;
+    font-size: 14px;
 }
 
-/* Định dạng liên kết */
-a {
-    color: #4CAF50; /* Đặt màu cho liên kết */
-    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
-    font-weight: bold; /* Làm chữ đậm cho liên kết */
-    display: flex; /* Sử dụng flexbox để căn chỉnh logo nằm ngang với các nút */
-    justify-content: center; /* Căn giữa logo */
-    align-items: center; /* Căn giữa logo */
-    margin-top: 20px; /* Khoảng cách trên logo */
-}
-
-/* Định dạng hình ảnh logo */
 a img {
-    width: 100px; /* Đặt chiều rộng cho hình ảnh logo */
-    height: auto; /* Đảm bảo chiều cao được điều chỉnh tự động để giữ tỷ lệ */
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px; /* Giảm padding cho các màn hình nhỏ hơn */
-        border-radius: 8px; /* Làm cong góc ít hơn cho các màn hình nhỏ */
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Giảm bóng đổ cho các màn hình nhỏ */
-    }
-
-    label {
-        font-size: 14px; /* Giảm kích thước font chữ cho nhãn trên màn hình nhỏ */
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-        font-size: 13px; /* Giảm kích thước font chữ cho các trường nhập liệu */
-    }
-
-    button {
-        font-size: 14px; /* Giảm kích thước font chữ cho nút trên màn hình nhỏ */
-        padding: 10px 15px; /* Giảm padding cho nút trên màn hình nhỏ */
-    }
-
-    p {
-        font-size: 14px; /* Giảm kích thước font chữ cho đoạn văn trên màn hình nhỏ */
-    }
-}
-
-/* Responsive Design cho các màn hình nhỏ hơn */
-@media (max-width: 480px) {
-    .container {
-        padding: 15px; /* Giảm padding thêm cho các màn hình rất nhỏ */
-    }
-
-    label {
-        font-size: 13px; /* Giảm kích thước font chữ cho nhãn */
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-        font-size: 12px; /* Giảm kích thước font chữ cho các trường nhập liệu */
-    }
-
-    button {
-        font-size: 13px; /* Giảm kích thước font chữ cho nút */
-        padding: 8px 12px; /* Giảm padding cho nút */
-    }
-
-    p {
-        font-size: 13px; /* Giảm kích thước font chữ cho đoạn văn */
-    }
+a img:hover {
+    transform: scale(1.1);
 }

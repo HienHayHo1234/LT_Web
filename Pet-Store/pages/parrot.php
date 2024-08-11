@@ -32,7 +32,8 @@ try {
         <p class="text-price">Giá: <span class="price"><?php echo number_format($pet['price'], 0, ',', '.'); ?>đ</span>
             ➱
             <?php echo number_format($pet['priceSale'], 0, ',', '.'); ?>đ</p>
-        <button class="button view-detail" id="button2">Xem chi tiết</button>
+            <button class="button view-detail" id="button2" onclick="window.location.href='DetailPet.php?id=<?php echo htmlspecialchars($pet['id']); ?>'">Xem chi tiết</button>
+
         <button class="button order" id="button3"
             onclick="addToCart('<?php echo htmlspecialchars($pet['id']); ?>', '<?php echo htmlspecialchars($pet['name']); ?>', <?php echo htmlspecialchars($pet['price']); ?>)">Đặt
             hàng</button>
