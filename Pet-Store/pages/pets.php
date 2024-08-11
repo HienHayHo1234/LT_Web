@@ -11,9 +11,8 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Thực hiện truy vấn để lấy tất cả các sản phẩm thuộc danh mục 'cat'
-    $stmt = $conn->prepare("SELECT * FROM pets WHERE idLoai = :idLoai");
-    $stmt->bindParam(':idLoai', $idLoai);
-    $idLoai = 'cat'; // Danh mục cần lọc
+    $stmt = $conn->prepare("SELECT * FROM pets");
+
     $stmt->execute();
 
     // Lưu kết quả truy vấn vào một mảng
@@ -22,24 +21,24 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+<link rel="stylesheet" href="../asset/css/product.css">
 
-<div class="pets-grid">
+<div class="pets-gird">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
     <div class="container-pets">
         <img src="<?php echo htmlspecialchars($pet['urlImg']); ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
         <div class="row">
             <p class="name-pet"><?php echo htmlspecialchars($pet['name']); ?></p>
-            <button class="heart" id="button1">❤</button>
+            <div class="icons">
+                <button class="heart">❤</button>
+                <button class="button view-detail">Xem</button>
+                <button class="button order" onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ hàng</button>
+            </div>
         </div>
         <p class="text-price">Giá: <span class="price"><?php echo number_format($pet['price'], 0, ',', '.'); ?>đ</span>
             ➱
             <?php echo number_format($pet['priceSale'], 0, ',', '.'); ?>đ</p>
-        <button class="button view-detail" id="button2">Xem chi tiết</button>
-        <button class="button order" id="order-cat"
-            onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">
-            Thêm giỏ hàng
-        </button>
     </div>
     <?php endforeach; ?>
     <?php else: ?>
