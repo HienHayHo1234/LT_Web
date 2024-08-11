@@ -1,4 +1,5 @@
 <script src="../asset/js/load.js"></script>
+<link rel="stylesheet" href="../asset/css/product.css">
 <section class="slider">
     <div class="slides">
         <div class="slide active">
@@ -46,5 +47,5 @@
 
 <section id="product">
     <h2>Sản Phẩm</h2>
-    <p>Cửa hàng thú cưng của chúng tôi cam kết cung cấp những dịch vụ tốt nhất.</p>
+    <?php require_once("pets.php"); ?>
 </section>
