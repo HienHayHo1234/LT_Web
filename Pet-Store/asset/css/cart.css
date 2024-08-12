@@ -202,24 +202,6 @@
     border-radius: 5px;
     box-sizing: border-box;
 }
-/* nút chọn giai đoạn */
-.btnS {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-}
-.btn-stage {
-    margin: 10px auto;
-    width: 30%;
-    transition: transform 0.5s ease, z-index 0s;
-    border-radius: 10px;
-}
-.btn-stage:hover {
-    z-index: 103;
-    border-radius: 10px;
-    transform: scale(2);
-}
 
 /* Định dạng tiêu đề form */
 .order-form h2 {
@@ -242,15 +224,20 @@
     background-color: transparent;
     border: none;
     padding: 0;
+    border-radius: 10px;
 }
 
 .btn-submit>img {
     width: 100%;
     display: block;
     background-color: rgb(216, 184, 184);
+    border-radius: 10px;
 }
 .btn-submit>img:hover {
     background-color: rgb(188, 153, 153);
+}
+.total-amount {
+    font-size: 1.5rem !important;
 }
 /* Định dạng khi form kích thước nhỏ */
 @media (max-width: 480px) {

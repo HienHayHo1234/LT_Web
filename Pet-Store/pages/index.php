@@ -16,7 +16,7 @@
         <?php require_once("../Includes/header.php"); ?>
     </header>
 
-    <main>
+    <main class = "nav-follow">
         <?php require_once("main.php"); ?>
     </main>
 </body>

@@ -33,7 +33,7 @@
     <div>
         <h1>Vẹt</h1>
         <a href="index.php?page=parrot"><img src="../asset/images/parrot/head.png" alt="Vẹt"></a>
-        <h3>Vẹt là loài vật nuôi đáng yêu và nhanh nhẹn.</h3>
+        <h3>Chim là loài vật nuôi đáng yêu và đáng eu</h3>
     </div>
 <hr>
 <hr>

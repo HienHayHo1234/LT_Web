@@ -29,8 +29,8 @@ try {
                     <div class="icons">
                         <button class="heart" onclick="toggleHeart(this)">❤<i class="fas fa-heart"></i></button>                        
                         <!-- <button class="heart">❤</button> -->
-                        <button class="button view-detail" id="button1">
-                            <a href="DetailPet.php?id=<?php echo htmlspecialchars($pet['id']); ?>">Xem</a>
+                        <button class="button view-detail" onclick="window.location.href='DetailPet.php?id=<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>'">
+                        Xem
                         </button>
                         <button class="button order"
                             onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ
