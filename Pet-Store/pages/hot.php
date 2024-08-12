@@ -7,8 +7,8 @@ try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Thực hiện truy vấn để lấy tất cả các sản phẩm thuộc danh mục 'cat'
-    $stmt = $conn->prepare("SELECT * FROM pets");
+    // Thực hiện truy vấn để lấy tất cả các sản phẩm có hot = 1
+    $stmt = $conn->prepare("SELECT * FROM pets WHERE hot = 1");
 
     $stmt->execute();
 
@@ -18,23 +18,25 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+<link rel="stylesheet" href="../asset/css/hot.css">
 
 <div class="pets-grid">
     <?php if (!empty($pets)): ?>
         <?php foreach ($pets as $pet): ?>
             <div class="container-pets">
+                <!-- Logo Hot -->
+                <div class="hot-logo">
+                    <img src="../asset/images/icon/hot.gif" alt="Hot">
+                </div>
                 <img src="<?php echo htmlspecialchars($pet['urlImg']); ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
                 <div class="row">
                     <p class="name-pet"><?php echo htmlspecialchars($pet['name']); ?></p>
                     <div class="icons">
-                        <button class="heart" onclick="toggleHeart(this)">❤<i class="fas fa-heart"></i></button>                        
-                        <!-- <button class="heart">❤</button> -->
+                        <button class="heart" onclick="toggleHeart(this)">❤<i class="fas fa-heart"></i></button>
                         <button class="button view-detail" id="button1">
                             <a href="DetailPet.php?id=<?php echo htmlspecialchars($pet['id']); ?>">Xem</a>
                         </button>
-                        <button class="button order"
-                            onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ
-                            hàng</button>
+                        <button class="button order" onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ hàng</button>
                     </div>
                 </div>
                 <p class="text-price">Giá: <span class="price"><?php echo number_format($pet['price'], 0, ',', '.'); ?>đ</span>
