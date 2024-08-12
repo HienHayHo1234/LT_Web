@@ -58,7 +58,7 @@ try {
                     </p>
                     <p class="count">Số lượng: <?php echo htmlspecialchars($item['quantity']); ?></p>
                     <p class="text-price">Tổng số tiền:
-                        <?php echo number_format($item['price'] * $item['quantity'], 0, ',', '.'); ?>đ
+                        <?php echo number_format($item['priceSale'] * $item['quantity'], 0, ',', '.'); ?>đ
                     </p>
                 </div>
                 <button class="heart-cart">❤</button>
@@ -102,27 +102,62 @@ try {
         <label for="phone">Số điện thoại:</label>
         <input type="tel" id="phone" name="phone" required>
 
-        <label for="size">Chọn độ tuổi:</label>
-        <div class="btnS">
-            <!-- uống sữa -->
-            <img id="size" class="btn-stage" src="../asset/images/parrot/macaw-parrot-2.jpg" alt="">
-            <!-- mở mắt -->
-            <img id="size" class="btn-stage" src="../asset/images/parrot/macaw-parrot-2.jpg" alt="">
-            <!-- trưởng thành -->
-            <img id="size" class="btn-stage" src="../asset/images/parrot/macaw-parrot-2.jpg" alt="">
-        </div>
-
         <label for="gender">Chọn giới tính thú cưng:</label>
         <select id="gender" name="gender" required>
             <option value="">Chọn giới tính</option>
             <option value="male">Nam</option>
             <option value="female">Nữ</option>
         </select>
+
+        <!-- Thêm phần chọn sản phẩm -->
+        <label for="product">Chọn sản phẩm thanh toán:</label>
+        <select id="product" name="product" required onchange="updateTotalPrice()">
+            <option value="">Chọn sản phẩm</option>
+            <option value="all">Chọn hết</option> <!-- Sử dụng value="all" -->
+            <?php foreach ($cartItems as $item): ?>
+                <option value="<?php echo $item['id']; ?>" data-price="<?php echo $item['priceSale']; ?>"
+                    data-quantity="<?php echo $item['quantity']; ?>">
+                    <?php echo htmlspecialchars($item['name']) . ' - ' . number_format($item['priceSale'] * $item['quantity'], 0, ',', '.') . 'đ'; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+
+        <!-- Hiển thị tổng số tiền -->
+        <label for="totalAmount" class="total-amount">
+            Tổng số tiền: <span id="totalAmount">0đ</span>
+        </label>
+
         <!-- nút gửi -->
-        <button type="submit" class="btn-submit" style="display: none;">
+        <button type="submit" class="btn-submit" style="display: none">
             <img src="../asset/images/icon/take-form.png" alt="Gửi">
         </button>
     </form>
+
+
 </div>
 
 <script src="../asset/js/form-cart.js"></script>
+<script>
+    function updateTotalPrice() {
+        var productSelect = document.getElementById('product');
+        var selectedOption = productSelect.options[productSelect.selectedIndex];
+        var totalAmount = 0;
+
+        if (selectedOption.value === "all") {
+            // Nếu chọn "Chọn hết", tính tổng tiền của tất cả sản phẩm
+            var textPrices = document.querySelectorAll('.text-price');
+            textPrices.forEach(function(textPrice) {
+                var amount = parseInt(textPrice.innerText.replace(/\D/g, '')); // Lấy giá trị số từ text-price
+                totalAmount += amount;
+            });
+        } else {
+            // Nếu chọn một sản phẩm cụ thể
+            var price = selectedOption.getAttribute('data-price');
+            var quantity = selectedOption.getAttribute('data-quantity');
+            totalAmount = (parseInt(price) || 0) * (parseInt(quantity) || 1);
+        }
+
+        // Hiển thị tổng số tiền
+        document.getElementById('totalAmount').innerText = totalAmount.toLocaleString('vi-VN') + 'đ';
+    }
+</script>
