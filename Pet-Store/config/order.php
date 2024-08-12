@@ -31,9 +31,13 @@ function addToCart($user_id, $pet_id, $quantity = 1, $conn)
     $stmt->execute([$user_id, $pet_id]);
     $item = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    var_dump($item); // Debugging
+
     if ($item) {
-        // Nếu sản phẩm đã có trong giỏ, cập nhật số lượng
+        // Nếu sản phẩm đã có trong giỏ, cộng thêm số lượng
         $new_quantity = $item['quantity'] + $quantity;
+        var_dump($new_quantity); // Debugging
+
         $stmt = $conn->prepare("UPDATE cart_items SET quantity = ? WHERE id = ?");
         $stmt->execute([$new_quantity, $item['id']]);
     } else {
@@ -42,6 +46,7 @@ function addToCart($user_id, $pet_id, $quantity = 1, $conn)
         $stmt->execute([$user_id, $pet_id, $quantity]);
     }
 }
+
 
 function removeFromCart($user_id, $pet_id, $conn)
 {

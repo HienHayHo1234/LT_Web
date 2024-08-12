@@ -2,7 +2,6 @@
 require '../config/config.php';
 
 
-
 // Giả sử user_id là 1, bạn có thể thay đổi theo hệ thống của bạn
 $user_id = 1;
 
@@ -47,28 +46,28 @@ try {
 
 <div class="cart-grid">
     <?php if (!empty($cartItems)): ?>
-    <?php foreach ($cartItems as $item): ?>
-    <div class="container-cart">
-        <!-- Sử dụng PHP để tạo HTML động với các giá trị từ cơ sở dữ liệu -->
-        <img class="imgCart" src="<?php echo htmlspecialchars($item['urlImg']); ?>"
-            alt="<?php echo htmlspecialchars($item['name']); ?>">
-        <div class="text">
-            <p class="name-pet"><?php echo htmlspecialchars($item['name']); ?></p>
-            <p>Giá: <span class="price"><?php echo number_format($item['price'], 0, ',', '.'); ?>đ</span> ➱
-                <?php echo number_format($item['priceSale'], 0, ',', '.'); ?>đ</p>
-            <p class="count">Số lượng: <?php echo htmlspecialchars($item['quantity']); ?></p>
-            <p class="text-price">Tổng số tiền:
-                <?php echo number_format($item['price'] * $item['quantity'], 0, ',', '.'); ?>đ</p>
-        </div>
-        <button class="heart-cart">❤</button>
-        <button class="button cancel" onclick="removeFromCart('<?php echo htmlspecialchars($item['id']); ?>')">Hủy đặt
-            hàng</button>
-        <button class="button order" id="button<?php echo htmlspecialchars($item['id']); ?>"
-            onclick="showOrderForm('<?php echo htmlspecialchars($item['id']); ?>')">Đặt hàng</button>
-    </div>
-    <?php endforeach; ?>
+        <?php foreach ($cartItems as $item): ?>
+            <div class="container-cart">
+                <!-- Sử dụng PHP để tạo HTML động với các giá trị từ cơ sở dữ liệu -->
+                <img class="imgCart" src="<?php echo htmlspecialchars($item['urlImg']); ?>"
+                    alt="<?php echo htmlspecialchars($item['name']); ?>">
+                <div class="text">
+                    <p class="name-pet"><?php echo htmlspecialchars($item['name']); ?></p>
+                    <p>Giá: <span class="price"><?php echo number_format($item['price'], 0, ',', '.'); ?>đ</span> ➱
+                        <?php echo number_format($item['priceSale'], 0, ',', '.'); ?>đ</p>
+                    <p class="count">Số lượng: <?php echo htmlspecialchars($item['quantity']); ?></p>
+                    <p class="text-price">Tổng số tiền:
+                        <?php echo number_format($item['price'] * $item['quantity'], 0, ',', '.'); ?>đ</p>
+                </div>
+                <button class="heart-cart">❤</button>
+                <button class="button cancel" onclick="removeFromCart('<?php echo htmlspecialchars($item['id']); ?>')">Hủy đặt
+                    hàng</button>
+                <button class="button order" id="button<?php echo htmlspecialchars($item['id']); ?>"
+                    onclick="showOrderForm('<?php echo htmlspecialchars($item['id']); ?>')">Đặt hàng</button>
+            </div>
+        <?php endforeach; ?>
     <?php else: ?>
-    <p>Giỏ hàng trống!</p>
+        <p>Giỏ hàng trống!</p>
     <?php endif; ?>
 </div>
 
@@ -114,20 +113,20 @@ try {
 </div>
 
 <script>
-function showOrderForm(productId) {
-    // Hiển thị form đặt hàng
-    var orderForm = document.getElementById('orderForm');
-    orderForm.style.display = '';
-    // Gán giá trị productId vào hidden input
-    document.getElementById('productId').value = productId;
-    // Cuộn trang đến form đặt hàng
-    orderForm.scrollIntoView({
-        behavior: 'smooth'
-    });
-}
+    function showOrderForm(productId) {
+        // Hiển thị form đặt hàng
+        var orderForm = document.getElementById('orderForm');
+        orderForm.style.display = '';
+        // Gán giá trị productId vào hidden input
+        document.getElementById('productId').value = productId;
+        // Cuộn trang đến form đặt hàng
+        orderForm.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
 
-function btnClose() {
-    var orderForm = document.getElementById('orderForm');
-    orderForm.style.display = 'none';
-}
+    function btnClose() {
+        var orderForm = document.getElementById('orderForm');
+        orderForm.style.display = 'none';
+    }
 </script>
