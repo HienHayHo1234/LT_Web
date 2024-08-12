@@ -19,22 +19,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const infoMessage = document.getElementById('infoMessage');
     const formCompleteMessage = document.getElementById('formCompleteMessage');
     const submitButton = document.querySelector('.btn-submit');
+    const productSelect = document.getElementById('product');
+    const totalAmountSpan = document.getElementById('totalAmount');
 
     function validateForm() {
         const name = document.getElementById('name').value.trim();
         const address = document.getElementById('address').value.trim();
         const phone = document.getElementById('phone').value.trim();
-        const size = document.getElementById('size').value.trim();
         const gender = document.getElementById('gender').value;
+        const product = document.getElementById('product').value;
 
-        if (name && address && phone && gender) {
-            infoMessage.style.display = 'none'; // Ẩn thông báo yêu cầu điền thông tin
-            formCompleteMessage.style.display = 'block'; // Hiển thị thông báo hoàn tất
-            submitButton.style.display = 'inline-block'; // Hiện nút gửi
+        if (name && address && phone && gender && product) {
+            infoMessage.style.display = 'none';
+            formCompleteMessage.style.display = 'block';
+            submitButton.style.display = 'inline-block';
         } else {
-            infoMessage.style.display = 'block'; // Hiển thị thông báo yêu cầu điền thông tin
-            formCompleteMessage.style.display = 'none'; // Ẩn thông báo hoàn tất
-            submitButton.style.display = 'none'; // Ẩn nút gửi
+            infoMessage.style.display = 'block';
+            formCompleteMessage.style.display = 'none';
+            submitButton.style.display = 'none';
         }
     }
 
