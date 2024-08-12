@@ -86,33 +86,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
     <link rel="stylesheet" href="../asset/css/login.css">
 </head>
-<header>
-<header>
-        <div class="logo-container">
-            <a href="index.php">
-                <img src="../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
-            </a>
-        </div>
-</header>
-</header>
 <body>
-    <form action="login.php" method="post" class="container">
-    <form action="login.php" method="post" class="container">
-        <label for="username">User Name:</label><br>
-        <input type="text" id="username" name="username"><br><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <div>
-            <label><input name="status" type="checkbox"> Remember me</label>
-        </div>
-        <hr>
-        <div>
-            <input type="submit" value="Login">
-        </div>
-        <br>
-        <p>Hoặc</p><br>
-        <p>Chưa có tài khoản?<a href="register.php">Đăng ký</a></p>
-    </form>
+    <div class="container">
+        <h2>Đăng Nhập</h2> <!-- Tiêu đề thêm vào đây -->
+        <form action="login.php" method="post">
+            <label for="username">User Name:</label><br>
+            <input type="text" id="username" name="username"><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <div>
+                <label><input name="status" type="checkbox"> Remember me</label>
+            </div>
+            <hr>
+            <div class="button-container">
+                <input type="submit" value="Login">
+                <button type="reset">Clear</button>
+            </div>
+            <div class="logo-bottom">
+                <a href="index.php">
+                    <img src="../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
+                </a>
+            </div>
+            <p>Chưa có tài khoản?<a href="register.php">Đăng ký</a></p>
+        </form>
+    </div>
     <script>
         function validateForm() {
             var username = document.getElementById('username').value;
@@ -131,3 +128,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 <script src="../asset/js/load.js"></script>
 </html>
+
