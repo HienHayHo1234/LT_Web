@@ -29,7 +29,9 @@ try {
             <p class="name-pet"><?php echo htmlspecialchars($pet['name']); ?></p>
             <div class="icons">
                 <button class="heart">❤</button>
-                <button class="button view-detail">Xem</button>
+                <class="button view-detail" id="button2">
+                    <a href="DetailPet.php?id=<?php echo htmlspecialchars($pet['id']); ?>">Xem chi tiết</a>
+                </button>
                 <button class="button order"
                     onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ
                     hàng</button>

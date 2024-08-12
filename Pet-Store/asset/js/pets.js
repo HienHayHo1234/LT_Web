@@ -39,3 +39,6 @@ function displayAllPets(mainContainer, mainContainerId) {
         }
     }
 }
+function toggleHeart(button) {
+    button.classList.toggle('active');
+}
