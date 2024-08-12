@@ -1,8 +1,13 @@
-/* register.css */
+/* Đặt hộp kích thước */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #f7f9fc;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,30 +16,53 @@ body {
 }
 
 .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
     text-align: center;
 }
 
+/* Tiêu đề form đăng ký */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Nhãn và các trường nhập liệu */
 label {
     display: block;
-    margin-top: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
     text-align: left;
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #555;
 }
 
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Nút submit và clear */
 .button-container {
     display: flex;
     justify-content: space-between;
@@ -42,26 +70,35 @@ input[type="email"] {
 }
 
 button {
-    padding: 10px 20px;
+    width: 48%;
+    padding: 10px 0;
+    font-size: 16px;
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin-right: 10px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
 
+button:active {
+    background-color: #3e8e41;
+}
+
+/* Dòng chữ "Or" và logo */
 p {
     margin: 20px 0;
-    font-weight: bold;
+    color: #666;
+    font-size: 14px;
 }
 
 a img {
     width: 50px;
+    height: auto;
     transition: transform 0.3s;
 }
 
