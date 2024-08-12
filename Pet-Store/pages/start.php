@@ -26,6 +26,7 @@
 <h2>Loại Thú Cưng</h2>
 <section class="pet">
     <hr>
+    <hr>
     <div>
         <h1>Chó</h1>
         <a href="index.php?page=dog"><img src="../asset/images/dog/head.png" alt="Chó"></a>
@@ -43,6 +44,7 @@
         <a href="index.php?page=parrot"><img src="../asset/images/parrot/head.png" alt="Vẹt"></a>
         <h3>Chim là loài vật nuôi đáng yêu và đáng eu</h3>
     </div>
+<hr>
 <hr>
 </section>
 
