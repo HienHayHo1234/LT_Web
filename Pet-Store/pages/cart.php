@@ -54,16 +54,22 @@ try {
                 <div class="text">
                     <p class="name-pet"><?php echo htmlspecialchars($item['name']); ?></p>
                     <p>Giá: <span class="price"><?php echo number_format($item['price'], 0, ',', '.'); ?>đ</span> ➱
-                        <?php echo number_format($item['priceSale'], 0, ',', '.'); ?>đ</p>
+                        <?php echo number_format($item['priceSale'], 0, ',', '.'); ?>đ
+                    </p>
                     <p class="count">Số lượng: <?php echo htmlspecialchars($item['quantity']); ?></p>
                     <p class="text-price">Tổng số tiền:
-                        <?php echo number_format($item['price'] * $item['quantity'], 0, ',', '.'); ?>đ</p>
+                        <?php echo number_format($item['price'] * $item['quantity'], 0, ',', '.'); ?>đ
+                    </p>
                 </div>
                 <button class="heart-cart">❤</button>
-                <button class="button cancel" onclick="removeFromCart('<?php echo htmlspecialchars($item['id']); ?>')">Hủy đặt
-                    hàng</button>
-                <button class="button order" id="button<?php echo htmlspecialchars($item['id']); ?>"
-                    onclick="showOrderForm('<?php echo htmlspecialchars($item['id']); ?>')">Đặt hàng</button>
+                <div class="btn-container">
+                    <button class="btn-cart" onclick="removeFromCart('<?php echo htmlspecialchars($item['id']); ?>')">
+                        Hủy đặt hàng
+                    </button>
+                    <button class="btn-cart" id="button<?php echo htmlspecialchars($item['id']); ?>"
+                        onclick="showOrderForm('<?php echo htmlspecialchars($item['id']); ?>')">Đặt hàng
+                    </button>
+                </div>
             </div>
         <?php endforeach; ?>
     <?php else: ?>
@@ -71,16 +77,21 @@ try {
     <?php endif; ?>
 </div>
 
-<div class="cart-form" id="orderForm" style="display: none">
-    <p class="text-chat">HÃY ĐIỀN THÔNG TIN GIAO HÀNG</p>
-    <img class="img-note" src="../asset/images/background/background-cart.png" alt="">
+<div class="cart-form" id="orderForm" style="display: none;">
+    <!-- hình người giao -->
+    <div>
+        <p id="infoMessage" class="text-chat">HÃY ĐIỀN THÔNG TIN GIAO HÀNG</p>
+        <p id="formCompleteMessage" class="text-chat" style="display: none;">
+            HÃY ĐƯA THÔNG TIN CHO TÔI
+        </p>
+        <img class="img-note" src="../asset/images/background/background-cart.png" alt="">
+    </div>
 
+    <!-- nút xóa -->
     <img onclick="btnClose()" class="btn-close" src="../asset/images/icon/close.png" alt="">
 
-    <form action="" method="post" class="order-form">
+    <form id="orderFormElement" action="" method="post" class="order-form">
         <h2>Đặt hàng sản phẩm</h2>
-
-        <input type="hidden" id="productId" name="productId">
 
         <label for="name">Tên của bạn:</label>
         <input type="text" id="name" name="name" required>
@@ -94,11 +105,11 @@ try {
         <label for="size">Chọn độ tuổi:</label>
         <div class="btnS">
             <!-- uống sữa -->
-            <img class="btn-stage" src="../asset/images/parrot/macaw-parrot-2.jpg" alt="">
+            <img id="size" class="btn-stage" src="../asset/images/parrot/macaw-parrot-2.jpg" alt="">
             <!-- mở mắt -->
-            <img class="btn-stage" src="../asset/images/parrot/macaw-parrot-2.jpg" alt="">
+            <img id="size" class="btn-stage" src="../asset/images/parrot/macaw-parrot-2.jpg" alt="">
             <!-- trưởng thành -->
-            <img class="btn-stage" src="../asset/images/parrot/macaw-parrot-2.jpg" alt="">
+            <img id="size" class="btn-stage" src="../asset/images/parrot/macaw-parrot-2.jpg" alt="">
         </div>
 
         <label for="gender">Chọn giới tính thú cưng:</label>
@@ -107,26 +118,11 @@ try {
             <option value="male">Nam</option>
             <option value="female">Nữ</option>
         </select>
-
-        <button type="submit">Đặt hàng</button>
+        <!-- nút gửi -->
+        <button type="submit" class="btn-submit" style="display: none;">
+            <img src="../asset/images/icon/take-form.png" alt="Gửi">
+        </button>
     </form>
 </div>
 
-<script>
-    function showOrderForm(productId) {
-        // Hiển thị form đặt hàng
-        var orderForm = document.getElementById('orderForm');
-        orderForm.style.display = '';
-        // Gán giá trị productId vào hidden input
-        document.getElementById('productId').value = productId;
-        // Cuộn trang đến form đặt hàng
-        orderForm.scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
-
-    function btnClose() {
-        var orderForm = document.getElementById('orderForm');
-        orderForm.style.display = 'none';
-    }
-</script>
+<script src="../asset/js/form-cart.js"></script>
