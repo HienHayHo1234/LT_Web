@@ -14,6 +14,9 @@ switch ($page) {
     case "cart":
         require_once "cart.php";
         break;
+    case "formAdmin":
+        require_once "formAdmin.php";
+        break;
     case "admin":
         require_once "admin.php";
         break;

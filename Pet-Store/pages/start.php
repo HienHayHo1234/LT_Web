@@ -1,5 +1,5 @@
 <script src="../asset/js/load.js"></script>
-<link rel="stylesheet" href="../asset/css/product.css">
+<link rel="stylesheet" href="../asset/css/pets.css">
 <section class="slider">
     <div class="slides">
         <div class="slide active">
@@ -23,7 +23,7 @@
     </div>
     <script src="../asset/js/banner.js"></script>
 </section>
-<h2>Thú Cưng</h2>
+<h2>Loại Thú Cưng</h2>
 <section class="pet">
     <div>
         <h1>Chó</h1>
