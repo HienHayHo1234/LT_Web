@@ -27,8 +27,11 @@ try {
                 <div class="row">
                     <p class="name-pet"><?php echo htmlspecialchars($pet['name']); ?></p>
                     <div class="icons">
-                        <button class="heart">❤</button>
-                        <button class="button view-detail">Xem</button>
+                        <button class="heart" onclick="toggleHeart(this)">❤<i class="fas fa-heart"></i></button>                        
+                        <!-- <button class="heart">❤</button> -->
+                        <button class="button view-detail" id="button1">
+                            <a href="DetailPet.php?id=<?php echo htmlspecialchars($pet['id']); ?>">Xem</a>
+                        </button>
                         <button class="button order"
                             onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ
                             hàng</button>

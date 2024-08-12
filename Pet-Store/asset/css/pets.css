@@ -92,6 +92,12 @@
     vertical-align: middle;
     box-shadow: 0 4px #999;/* bỏ cũng ok */
 }
+
+.heart {
+    right: 3%;
+    top: -120px;
+    border-radius: 40px;
+}
 .heart, .button {
     border: none;
     background-color: rgb(225, 242, 252);
