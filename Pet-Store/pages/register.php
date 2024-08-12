@@ -1,30 +1,89 @@
+<?php
+// Khai báo các thông số kết nối cơ sở dữ liệu
+$host = "localhost";
+$dbname = "pet-store";
+$username = "root";
+$password = "";
+
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Kết nối thất bại: " . $e->getMessage());
+}
+
+// Xử lý form đăng ký
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
+
+    // Kiểm tra dữ liệu đầu vào
+    if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
+        echo "Vui lòng nhập đầy đủ thông tin.";
+    } elseif ($password !== $confirmPassword) {
+        echo "Mật khẩu xác nhận không khớp.";
+    } else {
+        // Kiểm tra nếu người dùng đã tồn tại
+        $checkUser = $conn->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
+        $checkUser->bindParam(':username', $username);
+        $checkUser->bindParam(':email', $email);
+        $checkUser->execute();
+
+        if ($checkUser->rowCount() > 0) {
+            echo "Tài khoản đã tồn tại. Vui lòng <a href='login.php'>đăng nhập</a>.";
+        } else {
+            // Mã hóa mật khẩu
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            // Thêm người dùng vào cơ sở dữ liệu
+            $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $hashedPassword);
+
+            if ($stmt->execute()) {
+                echo "Đăng ký thành công!";
+                header("Location: login.php");
+                exit();
+            } else {
+                echo "Đã xảy ra lỗi khi đăng ký.";
+            }
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <title>Form with Buttons and Logo</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="../asset/css/register.css" rel="stylesheet">
-  </head>
-  <body>
-      <div class="container">
-          <label for="usename">User Name</label>
-          <input type="text" id="usename" ><br>
-          <label for="email">Email</label>
-          <input type="email" id="email" ><br>
-          <label for="password">Password</label>
-          <input type="text" id="password" ><br>
-          <label for="confirmPassword">Confirm Password</label>
-          <input type="text" id="confirmPassword" ><br>
-          <div class="button-container">
-              <button onclick="validateForm()">Submit</button>
-              <button onclick="clearForm()">Clear</button>
-          </div>
-          <p>Or</p>
-          <a href="index.php?page=start"><img src="../asset/images/icon/logo.png" alt="Logo"></a>
-          <div class="login-link">
-              <p>Bạn đã có tài khoản? <a href="login.php">Đăng nhập</a></p>
-          </div>
-      </div>
-  </body>
+
+<head>
+    <title>Form with Buttons and Logo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../asset/css/register.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <form method="post" action="">
+            <label for="username">User Name</label>
+            <input type="text" id="username" name="username"><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password"><br>
+            <label for="confirmPassword">Confirm Password</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword"><br>
+            <div class="button-container">
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </div>
+            <p>Or</p>
+            <a href="index.html"><img src="../asset/images/icon/logo.png" alt="Logo"></a>
+        </form>
+    </div>
+</body>
+
 </html>

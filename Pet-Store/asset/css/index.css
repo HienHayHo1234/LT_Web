@@ -1,3 +1,22 @@
+@keyframes flash {
+    0%, 100% {
+        color: red;
+    }
+    25% {
+        color: yellow;
+    }
+    50% {
+        color: blue;
+    }
+    75% {
+        color: green;
+    }
+}
+h2,h1 {
+    font-size: 2em;
+    animation: flash 3s infinite, shake 0.5s infinite;
+}
+
 .infor{
     display: flex;
     text-align: left;
@@ -145,20 +164,43 @@ nav>ul>li>a {
     display: block;
 }
 
+
+
 .pet {
     text-align: center;
     display: flex;
     justify-content: center;
     margin: 20px;
 }
-.pet div{
-    border: 2px solid rgb(148, 148, 148);
-    padding: 20px;  
+
+.pet div {
+    padding: 20px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #ff6b6b, #f06595, #cc5de8, #845ef7) 1;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .pet img {
     max-width: 100%;
     height: auto;
+    transition: transform 0.3s ease-in-out;
 }
+
+.pet img:hover {
+    transform: scale(1.1);
+}
+
+.pet hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #ff6b6b, #f06595, #cc5de8, #845ef7);
+    margin: 40px 0;
+}
+
+
+
+
 
 .nav-cart {
     position: relative;
