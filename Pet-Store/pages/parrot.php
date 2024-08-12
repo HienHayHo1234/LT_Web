@@ -20,6 +20,7 @@ try {
 }
 ?>
 
+<link rel="stylesheet" href="../asset/css/product.css">
 <div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
@@ -27,16 +28,17 @@ try {
         <img src="<?php echo htmlspecialchars($pet['urlImg']); ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
         <div class="row">
             <p class="name-pet"><?php echo htmlspecialchars($pet['name']); ?></p>
-            <button class="heart" id="button1">❤</button>
+            <div class="icons">
+                <button class="heart">❤</button>
+                <button class="button view-detail">Xem</button>
+                <button class="button order"
+                    onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ
+                    hàng</button>
+            </div>
         </div>
         <p class="text-price">Giá: <span class="price"><?php echo number_format($pet['price'], 0, ',', '.'); ?>đ</span>
             ➱
             <?php echo number_format($pet['priceSale'], 0, ',', '.'); ?>đ</p>
-        <button class="button view-detail" id="button2">Xem chi tiết</button>
-        <button class="button order" id="order-cat"
-            onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">
-            Thêm giỏ hàng
-        </button>
     </div>
     <?php endforeach; ?>
     <?php else: ?>

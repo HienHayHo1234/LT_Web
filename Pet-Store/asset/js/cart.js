@@ -20,32 +20,33 @@ function updateCartDisplay() {
 }
 // Hàm thêm sản phẩm vào giỏ hàng
 function addToPet(petId) {
-    var cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
     var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
     // Kiểm tra nếu petId đã có trong giỏ hàng
     if (!cartItems.includes(petId)) {
-        // Thêm petId vào mảng cartItems
         cartItems.push(petId);
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-        // Cập nhật giao diện giỏ hàng
-        updateCartDisplay();
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "../config/order.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Cập nhật số lượng trong localStorage
-                localStorage.setItem('cartCount', cartCount + 1);
-            }
-        };
-
-        xhr.send("action=add&pet_id=" + encodeURIComponent(petId));
     }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../config/order.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText); // Debugging
+
+            var cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+            localStorage.setItem('cartCount', cartCount + 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Cập nhật giao diện giỏ hàng
+            updateCartDisplay();
+        }
+    };
+
+    xhr.send("action=add&pet_id=" + encodeURIComponent(petId));
 }
+
 
 // Hàm xóa sản phẩm khỏi giỏ hàng
 function removeFromCart(petId) {
@@ -57,10 +58,11 @@ function removeFromCart(petId) {
     if (index > -1) {
         cartItems.splice(index, 1);
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        // Cập nhật giao diện giỏ hàng
+        updateCartDisplay();
     }
 
-    // Cập nhật giao diện giỏ hàng
-    updateCartDisplay();
+    
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "../config/order.php", true);
