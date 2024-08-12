@@ -48,7 +48,7 @@
 
 <section id="product">
     <h2>Thú Cưng Cháy Hàng</h2>
-
+    <?php require_once("hot.php"); ?>
     <h2>Thú Cưng</h2>
     <?php require_once("pets.php"); ?>
 </section>
