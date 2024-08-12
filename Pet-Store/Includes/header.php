@@ -53,12 +53,6 @@
                 Trang Chủ
             </a>
         </li>
-        <li>
-            <a href="../pages/index.php">
-                <img src="../asset/images/icon/home-ico.png" alt="Home Icon" />
-                Trang Chủ
-            </a>
-        </li>
         <li class="dropdown">
             <a class="dropdown-btn">
                 <img src="../asset/images/icon/pet-ico.png" alt="Pet Icon" />
