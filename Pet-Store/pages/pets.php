@@ -1,9 +1,6 @@
 <?php
 // Khai báo các thông số kết nối cơ sở dữ liệu
-$host = "localhost";
-$dbname = "pet-store";
-$username = "root";
-$password = "";
+require '../config/config.php';
 
 try {
     // Tạo đối tượng PDO để kết nối với cơ sở dữ liệu MySQL
@@ -21,9 +18,8 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
-<link rel="stylesheet" href="../asset/css/product.css">
 
-<div class="pets-gird">
+<div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
     <div class="container-pets">
@@ -32,9 +28,7 @@ try {
             <p class="name-pet"><?php echo htmlspecialchars($pet['name']); ?></p>
             <div class="icons">
                 <button class="heart">❤</button>
-                <button class="button view-detail" id="button1">
-                <a href="DetailPet.php?id=<?php echo htmlspecialchars($pet['id']); ?>">Xem</a>
-                </button>
+                <button class="button view-detail">Xem</button>
                 <button class="button order" onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ hàng</button>
             </div>
         </div>
@@ -44,6 +38,6 @@ try {
     </div>
     <?php endforeach; ?>
     <?php else: ?>
-    <p>Chưa có sản phẩm nào.</p>
+        <p>Chưa có sản phẩm nào.</p>
     <?php endif; ?>
 </div>

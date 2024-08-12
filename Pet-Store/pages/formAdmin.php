@@ -9,9 +9,14 @@
 </head>
 
 <body>
-    <main>
+    <nav class="item-menu">
+        <button id="" onclick="clickButtonAdd()">Thêm sản phẩm</button>
+        <button id="">Xem sản phẩm</button>
+        <button id="">Xem đơn hàng</button>
+    </nav>
+    <main class="item-main">
         <div id="add-form">
-            <a href="pets/parrot.php" class="back-link">Quay Lại</a>
+            <a href="admin.php" class="back-link">Quay Lại</a>
             <h1>Thêm Sản Phẩm Mới</h1>
             <form id="pet-form" action="../config/upload_form.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
@@ -51,6 +56,8 @@
             </form>
         </div>
     </main>
+    <footer class="item-footer"></footer>
+    <!-- Script -->
 </body>
 
 </html>

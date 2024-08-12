@@ -1,4 +1,4 @@
-/* Tạo lưới chia khu cho main */
+/* CSS cho cart pets */
 .cart-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -16,7 +16,7 @@
 
 .container-cart {
     position: relative;
-    width: 600px;
+    width: 700px;
     height: 400px;
     border-top-left-radius: 100px;
     border-top-right-radius: 40px;
@@ -30,7 +30,7 @@
     width: 40%;
     height: 75%;
     border-top-left-radius: 100px;
-    border-bottom-right-radius: 50px;
+    border-bottom-right-radius: 100px;
     position: absolute;
     top: 3px;
     left: 3px;
@@ -48,7 +48,7 @@
 
 /* Bảng tên  */
 .name-pet {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
     margin: 10px 0 10px 0;
@@ -146,4 +146,136 @@
     position: absolute;
     bottom: 3%;
     right: 25%;
+}
+
+/* CSS cho from đặt hàng */
+.cart-form {
+    width: 750px;
+    height: 700px;
+    position: fixed; /* Giữ form ở vị trí cố định */
+    top: 20%; /* Điều chỉnh vị trí trên màn hình */
+    left: 50%; /* Điều chỉnh vị trí từ trái màn hình */
+    transform: translate(-50%, -20%); /* Canh giữa theo chiều ngang */
+    display: flex; /* Sử dụng Flexbox */
+    flex-direction: row-reverse;
+    z-index: 101;
+    background-color: #fbecec;
+    box-shadow: 0 10px 10px 5px rgba(84, 84, 84, 0);
+}
+.cart-form>.text-chat {
+    background-color: rgb(249, 173, 59);
+    height: 80px;
+    position: absolute;
+    top: 46%;
+    right: 2%;
+    border-radius: 15px;
+    z-index: 102;
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    text-align: center; /* Đảm bảo chữ căn giữa nếu có nhiều dòng */
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+.cart-form>.img-note {
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    bottom: 1%;
+    right: 2%;
+}
+
+/* Định dạng các phần tử trong form */
+.order-form {
+    background-color: rgb(230, 146, 89); /* Sử dụng cùng màu nền như nav */
+    padding: 10px;
+    border-radius: 5px;
+    width: 400px; /* Bạn có thể điều chỉnh chiều rộng theo ý muốn */
+    color: white;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.order-form label {
+    margin-top: 10px;
+    display: block;
+    color: white;
+    font-weight: bold;
+}
+
+.order-form input,
+.order-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.btnS {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+.btn-stage {
+    margin: 10px auto;
+    width: 30%;
+    height: 100px;
+    transition: transform 0.5s ease, z-index 0s;
+    border-radius: 10px;
+}
+.btn-stage:hover {
+    z-index: 103;
+    border-radius: 10px;
+    transform: scale(2);
+}
+
+.order-form button {
+    background-color: rgb(237, 84, 84); /* Sử dụng màu nền khác để phân biệt nút */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60%;
+    margin-top: 10px;
+    font-size: large;
+    
+}
+
+.order-form button:hover {
+    background-color: rgb(249, 36, 29); /* Đổi màu khi hover để tạo hiệu ứng */
+}
+
+/* Định dạng tiêu đề form */
+.order-form h2 {
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+}
+
+.btn-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    width: 6%;
+}
+
+/* Định dạng khi form kích thước nhỏ */
+@media (max-width: 480px) {
+    .order-form {
+        padding: 15px;
+    }
+
+    .order-form h2 {
+        font-size: 20px;
+    }
+
+    .order-form button {
+        font-size: 16px;
+    }
 }
