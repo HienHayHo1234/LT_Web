@@ -16,12 +16,12 @@
         <?php require_once("../Includes/header.php"); ?>
     </header>
 
-    <main class = "nav-follow">
+    <main >
         <?php require_once("main.php"); ?>
     </main>
 </body>
 <footer>
     <?php require_once("../Includes/footer.php"); ?>
 </footer>
-
+<script src="../asset/js/index.js"></script>
 </html>
