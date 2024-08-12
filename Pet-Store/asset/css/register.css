@@ -78,7 +78,7 @@ button {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin-right: 10px;
 }
 
 button:hover {

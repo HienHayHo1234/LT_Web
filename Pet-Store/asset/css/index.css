@@ -167,12 +167,21 @@ nav>ul>li>a {
 
 
 
+
+
 .pet {
     text-align: center;
     display: flex;
     justify-content: center;
     margin: 20px;
 }
+
+.pet div {
+    padding: 20px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #ff6b6b, #f06595, #cc5de8, #845ef7) 1;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 .pet div {
     padding: 20px;

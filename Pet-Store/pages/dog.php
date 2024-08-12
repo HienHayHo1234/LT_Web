@@ -6,8 +6,6 @@ try {
     // Tạo đối tượng PDO để kết nối với cơ sở dữ liệu MySQL
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Thực hiện truy vấn để lấy tất cả các sản phẩm thuộc danh mục 'cat'
     $stmt = $conn->prepare("SELECT * FROM pets WHERE idLoai = :idLoai");
     $stmt->bindParam(':idLoai', $idLoai);
     $idLoai = 'dog'; // Danh mục cần lọc
@@ -19,7 +17,6 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
-
 <div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
