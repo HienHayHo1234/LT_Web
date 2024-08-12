@@ -12,6 +12,7 @@
         color: green;
     }
 }
+
 h2,h1 {
     font-size: 2em;
     animation: flash 3s infinite, shake 0.5s infinite;
