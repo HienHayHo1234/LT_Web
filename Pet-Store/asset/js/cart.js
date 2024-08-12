@@ -11,6 +11,7 @@ function addToPet(petId) {
     };
 
     xhr.send("action=add&pet_id=" + encodeURIComponent(petId));
+    alert("Đã thêm vào giỏ hàng!");
 }
 
 

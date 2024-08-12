@@ -45,7 +45,7 @@
     </div>
 </header>
 
-<nav>
+<nav class = "nav-follow2">
     <ul>
         <li>
             <a href="../pages/index.php">
