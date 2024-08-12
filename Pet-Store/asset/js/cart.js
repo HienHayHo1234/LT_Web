@@ -1,7 +1,7 @@
 // Hàm để cập nhật giỏ hàng và hiển thị
 function updateCartDisplay() {
     var cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
-    var cartIcon = document.querySelector('.nav-cart img');
+    var cartIcon = document.querySelector('.nav-cart>img');
 
     if (cartCount > 0) {
         // Hiển thị ảnh thông báo giỏ hàng có sản phẩm
