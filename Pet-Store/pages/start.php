@@ -31,7 +31,6 @@
         <h1>Chó</h1>
         <a href="index.php?page=dog"><img src="../asset/images/dog/head.png" alt="Chó"></a>
         <h3>Chó là loài vật nuôi trung thành và đáng yêu.</h3>
-        <h3>Chó là loài vật nuôi trung thành và đáng yêu.</h3>
     </div>
 
     <div>
@@ -43,7 +42,6 @@
     <div>
         <h1>Vẹt</h1>
         <a href="index.php?page=parrot"><img src="../asset/images/parrot/head.png" alt="Vẹt"></a>
-        <h3>Chim là loài vật nuôi đáng yêu và đáng eu</h3>
         <h3>Chim là loài vật nuôi đáng yêu và đáng eu</h3>
     </div>
 <hr>
