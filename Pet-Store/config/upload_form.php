@@ -31,36 +31,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Kiểm tra sự tồn tại của thư mục và tạo nếu không tồn tại
     if (!file_exists($targetDir)) {
-        mkdir($targetDir, 0777, true);
+        if (!mkdir($targetDir, 0777, true)) {
+            die("Không thể tạo thư mục lưu trữ hình ảnh.");
+        }
     }
 
     // Kiểm tra và di chuyển file upload vào thư mục lưu trữ
     if (move_uploaded_file($_FILES["pet-image"]["tmp_name"], $targetFile)) {
-        // Kiểm tra nếu ID đã tồn tại trong cơ sở dữ liệu
-        $checkIdStmt = $conn->prepare("SELECT COUNT(*) FROM pets WHERE id = :id");
-        $checkIdStmt->bindParam(':id', $id);
-        $checkIdStmt->execute();
+        try {
+            // Kiểm tra nếu ID đã tồn tại trong cơ sở dữ liệu
+            $checkIdStmt = $conn->prepare("SELECT COUNT(*) FROM pets WHERE id = :id");
+            $checkIdStmt->bindParam(':id', $id);
+            $checkIdStmt->execute();
 
-        if ($checkIdStmt->fetchColumn() > 0) {
-            die("ID sản phẩm đã tồn tại. Vui lòng chọn ID khác.");
+            if ($checkIdStmt->fetchColumn() > 0) {
+                die("ID sản phẩm đã tồn tại. Vui lòng chọn ID khác.");
+            }
+
+            // Chèn dữ liệu vào bảng `pets`
+            $stmt = $conn->prepare("INSERT INTO pets (id, name, price, priceSale, quantity, urlImg, idLoai) 
+                                    VALUES (:id, :name, :price, :priceSale, :quantity, :urlImg, :idLoai)");
+            $stmt->bindParam(':id', $id);           // Lưu giá trị id
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':price', $price);
+            $stmt->bindParam(':priceSale', $priceSale);
+            $stmt->bindParam(':quantity', $quantity);
+            $stmt->bindParam(':urlImg', $targetFile);  // Lưu đường dẫn tương đối
+            $stmt->bindParam(':idLoai', $idLoai);       // Thêm giá trị idLoai
+
+            $stmt->execute();
+
+            echo "Thêm sản phẩm thành công!";
+        } catch (PDOException $e) {
+            error_log("Lỗi SQL: " . $e->getMessage());
+            echo "Có lỗi xảy ra khi thêm sản phẩm.";
         }
-
-        // Chèn dữ liệu vào bảng `pets`
-        $stmt = $conn->prepare("INSERT INTO pets (id, name, price, priceSale, quantity, urlImg, idLoai) 
-                                VALUES (:id, :name, :price, :priceSale, :quantity, :urlImg, :idLoai)");
-        $stmt->bindParam(':id', $id);           // Lưu giá trị id
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':price', $price);
-        $stmt->bindParam(':priceSale', $priceSale);
-        $stmt->bindParam(':quantity', $quantity);
-        $stmt->bindParam(':urlImg', $targetFile);  // Lưu đường dẫn tương đối
-        $stmt->bindParam(':idLoai', $idLoai);       // Thêm giá trị idLoai
-
-        $stmt->execute();
-
-        echo "Thêm sản phẩm thành công!";
     } else {
         error_log("Có lỗi xảy ra khi tải lên hình ảnh.");
         echo "Có lỗi xảy ra khi tải lên hình ảnh.";
     }
 }
+?>
