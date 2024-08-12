@@ -18,7 +18,6 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
-<link rel="stylesheet" href="../asset/css/product.css">
 
 <div class="pets-gird">
     <?php if (!empty($pets)): ?>
