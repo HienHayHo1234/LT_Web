@@ -1,7 +1,6 @@
 <?php
 require '../config/config.php';
 
-session_start();
 
 // Giả sử user_id là 1, bạn có thể thay đổi theo hệ thống của bạn
 $user_id = 1;

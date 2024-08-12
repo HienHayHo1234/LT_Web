@@ -19,7 +19,7 @@ try {
 }
 ?>
 
-<div class="pets-gird">
+<div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
     <div class="container-pets">
