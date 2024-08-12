@@ -1,30 +1,22 @@
-<script src="../asset/js/load.js"></script>
+<link rel="stylesheet" href="../asset/css/banner.css">
 <link rel="stylesheet" href="../asset/css/pets.css">
-<section class="slider">
-    <div class="slides">
-        <div class="slide active">
-            <img src="../asset/images/banner/1.png" alt="Slide 1">
+<section>
+<div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide"><img src="../asset/images/banner/2.jpg" alt="Image 1"></div>
+            <div class="slide"><img src="../asset/images/banner/3.jpg" alt="Image 2"></div>
+            <div class="slide"><img src="../asset/images/banner/4.jpg" alt="Image 3"></div>
+            <div class="slide"><img src="../asset/images/banner/5.jpg" alt="Image 4"></div>
+            <div class="slide"><img src="../asset/images/banner/6.jpg" alt="Image 5"></div>
         </div>
-        <div class="slide">
-            <img src="../asset/images/banner/2.jpg" alt="Slide 2">
-        </div>
-        <div class="slide">
-            <img src="../asset/images/banner/3.jpg" alt="Slide 3">
-        </div>
-        <div class="slide">
-            <img src="../asset/images/banner/4.jpg" alt="Slide 4">
-        </div>
-        <div class="slide">
-            <img src="../asset/images/banner/5.jpg" alt="Slide 5">
-        </div>
-        <div class="slide">
-            <img src="../asset/images/banner/6.jpg" alt="Slide 6">
-        </div>
+        <button class="arrow left-arrow" id="prevBtn">&#10094;</button>
+        <button class="arrow right-arrow" id="nextBtn">&#10095;</button>
+        <div class="indicators" id="indicators"></div>
     </div>
-    <script src="../asset/js/banner.js"></script>
 </section>
 <h2>Loại Thú Cưng</h2>
 <section class="pet">
+    <hr>
     <hr>
     <div>
         <h1>Chó</h1>
@@ -41,8 +33,9 @@
     <div>
         <h1>Vẹt</h1>
         <a href="index.php?page=parrot"><img src="../asset/images/parrot/head.png" alt="Vẹt"></a>
-        <h3>Chim là loài vật nuôi đáng yêu và đáng eu</h3>
+        <h3>Vẹt là loài vật nuôi đáng yêu và nhanh nhẹn.</h3>
     </div>
+<hr>
 <hr>
 </section>
 
@@ -52,3 +45,4 @@
     <h2>Thú Cưng</h2>
     <?php require_once("pets.php"); ?>
 </section>
+<script src="../asset/js/banner.js"></script>

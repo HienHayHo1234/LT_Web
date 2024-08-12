@@ -128,7 +128,7 @@ nav {
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1;
 }
 
 nav>ul>li>a:hover {
@@ -167,6 +167,8 @@ nav>ul>li>a {
 
 
 
+
+
 .pet {
     text-align: center;
     display: flex;
@@ -174,6 +176,13 @@ nav>ul>li>a {
     margin: 20px;
 }
 
+.pet div {
+    padding: 20px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #ff6b6b, #f06595, #cc5de8, #845ef7) 1;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 .pet div {
     padding: 20px;
     border: 2px solid transparent;

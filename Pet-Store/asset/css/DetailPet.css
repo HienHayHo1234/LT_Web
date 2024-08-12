@@ -1,0 +1,82 @@
+/* DetailPet.css */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.container img {
+    max-width: 250px; /* Đặt kích thước nhỏ hơn cho ảnh */
+    height: auto;
+    margin-right: 20px;
+    flex: 1 1 250px; /* Cung cấp không gian cơ bản cho ảnh */
+    border-radius: 8px;
+}
+
+.details {
+    flex: 2 1 600px; /* Đặt kích thước cơ bản cho phần thông tin */
+    max-width: 100%;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.price, .sale-price, .quantity {
+    font-weight: bold;
+}
+
+.text-price, .text-quantity {
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
