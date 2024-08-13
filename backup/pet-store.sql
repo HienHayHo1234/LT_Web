@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 12, 2024 lúc 05:29 PM
--- Phiên bản máy phục vụ: 10.4.32-MariaDB
--- Phiên bản PHP: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Aug 13, 2024 at 07:50 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `pet-store`
+-- Database: `pet-store`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cart_items`
+-- Table structure for table `cart_items`
 --
 
 CREATE TABLE `cart_items` (
@@ -35,10 +35,17 @@ CREATE TABLE `cart_items` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart_items`
+--
+
+INSERT INTO `cart_items` (`id`, `user_id`, `pet_id`, `quantity`, `created_at`) VALUES
+(0, 1, '2-cat', 1, '2024-08-12 19:22:15');
+
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `danhmucpets`
+-- Table structure for table `danhmucpets`
 --
 
 CREATE TABLE `danhmucpets` (
@@ -49,7 +56,7 @@ CREATE TABLE `danhmucpets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `danhmucpets`
+-- Dumping data for table `danhmucpets`
 --
 
 INSERT INTO `danhmucpets` (`idLoai`, `tenLoai`, `soTT`, `anHien`) VALUES
@@ -60,7 +67,7 @@ INSERT INTO `danhmucpets` (`idLoai`, `tenLoai`, `soTT`, `anHien`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `pets`
+-- Table structure for table `pets`
 --
 
 CREATE TABLE `pets` (
@@ -76,7 +83,7 @@ CREATE TABLE `pets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `pets`
+-- Dumping data for table `pets`
 --
 
 INSERT INTO `pets` (`id`, `name`, `price`, `priceSale`, `quantity`, `urlImg`, `idLoai`, `description`, `hot`) VALUES
@@ -109,11 +116,11 @@ INSERT INTO `pets` (`id`, `name`, `price`, `priceSale`, `quantity`, `urlImg`, `i
 ('yellow4-parrot', 'Vẹt Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/yellow-parrot.jpg', 'parrot', '', NULL);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `pets`
+-- Indexes for table `pets`
 --
 ALTER TABLE `pets`
   ADD PRIMARY KEY (`id`),
