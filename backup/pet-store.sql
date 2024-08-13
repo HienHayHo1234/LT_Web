@@ -2,14 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
-<<<<<<< HEAD:backup/pet-store (3).sql
--- Thời gian đã tạo: Th8 12, 2024 lúc 05:01 PM
-=======
--- Thời gian đã tạo: Th8 12, 2024 lúc 05:29 PM
->>>>>>> a20d47f32ee555ce48113b860053610cbcd954b4:backup/pet-store.sql
--- Phiên bản máy phục vụ: 10.4.32-MariaDB
--- Phiên bản PHP: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Aug 13, 2024 at 07:50 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -22,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `pet-store`
+-- Database: `pet-store`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cart_items`
+-- Table structure for table `cart_items`
 --
 
 CREATE TABLE `cart_items` (
@@ -40,22 +36,16 @@ CREATE TABLE `cart_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `cart_items`
+-- Dumping data for table `cart_items`
 --
 
 INSERT INTO `cart_items` (`id`, `user_id`, `pet_id`, `quantity`, `created_at`) VALUES
-(52, 1, '4-cat', 1, '2024-08-12 09:34:07'),
-(53, 1, '3-cat', 2, '2024-08-12 09:34:07'),
-(54, 1, '2-cat', 9, '2024-08-12 09:34:08'),
-(55, 1, '6-cat', 1, '2024-08-12 09:34:10'),
-(56, 1, '7-cat', 1, '2024-08-12 09:34:11'),
-(57, 1, '8-cat', 4, '2024-08-12 09:34:12'),
-(58, 1, '9-cat', 2, '2024-08-12 09:34:13');
+(0, 1, '2-cat', 1, '2024-08-12 19:22:15');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `danhmucpets`
+-- Table structure for table `danhmucpets`
 --
 
 CREATE TABLE `danhmucpets` (
@@ -66,7 +56,7 @@ CREATE TABLE `danhmucpets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `danhmucpets`
+-- Dumping data for table `danhmucpets`
 --
 
 INSERT INTO `danhmucpets` (`idLoai`, `tenLoai`, `soTT`, `anHien`) VALUES
@@ -77,7 +67,7 @@ INSERT INTO `danhmucpets` (`idLoai`, `tenLoai`, `soTT`, `anHien`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `pets`
+-- Table structure for table `pets`
 --
 
 CREATE TABLE `pets` (
@@ -88,46 +78,14 @@ CREATE TABLE `pets` (
   `quantity` int(11) NOT NULL,
   `urlImg` varchar(255) NOT NULL,
   `idLoai` varchar(30) NOT NULL,
-<<<<<<< HEAD:backup/pet-store (3).sql
-=======
   `description` text NOT NULL,
->>>>>>> a20d47f32ee555ce48113b860053610cbcd954b4:backup/pet-store.sql
   `hot` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `pets`
+-- Dumping data for table `pets`
 --
 
-<<<<<<< HEAD:backup/pet-store (3).sql
-INSERT INTO `pets` (`id`, `name`, `price`, `priceSale`, `quantity`, `urlImg`, `idLoai`, `hot`) VALUES
-('2-cat', 'Mèo Anh lông ngắn', 3300000.00, 2800000.00, 4, '../asset/uploads/1.jpg', 'cat', 1),
-('3-cat', 'Mèo Maine Coon', 3300000.00, 2800000.00, 4, '../asset/uploads/3.jpg', 'cat', 1),
-('4-cat', 'Mèo Tuxedo', 3300000.00, 2800000.00, 4, '../asset/uploads/4.jpg', 'cat', NULL),
-('5-cat', 'Mèo Munchkin', 3300000.00, 3000000.00, 4, '../asset/uploads/5.jpg', 'cat', NULL),
-('6-cat', 'Mèo Mướp', 2000000.00, 1800000.00, 6, '../asset/uploads/6.jpg', 'cat', NULL),
-('7-cat', 'Mèo Mỹ Lông Ngắn', 2000000.00, 1800000.00, 6, '../asset/uploads/7.jpg', 'cat', NULL),
-('8-cat', 'Mèo Mỹ Tai Xoắn', 2000000.00, 1800000.00, 5, '../asset/uploads/8.jpg', 'cat', NULL),
-('9-cat', 'Mèo Không Lông', 2000000.00, 1800000.00, 4, '../asset/uploads/9.jpg', 'cat', NULL),
-('blue-parrot', 'Vẹt Nước Ngoài', 220000.00, 200000.00, 2, '../asset/uploads/blue-parrot.jpg', 'parrot', 1),
-('cockatoo-parrot', 'Vẹt Nước Ngoài', 220000.00, 200000.00, 2, '../asset/uploads/cockatoo-parrot.jpg', 'parrot', NULL),
-('endland-cat', 'Mèo Anh lông dài', 1000000.00, 900000.00, 10, '../asset/uploads/meo.jpg', 'cat', NULL),
-('golden-dog', 'Chó Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/Golden.jpg', 'dog', NULL),
-('green-parrot', 'Vẹt Xanh', 1000000.00, 900000.00, 10, '../asset/uploads/green-parrot.jpg', 'parrot', NULL),
-('macaw-parrot', 'Vẹt Nước Ngoài', 220000.00, 200000.00, 2, '../asset/uploads/macaw-parrot.jpg', 'parrot', NULL),
-('malta-dog', 'Chó Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/Malta.jpg', 'dog', NULL),
-('phoc-dog', 'Chó Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/Phoc.jpg', 'dog', NULL),
-('pitbull-dog', 'Chó Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/Pitbull.jpg', 'dog', NULL),
-('poodle-dog', 'Chó Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/Poodle.jpg', 'dog', 1),
-('pug-dog', 'Chó Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/Pug.jpg', 'dog', NULL),
-('retr-dog', 'Chó Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/Retriever.jpg', 'dog', NULL),
-('rott-dog', 'Chó Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/Rottweiler.jpg', 'dog', NULL),
-('schnauzer-dog', 'Chó Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/Schnauzer.jpg', 'dog', NULL),
-('yellow-parrot', 'Vẹt Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/yellow-parrot.jpg', 'parrot', NULL),
-('yellow2-parrot', 'Vẹt Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/yellow-parrot.jpg', 'parrot', NULL),
-('yellow3-parrot', 'Vẹt Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/yellow-parrot.jpg', 'parrot', NULL),
-('yellow4-parrot', 'Vẹt Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/yellow-parrot.jpg', 'parrot', NULL);
-=======
 INSERT INTO `pets` (`id`, `name`, `price`, `priceSale`, `quantity`, `urlImg`, `idLoai`, `description`, `hot`) VALUES
 ('2-cat', 'Mèo Anh lông ngắn', 3300000.00, 2800000.00, 4, '../asset/uploads/1.jpg', 'cat', '\"Mèo Anh lông trắng\" thường ám chỉ những chú mèo thuộc giống mèo Anh lông ngắn hoặc lông dài có bộ lông màu trắng tinh khiết. Mèo Anh là giống mèo nổi tiếng với tính cách hiền lành, dễ thương, và thân thiện. Lông của chúng dày, mượt mà, với đôi mắt thường có màu xanh hoặc màu hổ phách đặc trưng, mang đến vẻ ngoài thanh lịch và dễ mến.\r\n\r\nMèo Anh lông trắng rất được ưa chuộng vì vẻ đẹp sang trọng và dễ thương của chúng. Giống mèo này cũng có thể có nhiều màu mắt khác nhau như mắt xanh, vàng, hoặc thậm chí là mắt hai màu (heterochromia), làm cho chúng càng thêm đặc biệt và quyến rũ.', 1),
 ('3-cat', 'Mèo Maine Coon', 3300000.00, 2800000.00, 4, '../asset/uploads/3.jpg', 'cat', 'Mèo Maine Coon là một trong những giống mèo lớn nhất và nổi tiếng nhất trên thế giới. Chúng có nguồn gốc từ bang Maine, Hoa Kỳ, và được biết đến với vẻ ngoài ấn tượng, bộ lông dày dặn, cùng tính cách hiền lành và thân thiện.\r\n\r\n### Đặc điểm nổi bật của mèo Maine Coon:\r\n\r\n1. **Kích thước lớn**: Maine Coon là một trong những giống mèo có kích thước lớn nhất. Chúng có thể nặng từ 4 đến 8 kg, và đôi khi có những con đực có thể nặng tới 10 kg hoặc hơn. Chiều dài của chúng, tính cả đuôi, có thể đạt tới 1 mét.\r\n\r\n2. **Bộ lông dày và mượt**: Maine Coon có bộ lông dày, dài và rất mượt mà, giúp chúng chống lại thời tiết lạnh giá. Lông của chúng thường dài hơn ở phần cổ, tạo thành một chiếc \"bờm\" giống như sư tử, và lông đuôi cũng rất dày.\r\n\r\n3. **Đuôi dài và rậm**: Đuôi của Maine Coon rất dài và rậm rạp, giúp chúng giữ ấm trong điều kiện thời tiết lạnh.\r\n\r\n4. **Mắt to và biểu cảm**: Maine Coon có đôi mắt to, sáng, và có thể có nhiều màu sắc khác nhau, từ xanh lá cây, vàng, đến màu đồng.\r\n\r\n5. **Tính cách hiền lành, thân thiện**: Dù có kích thước lớn, nhưng Maine Coon rất hiền lành, dễ chịu, và thân thiện. Chúng thường hòa đồng với mọi người và thậm chí là các loài vật nuôi khác. Maine Coon rất thông minh và có thể được huấn luyện để thực hiện một số lệnh đơn giản.\r\n\r\n6. **Tuổi thọ**: Maine Coon thường có tuổi thọ từ 12 đến 15 năm, tuy nhiên, với điều kiện chăm sóc tốt, chúng có thể sống lâu hơn.\r\n\r\n### Chăm sóc mèo Maine Coon:\r\n\r\n- **Chải lông**: Do có bộ lông dày, Maine Coon cần được chải lông thường xuyên để ngăn ngừa tình trạng rối và giảm thiểu lượng lông rụng.\r\n\r\n- **Dinh dưỡng**: Cần cung cấp một chế độ ăn uống cân đối và giàu dinh dưỡng để đảm bảo sức khỏe và sự phát triển của chúng.\r\n\r\n- **Không gian**: Maine Coon cần không gian rộng rãi để di chuyển và chơi đùa, vì chúng rất năng động và thích leo trèo.\r\n\r\n- **Chăm sóc sức khỏe**: Maine Coon có thể mắc phải một số vấn đề về sức khỏe như bệnh tim (HCM) và các vấn đề về hông. Việc kiểm tra sức khỏe định kỳ với bác sĩ thú y là rất quan trọng.\r\n\r\nMèo Maine Coon là giống mèo tuyệt vời cho những ai yêu thích một chú mèo to lớn nhưng hiền lành, tình cảm và thông minh. Chúng sẽ là người bạn đồng hành tuyệt vời trong gia đình.', NULL),
@@ -156,41 +114,17 @@ INSERT INTO `pets` (`id`, `name`, `price`, `priceSale`, `quantity`, `urlImg`, `i
 ('yellow2-parrot', 'Vẹt Vàng Amazon', 220000.00, 200000.00, 2, '../asset/uploads/yellow-parrot.jpg', 'parrot', 'Đây là một loài vẹt lớn hơn với màu lông chủ đạo là xanh lá cây, nhưng có phần đỉnh đầu màu vàng đặc trưng. Chúng rất thông minh, có khả năng bắt chước tiếng nói và thường được yêu thích làm thú cưng.', 1),
 ('yellow3-parrot', 'Vẹt Sunny', 220000.00, 200000.00, 2, '../asset/uploads/yellow-parrot.jpg', 'parrot', ' Loài vẹt này có lông màu vàng rực rỡ kết hợp với màu cam và đỏ. Chúng nổi tiếng với vẻ đẹp và tiếng kêu lớn, rất thích hợp cho những người yêu thích vẹt năng động.', NULL),
 ('yellow4-parrot', 'Vẹt Cực đẹp', 220000.00, 200000.00, 2, '../asset/uploads/yellow-parrot.jpg', 'parrot', '', NULL);
->>>>>>> a20d47f32ee555ce48113b860053610cbcd954b4:backup/pet-store.sql
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `pets`
+-- Indexes for table `pets`
 --
 ALTER TABLE `pets`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idLoai` (`idLoai`);
-<<<<<<< HEAD:backup/pet-store (3).sql
-
---
--- AUTO_INCREMENT cho các bảng đã đổ
---
-
---
--- AUTO_INCREMENT cho bảng `cart_items`
---
-ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
-
---
--- Các ràng buộc cho các bảng đã đổ
---
-
---
--- Các ràng buộc cho bảng `cart_items`
---
-ALTER TABLE `cart_items`
-  ADD CONSTRAINT `cart_items_ibfk_1` FOREIGN KEY (`pet_id`) REFERENCES `pets` (`id`);
-=======
->>>>>>> a20d47f32ee555ce48113b860053610cbcd954b4:backup/pet-store.sql
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
