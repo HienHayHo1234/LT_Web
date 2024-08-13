@@ -19,17 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const infoMessage = document.getElementById('infoMessage');
     const formCompleteMessage = document.getElementById('formCompleteMessage');
     const submitButton = document.querySelector('.btn-submit');
-    const productSelect = document.getElementById('product');
-    const totalAmountSpan = document.getElementById('totalAmount');
 
     function validateForm() {
         const name = document.getElementById('name').value.trim();
         const address = document.getElementById('address').value.trim();
         const phone = document.getElementById('phone').value.trim();
-        const gender = document.getElementById('gender').value;
         const product = document.getElementById('product').value;
 
-        if (name && address && phone && gender && product) {
+        if (name && address && phone  && product) {
             infoMessage.style.display = 'none';
             formCompleteMessage.style.display = 'block';
             submitButton.style.display = 'inline-block';
@@ -42,3 +39,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.addEventListener('input', validateForm);
 });
+function updateTotalPrice() {
+    var productSelect = document.getElementById('product');
+    var selectedOption = productSelect.options[productSelect.selectedIndex];
+    var totalAmount = 0;
+
+    if (selectedOption.value === "all") {
+        // Nếu chọn "Chọn hết", tính tổng tiền của tất cả sản phẩm
+        var textPrices = document.querySelectorAll('.text-price');
+        textPrices.forEach(function(textPrice) {
+            var amount = parseInt(textPrice.innerText.replace(/\D/g, '')); // Lấy giá trị số từ text-price
+            totalAmount += amount;
+        });
+    } else {
+        // Nếu chọn một sản phẩm cụ thể
+        var price = selectedOption.getAttribute('data-price');
+        var quantity = selectedOption.getAttribute('data-quantity');
+        totalAmount = (parseInt(price) || 0) * (parseInt(quantity) || 1);
+    }
+
+    // Hiển thị tổng số tiền
+    document.getElementById('totalAmount').innerText = totalAmount.toLocaleString('vi-VN') + 'đ';
+}

@@ -1,58 +1,40 @@
-function clickButtonAdd() {
-    document.getElementById('add-form').innerHTML = `
-        <a href="parrot.html" class="back-link">Quay Lại</a>
-        <h1>Thêm Sản Phẩm Mới</h1>
-        <form id="pet-form">
-            <div class="form-group">
-                <label for="pet-id">ID:</label>
-                <input type="text" id="pet-id" name="pet-id" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-name">Tên:</label>
-                <input type="text" id="pet-name" name="pet-name" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-price">Giá:</label>
-                <input type="number" id="pet-price" name="pet-price" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-price-sale">Giá Khuyến Mãi:</label>
-                <input type="number" id="pet-price-sale" name="pet-price-sale" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-quantity">Số Lượng:</label>
-                <input type="number" id="pet-quantity" name="pet-quantity" required>
-            </div>
-            <div class="form-group">
-                <label for="pet-image">URL Hình Ảnh:</label>
-                <input type="file" id="pet-image" name="pet-image" required>
-            </div>
-            <button type="submit">Thêm Sản Phẩm</button>
-        </form>
-    `;
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.save-btn-pets-admin').forEach(function (button) {
+        button.addEventListener('click', function () {
+            var container = this.closest('.container-pets-admin');
+            var id = container.getAttribute('data-id');
+            var name = container.querySelector('.edit-name').value;
+            var price = container.querySelector('.edit-price').value;
+            var priceSale = container.querySelector('.edit-priceSale').value;
+            var idLoai = container.getAttribute('data-idLoai');
+            var gender = container.querySelector('.edit-gender').value;
+            var description = container.querySelector('.edit-description').value; // Lấy giá trị từ textarea
+            var urlImg = container.querySelector('.edit-urlImg').files[0];
 
-    document.getElementById('pet-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const pet = {
-            id: document.getElementById('pet-id').value,
-            name: document.getElementById('pet-name').value,
-            price: parseInt(document.getElementById('pet-price').value),
-            priceSale: parseInt(document.getElementById('pet-price-sale').value),
-            quantity: parseInt(document.getElementById('pet-quantity').value),
-            urlImg: ''
-        };
+            var formData = new FormData();
+            formData.append('pet-id', id);
+            formData.append('pet-name', name);
+            formData.append('pet-price', price);
+            formData.append('pet-price-sale', priceSale);
+            formData.append('pet-idLoai', idLoai);
+            formData.append('pet-gender', gender);
+            formData.append('pet-description', description); // Thêm mô tả vào form data
+            if (urlImg) {
+                formData.append('pet-image', urlImg);
+            }
 
-        const fileInput = document.getElementById('pet-image');
-        if (fileInput.files.length > 0) {
-            const file = fileInput.files[0];
-            pet.urlImg = file.name;
-            localStorage.setItem(pet.id, JSON.stringify(pet));
-
-            // Chuyển đến trang parrot.html
-            window.location.href = `pets/parrot.html`;
-        } else {
-            alert('Vui lòng chọn một hình ảnh.');
-        }
+            fetch('../config/upload_form.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Dữ liệu đã được gửi thành công:', data);
+            })
+            .catch(error => {
+                console.error('Có lỗi xảy ra:', error);
+                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+            });
+        });
     });
-}
+});
