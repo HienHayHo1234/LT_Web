@@ -30,7 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($user && password_verify($password, $user['password'])) {
             // Đăng nhập thành công
-            header("Location: ../index.php"); // Cung cấp đường dẫn chính xác đến trang bạn muốn chuyển hướng
+            header("Location: index.php"); 
+            // Cung cấp đường dẫn chính xác đến trang bạn muốn chuyển hướng
             exit();
         } else {
             echo "Tên đăng nhập hoặc mật khẩu không đúng.";
@@ -70,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($user && password_verify($password, $user['password'])) {
             // Đăng nhập thành công
-            header("Location: ../index.php"); // Cung cấp đường dẫn chính xác đến trang bạn muốn chuyển hướng
+            header("http://localhost/LT_WEB/Pet-Store/pages/index.php"); // Cung cấp đường dẫn chính xác đến trang bạn muốn chuyển hướng
             exit();
         } else {
             echo "Tên đăng nhập hoặc mật khẩu không đúng.";
