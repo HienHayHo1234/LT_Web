@@ -31,7 +31,7 @@ try {
 <?php foreach ($petsByCategory as $category => $pets): ?>
 <div class="category-section">
     <h2>Loại sản phẩm: <?php echo htmlspecialchars($category); ?></h2>
-    <div class="pets-grid">
+    <div class="pets-admin-grid">
         <?php if (!empty($pets)): ?>
         <?php foreach ($pets as $pet): ?>
         <div class="container-pets-admin" data-id="<?php echo htmlspecialchars($pet['id']); ?>"
@@ -65,7 +65,7 @@ try {
                 <div class="row">
                     <label for="description-<?php echo htmlspecialchars($pet['id']); ?>">Mô tả:</label>
                     <textarea class="edit-description" id="description-<?php echo htmlspecialchars($pet['id']); ?>"
-                        rows="3"><?php echo htmlspecialchars($pet['description']); ?></textarea>
+                        rows="4"><?php echo htmlspecialchars($pet['description']); ?></textarea>
                 </div>
                 <div class="row">
                     <label for="urlImg-<?php echo htmlspecialchars($pet['id']); ?>">Chọn Ảnh:</label>
@@ -73,7 +73,7 @@ try {
                         name="pet-image-<?php echo htmlspecialchars($pet['id']); ?>">
                 </div>
             </div>
-            <div class="row">
+            <div class="">
                 <button class="save-btn-pets-admin">Lưu</button>
                 <button class="cancel-btn">Xóa</button>
             </div>

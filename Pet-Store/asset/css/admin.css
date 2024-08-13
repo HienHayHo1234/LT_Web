@@ -41,7 +41,7 @@
 /* phần tử trong main */
 .item-main {
     padding: 10px;
-    /* flex-grow: 1; */ /* Để main chiếm tối đa không gian có sẵn */
+    flex-grow: 1;
 }
 
 #add-form {

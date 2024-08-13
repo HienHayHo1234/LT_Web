@@ -97,7 +97,7 @@ try {
             $stmt->bindParam(':urlImg', $urlImg);
 
             if ($stmt->execute()) {
-                header('Location: ../pages/index.php?page=admin&table=pets');
+                echo "<script>alert('Cập nhật thành công');</script>";
                 exit();
             } else {
                 echo 'Có lỗi xảy ra khi thêm sản phẩm.';
