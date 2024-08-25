@@ -1,24 +1,33 @@
+<?php
+$table = isset($_GET['table']) ? $_GET['table'] : '';
+?>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin - Thêm Sản Phẩm</title>
-        <link rel="stylesheet" href="../asset/css/admin.css">
-    </head>
+<link rel="stylesheet" href="../asset/css/admin.css">
 
-    <body>
+<nav class="item-menu">
+    <a class="link-width" href="index.php?page=admin&table=add">
+        <button>Thêm sản phẩm</button>
+    </a>
+    <a class="link-width" href="index.php?page=admin&table=pets">
+        <button>Xem sản phẩm</button>
+    </a>
+    <a class="link-width" href="index.php?page=admin&table=bill">
+        <button>Xem đơn hàng</button>
+    </a>
+</nav>
 
-        <nav class="item-menu">
-            <button id="" onclick="clickButtonAdd()">Thêm sản phẩm</button>
-            <button id="">Xem sản phẩm</button>
-            <button id="">Xem đơn hàng</button>
-
-        </nav>
-
-        <main class="item-main">
-            <div id="add-form"></div>
-        </main>
-        
-        <!-- Script -->
-        <script src="../asset/js/admin.js"></script>
-    </body>
+<main class=" item-main">
+    <?php
+    switch ($table) {
+        case "add":
+            require_once "formAddAdmin.php";
+            break;
+        case "pets":
+            require_once "petsAdmin.php";
+            break;
+        case "bill":
+            require_once "bill.php";
+            break;
+    }
+    ?>
+</main>

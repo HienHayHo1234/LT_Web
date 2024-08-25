@@ -56,7 +56,12 @@ try {
                     <p>Giá: <span class="price"><?php echo number_format($item['price'], 0, ',', '.'); ?>đ</span> ➱
                         <?php echo number_format($item['priceSale'], 0, ',', '.'); ?>đ
                     </p>
-                    <p class="count">Số lượng: <?php echo htmlspecialchars($item['quantity']); ?></p>
+                    <p class="count">
+                        Số lượng:
+                        <button class="quantity-btn minus" data-id="<?php echo $item['id']; ?>">-</button>
+                        <span><?php echo htmlspecialchars($item['quantity']); ?></span>
+                        <button class="quantity-btn plus" data-id="<?php echo $item['id']; ?>">+</button>
+                    </p>
                     <p class="text-price">Tổng số tiền:
                         <?php echo number_format($item['priceSale'] * $item['quantity'], 0, ',', '.'); ?>đ
                     </p>
@@ -76,6 +81,7 @@ try {
         <p>Giỏ hàng trống!</p>
     <?php endif; ?>
 </div>
+
 
 <div class="cart-form" id="orderForm" style="display: none;">
     <!-- hình người giao -->
@@ -101,13 +107,6 @@ try {
 
         <label for="phone">Số điện thoại:</label>
         <input type="tel" id="phone" name="phone" required>
-
-        <label for="gender">Chọn giới tính thú cưng:</label>
-        <select id="gender" name="gender" required>
-            <option value="">Chọn giới tính</option>
-            <option value="male">Nam</option>
-            <option value="female">Nữ</option>
-        </select>
 
         <!-- Thêm phần chọn sản phẩm -->
         <label for="product">Chọn sản phẩm thanh toán:</label>
@@ -136,28 +135,4 @@ try {
 
 </div>
 
-<script src="../asset/js/form-cart.js"></script>
-<script>
-    function updateTotalPrice() {
-        var productSelect = document.getElementById('product');
-        var selectedOption = productSelect.options[productSelect.selectedIndex];
-        var totalAmount = 0;
-
-        if (selectedOption.value === "all") {
-            // Nếu chọn "Chọn hết", tính tổng tiền của tất cả sản phẩm
-            var textPrices = document.querySelectorAll('.text-price');
-            textPrices.forEach(function(textPrice) {
-                var amount = parseInt(textPrice.innerText.replace(/\D/g, '')); // Lấy giá trị số từ text-price
-                totalAmount += amount;
-            });
-        } else {
-            // Nếu chọn một sản phẩm cụ thể
-            var price = selectedOption.getAttribute('data-price');
-            var quantity = selectedOption.getAttribute('data-quantity');
-            totalAmount = (parseInt(price) || 0) * (parseInt(quantity) || 1);
-        }
-
-        // Hiển thị tổng số tiền
-        document.getElementById('totalAmount').innerText = totalAmount.toLocaleString('vi-VN') + 'đ';
-    }
-</script>
+<script src="../asset/js/form-cart.js" defer></script>

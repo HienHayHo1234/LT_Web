@@ -37,6 +37,30 @@
     left: 3px;
 }
 
+/* nút chỉnh số lượng */
+.quantity-btn {
+    background-color: rgb(65, 129, 167);
+    border: none;
+    border-radius: 100%;
+    padding: 5px;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+    font-size: large;
+    width: 7%;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity {
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.quantity-btn:hover {
+    background-color: rgb(144, 200, 232);
+}
 /* Giá tiền */
 .text {
     width: 58%;
@@ -141,18 +165,18 @@
 .cart-form {
     width: 50%;
     height: 85%;
-    position: fixed; /* Giữ form ở vị trí cố định */
-    top: 20%; /* Điều chỉnh vị trí trên màn hình */
-    left: 50%; /* Điều chỉnh vị trí từ trái màn hình */
-    transform: translate(-50%, -20%); /* Canh giữa theo chiều ngang */
-    display: flex; /* Sử dụng Flexbox */
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    display: flex;
     flex-direction: row;
-    z-index: 3;
-    background-color: #fbecec;
+    z-index: 4;
+    background-color: rgb(144, 200, 232);
     box-shadow: 0 10px 10px 5px rgba(84, 84, 84, 0);
 }
 .cart-form .text-chat {
-    background-color: rgb(249, 173, 59);
+    background-color: rgb(249, 186, 59);
     width: 35%;
     height: 10%;
     position: fixed;
@@ -179,7 +203,7 @@
 .order-form {
     width: 50%;
     border-radius: 5px;
-    background-color: rgb(230, 146, 89);
+    background-color: rgb(65, 153, 204);
     padding: 10px;
     color: white;
     top: 2%;
@@ -217,6 +241,7 @@
     cursor: pointer;
     width: 6%;
 }
+
 /* nút đặt */
 .btn-submit {
     margin: 4% auto;
@@ -239,6 +264,7 @@
 .total-amount {
     font-size: 1.5rem !important;
 }
+
 /* Định dạng khi form kích thước nhỏ */
 @media (max-width: 480px) {
     .order-form {
