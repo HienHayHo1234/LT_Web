@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../asset/css/search.css">
 <link rel="icon" type="image/x-icon" href="../asset/images/icon/logo.ico">
 
-    <nav id="sticky-nav">
+    <nav>
         <ul>
             
             <li>
@@ -58,10 +58,11 @@
                 </a>
             </li> -->
             <li class="search-container">
-                <form name="formtim" action="kqtim.php" method="get" class="search-form" onsubmit="return checksearch();">
-                    <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
+                    <form name="formtim" action="../pages/ketquatimkiem.php" method="get" class="search-form">
+                        <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
                     <input name="btntim" id="btntim" type="image" src="../asset/images/icon/search.png" alt="Search Button">
-                </form>
+                    </form>
+
             </li>
         </ul>
     </nav>
