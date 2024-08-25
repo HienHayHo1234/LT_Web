@@ -2,53 +2,10 @@
 <link rel="stylesheet" href="../asset/css/banner.css">
 <link rel="stylesheet" href="../asset/css/search.css">
 <link rel="icon" type="image/x-icon" href="../asset/images/icon/logo.ico">
-<header>
-    <div class="header-container">
-        <div class="logo-container">
-            <a href="../pages/index.php">
-                <img src="../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
-            </a>
-        </div>
-        <div class="infor">
-            <img src="../asset/images/icon/support.gif">
-            <div>
-                <a>Hỗ trợ:</a>
-                <p>1900 0091</p>
-            </div>
-        </div>
 
-        <div class="infor">
-            <img src="../asset/images/icon/mail.gif">
-            <div>
-                <a>Email liên hệ:</a>
-                <p>support@gmail.com</p>
-            </div>
-        </div>
-
-        <div class="infor">
-            <a href="https://maps.app.goo.gl/44d1MoKdpKSY5fPr9" target="_blank"><img
-                    src="../asset/images/icon/location.gif"></a>
-            <div>
-                <a>Địa chỉ cửa hàng:</a>
-                <p>Tô Ký, Tân Chánh Hiệp, quận 12, TP. HCM</p>
-            </div>
-        </div>
-
-        <div class="buttons-container">
-            <a href="../pages/index.php?page=cart" >
-                <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
-            </a>
-            <a href="login.php">
-                <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
-            </a>
-        </div>
-
-    </div>
-</header>
-
-
-    <nav id="sticky-nav">
+    <nav>
         <ul>
+            
             <li>
                 <a href="../pages/index.php">
                     <img src="../asset/images/icon/home-ico.png" alt="Home Icon" />
@@ -94,18 +51,18 @@
                     Tài khoản
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="../pages/index.php?page=admin">
                     <img src="../asset/images/icon/admin-ico.png" alt="Admin Icon" />
                     Admin
                 </a>
-            </li>
+            </li> -->
             <li class="search-container">
-                <img class="search-icon" src="../asset/images/icon/search.png" alt="Search Icon">
-                <form name="formtim" action="kqtim.php" method="get" class="search-form" onsubmit="return checksearch();">
-                    <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
-                    <input name="btntim" id="btntim" type="submit" value="TÌM" />
-                </form>
+                    <form name="formtim" action="../pages/ketquatimkiem.php" method="get" class="search-form">
+                        <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
+                    <input name="btntim" id="btntim" type="image" src="../asset/images/icon/search.png" alt="Search Button">
+                    </form>
+
             </li>
         </ul>
     </nav>
