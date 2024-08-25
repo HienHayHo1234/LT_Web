@@ -20,7 +20,7 @@ switch ($page) {
     case "admin":
         require_once "admin.php";
         break;
-    case "tim":
+    case "search":
         require_once "ketquatimkiem.php";
         break;
     default:

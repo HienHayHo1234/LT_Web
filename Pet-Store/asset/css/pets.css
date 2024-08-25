@@ -4,6 +4,7 @@
     grid-auto-rows: 320px;
     gap: 20px;
     padding: 20px 80px 80px 80px;
+    z-index: 100;
 }
 
 @media (max-width: 1300px) {
@@ -36,7 +37,7 @@
     /* background-color: rgb(225, 242, 252); */
     transition: transform 0.3s;
     border-radius: 20px;
-    margin-top: 64px;
+
 }
 
 .container-pets:hover {

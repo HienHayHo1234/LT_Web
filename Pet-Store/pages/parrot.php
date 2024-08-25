@@ -19,7 +19,7 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
-
+<h2>Vẹt</h2>
 <div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
@@ -46,3 +46,25 @@ try {
     <p>Chưa có sản phẩm nào.</p>
     <?php endif; ?>
 </div>
+<style>
+    .breadcrumb {
+    padding: 10px 0;
+    background-color: #f5f5f5;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+    color: #6c757d;
+}
+
+</style>
