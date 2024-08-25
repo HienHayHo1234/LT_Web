@@ -17,6 +17,7 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+<h2>Chó</h2>
 <div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>

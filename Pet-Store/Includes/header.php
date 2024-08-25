@@ -140,7 +140,8 @@ session_start();
                 </a>
             </li> -->
             <li class="search-container">
-                    <form name="formtim" action="../pages/ketquatimkiem.php" method="get" class="search-form">
+                    <form name="formtim" action="../pages/index.php" method="get" class="search-form">
+                        <input type="hidden" name="page" value="search">
                         <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
                     <input name="btntim" id="btntim" type="image" src="../asset/images/icon/search.png" alt="Search Button">
                 </form>
@@ -148,7 +149,6 @@ session_start();
     </ul>
 </nav>
                     </form>
-
             </li>
         </ul>
     </nav>

@@ -1,3 +1,6 @@
+<script src="../asset/js/detail.js"></script>
+<?php include 'DetailPet.php'; ?>
+
 <?php
 // Khai báo các thông số kết nối cơ sở dữ liệu
 require '../config/config.php';
@@ -19,10 +22,11 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
-
+<h2>Mèo</h2>
 <div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
+
     <div class="container-pets">
         <img src="<?php echo htmlspecialchars($pet['urlImg']); ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
         <div class="row">
@@ -40,6 +44,7 @@ try {
             <?php echo number_format($pet['priceSale'], 0, ',', '.'); ?>đ</p>
         </button>
     </div>
+
     <?php endforeach; ?>
     <?php else: ?>
     <p>Chưa có sản phẩm nào.</p>

@@ -61,9 +61,8 @@ body {
     text-align: center;
     margin: 0;
 }   
-
-header {
-    background-image: url('../images/background/head-bg4.jpg');     
+main{
+    margin-top: 62px;
 }
 
 footer {
@@ -122,18 +121,15 @@ nav.sticky {
 nav {
     background-color: rgb(67, 124, 154);
     padding: 0;
-    margin-right: 0;
-    margin-bottom: 20px; /* Thay đổi giá trị này để điều chỉnh khoảng cách dưới thanh nav */
+    margin: 0;
+    margin-bottom: 80px; /* Đảm bảo có khoảng cách dưới thanh nav */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 4;
-}
-
-nav>ul>li>a:hover {
-    background-color: rgb(90, 140, 154);
+    width: 100%;
+    z-index: 100;
 }
 
 nav>ul {
@@ -145,8 +141,7 @@ nav>ul {
     justify-content: left;
 }
 
-
-nav>ul>li>a {
+nav > ul > li > a {
     color: white;
     text-decoration: none;
     padding: 14px 20px;
@@ -177,9 +172,6 @@ nav li a:hover, .dropdown:hover .dropdown-btn {
 nav li.dropdown {
     display: inline-block;
 }
-
-
-
 
 
 
