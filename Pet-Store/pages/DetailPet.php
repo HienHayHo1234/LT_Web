@@ -47,8 +47,6 @@ try {
             <p>Mô tả: <?php echo htmlspecialchars($pet['description']); ?></p>
             <button onclick="cart(<?php echo htmlspecialchars($pet['id']); ?>)">Thêm vào giỏ hàng</button>
             <button onclick="cart(<?php echo htmlspecialchars($pet['id']); ?>)">Mua</button>
-</form>
-
         </div>
     </div>
     <footer>
