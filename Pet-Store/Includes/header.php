@@ -15,55 +15,8 @@ session_start();
         .modal {
     display: none;
 }
-
     </style>
 </head>
-<body>
-<header>
-    <div class="header-container">
-        <div class="logo-container">
-            <a href="../pages/index.php">
-                <img src="../asset/images/icon/logo.png" alt="Logo Cửa Hàng Thú Cưng">
-            </a>
-        </div>
-        <div class="infor">
-            <img src="../asset/images/icon/support.gif" alt="Hỗ trợ">
-            <div>
-                <a>Hỗ trợ:</a>
-                <p>1900 0091</p>
-            </div>
-        </div>
-        <div class="infor">
-            <img src="../asset/images/icon/mail.gif" alt="Email">
-            <div>
-                <a>Email liên hệ:</a>
-                <p>support@gmail.com</p>
-            </div>
-        </div>
-        <div class="infor">
-            <a href="https://maps.app.goo.gl/44d1MoKdpKSY5fPr9" target="_blank">
-                <img src="../asset/images/icon/location.gif" alt="Địa chỉ">
-            </a>
-            <div>
-                <a>Địa chỉ cửa hàng:</a>
-                <p>Tô Ký, Tân Chánh Hiệp, quận 12, TP. HCM</p>
-            </div>
-        </div>
-        <div class="buttons-container">
-        <a href="../pages/index.php?page=cart">
-                <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
-            </a>
-            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
-                <a href="../pages/profile.php">Thông tin tài khoản</a>
-                <a href="../pages/logout.php">Đăng xuất</a>
-            <?php else : ?>
-                <a href="#" onclick="openLoginModal(); return false;">
-                    <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
-                </a>
-            <?php endif; ?>
-        </div>
-    </div>
-</header>
 <nav id="sticky-nav">
     <ul>
         <li>
@@ -126,6 +79,100 @@ session_start();
     </ul>
 </nav>
 
+<!-- Modal Form Đăng Nhập -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Đăng Nhập</h2>
+        <form action="../pages/login.php" method="post">
+            <label for="login-username">Tên đăng nhập:</label><br>
+            <input type="text" id="login-username" name="username" required><br><br>
+            <label for="login-password">Mật khẩu:</label><br>
+            <input type="password" id="login-password" name="password" required><br><br>
+            <div>
+                <label><input name="status" type="checkbox"> Ghi nhớ đăng nhập</label>
+            </div>
+            <hr>
+            <div class="button-container">
+                <input type="submit" value="Đăng Nhập">
+                <button type="reset">Xóa</button>
+            </div>
+            <p>Chưa có tài khoản? <a href="#" onclick="openRegisterModal(); return false;">Đăng ký</a></p>
+        </form>
+    </div>
+</div>
+
+<!-- Modal Form Đăng Ký -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- Mũi tên quay lại form đăng nhập -->
+        <span id="backToLogin" class="back-arrow">&#8592; Quay lại</span> 
+        <h2>Đăng Ký</h2>
+        <form action="register.php" method="post">
+            <label for="register-username">Tên đăng nhập</label>
+            <input type="text" id="register-username" name="username" required><br>
+            <label for="register-email">Email</label><br>
+            <input type="email" id="register-email" name="email" required><br>
+            <label for="register-password">Mật khẩu</label><br>
+            <input type="password" id="register-password" name="password" required><br>
+            <label for="register-confirmPassword">Xác nhận mật khẩu</label><br>
+            <input type="password" id="register-confirmPassword" name="confirmPassword" required><br>
+            <div class="button-container">
+                <button type="submit">Gửi</button>
+                <button type="reset">Xóa</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const modals = document.querySelectorAll('.modal');
+    const closeBtns = document.querySelectorAll('.close');
+
+    function openModal(modalId) {
+        modals.forEach(modal => modal.style.display = "none");
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = "block";
+        }
+    }
+
+    closeBtns.forEach(btn => {
+        btn.onclick = () => {
+            modals.forEach(modal => modal.style.display = "none");
+        };
+    });
+
+    window.onclick = event => {
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    };
+
+    window.openLoginModal = () => openModal('loginModal');
+    window.openRegisterModal = () => openModal('registerModal');
+
+    const backToLoginBtn = document.getElementById('backToLogin');
+    if (backToLoginBtn) {
+        backToLoginBtn.onclick = () => {
+            document.getElementById('registerModal').style.display = 'none';
+            document.getElementById('loginModal').style.display = 'block';
+        };
+    }
+
+    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
+        const logo = document.querySelector('.logo-container img');
+        if (logo) {
+            logo.src = '../asset/images/dog/Phoc.png';
+            logo.alt = 'Logo Đăng Nhập';
+        }
+    <?php endif; ?>
+});
+</script>
 <!-- Modal Form Đăng Nhập -->
 <div id="loginModal" class="modal">
     <div class="modal-content">
