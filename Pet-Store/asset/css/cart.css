@@ -1,92 +1,218 @@
-/* CSS cho cart pets */
-.cart-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(400px, auto);
-    gap: 20px;
-    padding: 20px;
+/* Đặt .cart-flex với vị trí sticky và khoảng cách từ trên */
+.cart-flex {
+    display: flex;
+    /* height: auto; */
+    min-height: 60vh;
+    padding: 1%;
 }
+
 /* Chỉnh kích thước để chia cột lưới theo size từng thiết bị */
-/* 1 ô khi dưới 1250px */
-@media (max-width: 1000px) { 
+@media (max-width: 768px) {
     .cart-grid {
-        grid-template-columns: 1fr;
-        max-width: 80%; /* Thêm dòng này để giới hạn chiều ngang */
-        margin: 0 auto; /* Canh giữa grid */
+        flex-direction: column-reverse;
+        justify-content: space-between;
     }
 }
-
-.container-cart {
+/* Khi màn hình có chiều rộng nhỏ hơn 40% của viewport */
+/* ----------------------------bảng hóa đơn ----------------------*/
+.invoice-flex {
+    flex: 80%;
+    max-height: 90vh;
+    display: flex;
     position: relative;
-    width: 100%;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 40px;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 70px;
-    box-shadow: 0px 3px 10px 5px rgb(148, 149, 150);
-    background-color: rgb(225, 242, 252);
-    margin-top: 64px;
-}
-
-.imgCart {
-    width: 40%;
-    height: 75%;
-    border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-}
-
-/* nút chỉnh số lượng */
-.quantity-btn {
-    background-color: rgb(65, 129, 167);
-    border: none;
-    border-radius: 100%;
-    padding: 5px;
-    margin: 0 10px 0 10px;
-    cursor: pointer;
-    font-size: large;
-    width: 7%;
-    text-align: center;
-    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+.container-invoice-list {
+    display: flex;
+    width: 90%;
+    max-height: 80%;
+    gap: 1vb;
+    flex-direction: column;
+    overflow-y: auto;
+    justify-content: flex-start;
+}
+
+.invoice-item {
+    display: flex;
+    gap: 5%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
     align-items: center;
 }
 
-.quantity {
-    font-size: 16px;
-    margin: 0 10px;
+.invoice-item:last-child {
+    margin-bottom: 0;
 }
 
-.quantity-btn:hover {
-    background-color: rgb(144, 200, 232);
+.checkbox-btn-cart {
+    flex: 1;
+    width: 10%;
+    height: 20%;
+    cursor: pointer; /* Con trỏ chuột dạng tay khi hover */
+    /* appearance: none; */ /* Loại bỏ kiểu mặc định của checkbox */
+    background-color: #fff; /* Màu nền của checkbox */
+    border: 2px solid #ccc; /* Đường viền của checkbox */
+    border-radius: 5px; /* Bo góc cho checkbox */
+    position: relative; /* Để có thể sử dụng pseudo-element nếu cần */
+    outline: none; /* Loại bỏ viền mặc định khi checkbox được chọn */
+    transition: background-color 0.3s, border-color 0.3s; /* Hiệu ứng chuyển màu khi hover hoặc khi chọn */
 }
-/* Giá tiền */
-.text {
-    width: 58%;
-    font-size: 1.5rem;
-    color: rgb(24, 74, 127);
+
+.checkbox-btn-cart:checked {
+    background-color: #007bff; /* Màu nền khi checkbox được chọn */
+    border-color: #007bff; /* Đổi màu viền khi chọn */
+}
+
+.checkbox-btn-cart:checked::after {
+    content: '✔'; /* Thêm dấu kiểm khi checkbox được chọn */
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Màu dấu kiểm */
+    font-size: 16px; /* Kích thước dấu kiểm */
 }
 
-/* Bảng tên  */
-.name-pet {
+.image-container {
+    flex: 3;
+    position: relative;
+}
+
+.image-container>.imgInvoice {
+    width: 100%;
+    height: 20vb;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+.invoice-text {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    align-items: center;
+    gap: 1vb;
+}
+
+.name-pet-cart {
+    font-size: 4vb !important;
     font-weight: bold;
-    text-align: center;
+    margin: 0 0 10px 0;
 }
 
-.text .price {
-    color: rgb(248, 95, 95);
-    text-decoration: line-through;
+.invoice-text p {
+    margin: 0;
+    font-size: 3vb;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.invoice-text p:last-child {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.count > .quantity-btn {
+    margin: 0 10px;
+    width: 3.5vb;
+    height: 3.5vb;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-summary {
+    font-size: larger;
+    font-weight: bold;
+    color: #2a5e96;
+}
+.total-amount {
+    font-size: 3vb;
+    font-weight: bold;
+    color: #d9534f;
+    margin-left: 10px;
+}
+.btn-order-pet, .btn-cancel-pet {
+    flex: 0.8;
+    padding: 1vb 0.9vb;
+    font-size: 2vb;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-order-pet {
+}
+
+.btn-order-all {
+    padding: 1.5vb 3vb;
+    font-size: 2.5vb;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-order-all:hover {
+    background-color: #218838;
+}
+
+/*--------------------- truck-kun----------------------------- */
+.truck-flex {
+    flex: 20%;
+    max-height: 90vh;
+    display: flex;
+    padding: 20px;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: relative;
+}
+.truck-kun {
+    position: absolute;
+    bottom: 3%;
+    width: 100%;
+    height: 30%;
+    z-index: 2;
+}
+/* Đặt kích thước cho hình ảnh trong truck */
+.truck-image {
+    position: absolute;
+    bottom: 13%;
+    width: 100px; /* Thay đổi kích thước tùy ý */
+    transition: transform 1s ease; /* Hiệu ứng chuyển đổi */
+    transform: translateY(-50vh); /* Đưa hình ảnh ra khỏi khung hình ban đầu */
+    z-index: 1;
+}
+
+/* Hiệu ứng rơi xuống */
+.fall {
+    transform: translateY(0); /* Đưa hình ảnh về vị trí ban đầu */
+}
+.fly-up {
+    transform: translateY(-50vh); /* Bay ngược lên */
+    opacity: 0.5;
 }
 
 /* Nút Thích */
 .heart-cart {
     width: 80px;
-    height: 80px;
+    height: 80px;   
     border: none;
     border-radius: 100%;
     box-shadow: 0 4px #999;
@@ -124,7 +250,7 @@
 
 /* XEM, Đặt hàng */
 .btn-container {
-    width: 40%;
+    width: 30%;
     height: 30%;
     display: grid;
     position: absolute;
@@ -162,6 +288,8 @@
     transform: rotate(360deg);
 }
 
+
+
 /* -----------------CSS cho from đặt hàng------------------------- */
 .cart-form {
     width: 50%;
@@ -171,7 +299,6 @@
     left: 50%;
     transform: translate(-50%, -20%);
     display: flex;
-    flex-direction: row;
     z-index: 4;
     background-color: rgb(144, 200, 232);
     box-shadow: 0 10px 10px 5px rgba(84, 84, 84, 0);
@@ -263,7 +390,7 @@
     background-color: rgb(188, 153, 153);
 }
 .total-amount {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
 }
 
 /* Định dạng khi form kích thước nhỏ */

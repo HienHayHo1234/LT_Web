@@ -4,24 +4,34 @@ require 'config.php';
 // Giả sử user_id là 1, bạn có thể thay đổi theo hệ thống của bạn
 $user_id = 1;
 
+// Gửi header JSON
+header('Content-Type: application/json');
+
 // Lấy pet_id từ POST request
 if (isset($_POST['action']) && isset($_POST['pet_id'])) {
     $action = $_POST['action'];
     $pet_id = $_POST['pet_id'];
 
+    $response = array('success' => false, 'message' => '');
+
     if ($action === 'add') {
         // Thêm sản phẩm vào giỏ hàng
         addToCart($user_id, $pet_id, 1, $conn);
-        echo "Sản phẩm đã được thêm vào giỏ hàng!";
+        $response['success'] = true;
+        $response['message'] = 'Sản phẩm đã được thêm vào giỏ hàng!';
     } elseif ($action === 'remove') {
         // Xóa sản phẩm khỏi giỏ hàng
         removeFromCart($user_id, $pet_id, $conn);
-        echo "Sản phẩm đã được xóa khỏi giỏ hàng!";
+        $response['success'] = true;
+        $response['message'] = 'Sản phẩm đã được xóa khỏi giỏ hàng!';
     } else {
-        echo "Hành động không hợp lệ!";
+        $response['message'] = 'Hành động không hợp lệ!';
     }
+
+    echo json_encode($response);
 } else {
-    echo "Thiếu thông tin cần thiết!";
+    $response = array('success' => false, 'message' => 'Thiếu thông tin cần thiết!');
+    echo json_encode($response);
 }
 
 function addToCart($user_id, $pet_id, $quantity = 1, $conn)
@@ -31,12 +41,9 @@ function addToCart($user_id, $pet_id, $quantity = 1, $conn)
     $stmt->execute([$user_id, $pet_id]);
     $item = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    var_dump($item); // Debugging
-
     if ($item) {
         // Nếu sản phẩm đã có trong giỏ, cộng thêm số lượng
         $new_quantity = $item['quantity'] + $quantity;
-        var_dump($new_quantity); // Debugging
 
         $stmt = $conn->prepare("UPDATE cart_items SET quantity = ? WHERE id = ?");
         $stmt->execute([$new_quantity, $item['id']]);
@@ -46,7 +53,6 @@ function addToCart($user_id, $pet_id, $quantity = 1, $conn)
         $stmt->execute([$user_id, $pet_id, $quantity]);
     }
 }
-
 
 function removeFromCart($user_id, $pet_id, $conn)
 {
