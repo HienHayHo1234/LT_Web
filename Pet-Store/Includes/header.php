@@ -60,7 +60,7 @@
             <li class="search-container">
                     <form name="formtim" action="../pages/ketquatimkiem.php" method="get" class="search-form">
                         <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
-                    <input name="btntim" id="btntim" type="image" src="../asset/images/icon/search.png" alt="Search Button">
+                        <input name="btntim" id="btntim" type="image" src="../asset/images/icon/search.png" alt="Search Button">
                     </form>
 
             </li>

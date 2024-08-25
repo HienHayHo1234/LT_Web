@@ -32,7 +32,7 @@ try {
     $totalAmount = 0;
     if (!empty($cartItems)) {
         foreach ($cartItems as $item) {
-            $totalAmount += $item['price'] * $item['quantity'];
+            $totalAmount += $item['priceSale'] * $item['quantity'];
         }
     }
 } catch (Exception $e) {
@@ -44,45 +44,61 @@ try {
 
 <link rel="stylesheet" href="../asset/css/cart.css?v=<?php echo time(); ?>">
 
-<div class="cart-grid">
-    <?php if (!empty($cartItems)): ?>
-        <?php foreach ($cartItems as $item): ?>
-            <div class="container-cart">
-                <!-- Sử dụng PHP để tạo HTML động với các giá trị từ cơ sở dữ liệu -->
-                <img class="imgCart" src="<?php echo htmlspecialchars($item['urlImg']); ?>"
-                    alt="<?php echo htmlspecialchars($item['name']); ?>">
-                <div class="text">
-                    <p class="name-pet"><?php echo htmlspecialchars($item['name']); ?></p>
-                    <p>Giá: <span class="price"><?php echo number_format($item['price'], 0, ',', '.'); ?>đ</span> ➱
-                        <?php echo number_format($item['priceSale'], 0, ',', '.'); ?>đ
-                    </p>
-                    <p class="count">
-                        Số lượng:
-                        <button class="quantity-btn minus" data-id="<?php echo $item['id']; ?>">-</button>
-                        <span><?php echo htmlspecialchars($item['quantity']); ?></span>
-                        <button class="quantity-btn plus" data-id="<?php echo $item['id']; ?>">+</button>
-                    </p>
-                    <p class="text-price">Tổng số tiền:
-                        <?php echo number_format($item['priceSale'] * $item['quantity'], 0, ',', '.'); ?>đ
-                    </p>
-                </div>
-                <button class="heart-cart">❤</button>
-                <div class="btn-container">
-                    <button class="btn-cart" onclick="removeFromCart('<?php echo htmlspecialchars($item['id']); ?>')">
-                        Hủy đặt hàng
-                    </button>
-                    <button class="btn-cart" id="button<?php echo htmlspecialchars($item['id']); ?>"
-                        onclick="showOrderForm('<?php echo htmlspecialchars($item['id']); ?>')">Đặt hàng
-                    </button>
-                </div>
+<div class="cart-flex">
+    <!-- -----------bảng invoice -------------->
+    <div class="invoice-flex">
+        <?php if (!empty($cartItems)): ?>
+            <div class="container-invoice-list">
+                <?php foreach ($cartItems as $item): ?>
+                    <div class="invoice-item" data-id="<?php echo htmlspecialchars($item['id']); ?>">
+                        <input type="checkbox" class="checkbox-btn-cart" data-id="<?php echo htmlspecialchars($item['id']); ?>"
+                            onclick="selectItem('<?php echo htmlspecialchars($item['id']); ?>')">
+
+                        <div class="image-container">
+                            <img class="imgInvoice" src="<?php echo htmlspecialchars($item['urlImg']); ?>"
+                                alt="<?php echo htmlspecialchars($item['name']); ?>">
+                        </div>
+
+                        <div class="invoice-text">
+                            <p class="name-pet-cart"><?php echo htmlspecialchars($item['name']); ?></p>
+                            <p>Giá: <?php echo number_format($item['priceSale'], 0, ',', '.'); ?>đ</p>
+                            <p class="count">
+                                Số lượng:
+                                <button class="quantity-btn minus" data-id="<?php echo $item['id']; ?>">-</button>
+                                <span id="quantity-"><?php echo htmlspecialchars($item['quantity']); ?></span>
+                                <button class="quantity-btn plus" data-id="<?php echo $item['id']; ?>">+</button>
+                            </p>
+                            <p class="totalPrice" data-id="<?php echo $item['id']; ?>">Tổng giá:
+                                <?php echo number_format($item['priceSale'] * $item['quantity'], 0, ',', '.'); ?>đ</p>
+                        </div>
+
+                        <button class="btn-cancel-pet"
+                            onclick="removeFromCart('<?php echo htmlspecialchars($item['id']); ?>')">Hủy</button>
+                        <button class="btn-order-pet" onclick="showOrderForm()">Đặt hàng</button>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>Giỏ hàng trống!</p>
-    <?php endif; ?>
+            <!-- nút đặt tất cả -->
+            <div class="order-summary">
+                <p>Tổng số tiền tất cả sản phẩm:
+                    <span class="total-amount">
+                        <?php echo number_format($totalAmount, 0, ',', '.'); ?>đ
+                    </span>
+                </p>
+                <button class="btn-order-all" onclick="placeOrder()">Đặt hàng tất cả</button>
+            </div>
+        <?php else: ?>
+            <p style="font-size: larger">Không có sản phẩm nào trong giỏ hàng!</p>
+        <?php endif; ?>
+    </div>
+
+    <!-- -------------------truck-kun----------  -->
+    <div id="truck" class="truck-flex" style="display: none">
+        <img src="../asset/images/icon/truck-cart.png" alt="" class="truck-kun">
+    </div>
 </div>
 
-
+<!-- ---------------------------form đặt hàng---------------------- -->
 <div class="cart-form" id="orderForm" style="display: none;">
     <!-- hình người giao -->
     <div>
@@ -108,18 +124,6 @@ try {
         <label for="phone">Số điện thoại:</label>
         <input type="tel" id="phone" name="phone" required>
 
-        <!-- Thêm phần chọn sản phẩm -->
-        <label for="product">Chọn sản phẩm thanh toán:</label>
-        <select id="product" name="product" required onchange="updateTotalPrice()">
-            <option value="">Chọn sản phẩm</option>
-            <option value="all">Chọn hết</option> <!-- Sử dụng value="all" -->
-            <?php foreach ($cartItems as $item): ?>
-                <option value="<?php echo $item['id']; ?>" data-price="<?php echo $item['priceSale']; ?>"
-                    data-quantity="<?php echo $item['quantity']; ?>">
-                    <?php echo htmlspecialchars($item['name']) . ' - ' . number_format($item['priceSale'] * $item['quantity'], 0, ',', '.') . 'đ'; ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
 
         <!-- Hiển thị tổng số tiền -->
         <label for="totalAmount" class="total-amount">
@@ -135,4 +139,5 @@ try {
 
 </div>
 
-<script src="../asset/js/form-cart.js" defer></script>
+<script src="../asset/js/form-cart.js"></script>
+<script src="../asset/js/cart.js"></script>
