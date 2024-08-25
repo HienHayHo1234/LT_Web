@@ -44,7 +44,25 @@ try {
     <p>Chưa có sản phẩm nào.</p>
     <?php endif; ?>
 </div>
+<style>
+    .breadcrumb {
+    padding: 10px 0;
+    background-color: #f5f5f5;
+    font-size: 14px;
+}
 
-<?php include 'DetailPet.php'; ?>
+.breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+}
 
-<script src="../asset/js/detail.js"></script>
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+    color: #6c757d;
+}
+
+</style>
