@@ -60,7 +60,7 @@ body{
     margin: 0;
 }   
 main{
-    margin: 0;
+    margin-top: 62px;
 }
 
 footer {
@@ -114,15 +114,15 @@ footer {
 nav {
     background-color: rgb(67, 124, 154);
     padding: 0;
-    margin-right: 0;
-    margin-bottom: 20px; /* Thay đổi giá trị này để điều chỉnh khoảng cách dưới thanh nav */
+    margin: 0;
+    margin-bottom: 80px; /* Đảm bảo có khoảng cách dưới thanh nav */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 100;
 }
 
 nav > ul {
@@ -132,7 +132,6 @@ nav > ul {
     display: flex;
     justify-content: left;
 }
-
 
 nav > ul > li > a {
     color: white;
@@ -159,8 +158,6 @@ nav li a:hover, .dropdown:hover .dropdown-btn {
 nav li.dropdown {
     display: inline-block;
 }
-
-
 
 
 
