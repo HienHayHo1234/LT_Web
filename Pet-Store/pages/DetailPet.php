@@ -1,3 +1,5 @@
+<!-- DetailPet.php -->
+
 <?php
 // Kết nối cơ sở dữ liệu
 $host = "localhost";
@@ -13,9 +15,9 @@ try {
     $petId = isset($_GET['id']) ? $_GET['id'] : '';
 
     // Thực hiện truy vấn để lấy chi tiết sản phẩm
-    $stmt = $conn->prepare("SELECT * FROM pets WHERE id = :id");
-    $stmt->bindParam(':id', $petId);
-    $stmt->execute();
+        $stmt = $conn->prepare("SELECT * FROM pets WHERE id = :id");
+        $stmt->bindParam(':id', $petId);
+        $stmt->execute();
 
     // Lưu kết quả truy vấn
     $pet = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -23,20 +25,17 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($pet['name']); ?></title>
-    <link href="../asset/css/DetailPet.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <?php require_once("../Includes/header.php");?>
-        <script src="../asset/js/cart.js"></script>
-    </header>
-    <div class="container">
+
+
+<link rel="stylesheet" href="../asset/css/DetailPet.css">
+
+<div id="product-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        
+        <div class="container">
+            <img src="<?php echo htmlspecialchars($pet['urlImg']); ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
+            <div class="container">
         <img src="<?php echo htmlspecialchars($pet['urlImg']); ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
         <div class="details">
             <h2><?php echo htmlspecialchars($pet['name']); ?></h2>
@@ -47,12 +46,8 @@ try {
             <p>Mô tả: <?php echo htmlspecialchars($pet['description']); ?></p>
             <button onclick="cart(<?php echo htmlspecialchars($pet['id']); ?>)">Thêm vào giỏ hàng</button>
             <button onclick="cart(<?php echo htmlspecialchars($pet['id']); ?>)">Mua</button>
-</form>
-
         </div>
     </div>
-    <footer>
-        <?php require_once("../Includes/footer.php");?>
-    </footer>
-</body>
-</html>
+        </div>
+    </div>       
+</div>

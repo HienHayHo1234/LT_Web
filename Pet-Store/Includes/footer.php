@@ -7,6 +7,20 @@
     <link href="../asset/css/footer.css" rel="stylesheet">
 </head>
 <body>
+<!-- <header>
+    <div class="header-container">
+
+        <div class="buttons-container">
+            <a href="../pages/index.php?page=cart" >
+                <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
+            </a>
+            <a href="login.php">
+                <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
+            </a>
+        </div>
+
+    </div>
+</header> -->
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -47,6 +61,14 @@
                 <img src="../asset/images/icon/zalopay.png" alt="Payment Logos">
                 <img src="../asset/images/icon/paypal.png" alt="Payment Logos">
                 <img src="../asset/images/icon/visa.png" alt="Payment Logos">
+            </div>
+        </div>
+        <div class="infor">
+            <a href="https://maps.app.goo.gl/44d1MoKdpKSY5fPr9" target="_blank"><img
+                    src="../asset/images/icon/location.gif"></a>
+            <div>
+                <a>Địa chỉ cửa hàng:</a>
+                <p>Tô Ký, Tân Chánh Hiệp, quận 12, TP. HCM</p>
             </div>
         </div>
     </footer>

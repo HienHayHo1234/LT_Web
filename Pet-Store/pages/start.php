@@ -13,25 +13,24 @@
         <button class="arrow right-arrow" id="nextBtn">&#10095;</button>
         <div class="indicators" id="indicators"></div>
     </div>
+    
 </section>
 <h2>Loại Thú Cưng</h2>
 <section class="pet">
-    <hr>
-    <hr>
     <div>
-        <h1>Chó</h1>
+        <h2>Chó</h2>
         <a href="index.php?page=dog"><img src="../asset/images/dog/head.png" alt="Chó"></a>
         <h3>Chó là loài vật nuôi trung thành và đáng yêu.</h3>
     </div>
 
     <div>
-        <h1>Mèo</h1>
+        <h2>Mèo</h2>
         <a href="index.php?page=cat"><img src="../asset/images/cat/head.png" alt="Mèo"></a>
         <h3>Mèo là loài vật nuôi thanh lịch và dễ thương.</h3>
     </div>
 
     <div>
-        <h1>Vẹt</h1>
+        <h2>Vẹt</h2>
         <a href="index.php?page=parrot"><img src="../asset/images/parrot/head.png" alt="Vẹt"></a>
         <h3>Chim là loài vật nuôi đáng yêu và đáng eu</h3>
     </div>
