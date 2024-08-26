@@ -1,10 +1,6 @@
 <?php
 session_start();
 ?>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ</title>
     <link rel="stylesheet" href="../asset/css/index.css">
     <link rel="stylesheet" href="../asset/css/banner.css">
     <link rel="stylesheet" href="../asset/css/search.css">
@@ -58,23 +54,34 @@ session_start();
             </a>
         </li>
         <li>
-            <a href="../pages/login.php">
-                <img src="../asset/images/icon/user.png" alt="User Icon" />
-                Tài khoản
+                <div class="buttons-container">
+            <a href="../pages/index.php?page=cart">
+                <img class="circle-button" src="../asset/images/icon/cart.png" alt="Cart">
             </a>
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
+                <div class="account-menu">
+                    <a href="../pages/profile.php">Thông tin tài khoản</a>
+                    <a href="../pages/logout.php">Đăng xuất</a>
+                </div>
+            <?php else : ?>
+                <a href="#" onclick="openLoginModal(); return false;">
+                    <img class="circle-button" src="../asset/images/icon/login.png" alt="Login">
+                </a>
+            <?php endif; ?>
+        </div>
+
         </li>
-        <li>
+        <!-- <li>
             <a href="../pages/index.php?page=admin">
                 <img src="../asset/images/icon/admin-ico.png" alt="Admin Icon" />
                 Admin
             </a>
-        </li>
+        </li> -->
         <li class="search-container">
-            <img class="search-icon" src="../asset/images/icon/search.png" alt="Search Icon">
-            <form name="formtim" action="kqtim.php" method="get" class="search-form" onsubmit="return checksearch();">
-                <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
-                <input name="btntim" id="btntim" type="submit" value="TÌM" />
-            </form>
+                <form name="formtim" action="kqtim.php" method="get" class="search-form" onsubmit="return checksearch();">
+                    <input name="tukhoa" id="tukhoa" type="text" placeholder="Tìm kiếm" />
+                    <input name="btntim" id="btntim" type="image" src="../asset/images/icon/search.png" alt="Search Button">
+                </form>
         </li>
     </ul>
 </nav>

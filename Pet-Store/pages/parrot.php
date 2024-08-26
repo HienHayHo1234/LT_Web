@@ -29,9 +29,7 @@ try {
             <p class="name-pet"><?php echo htmlspecialchars($pet['name']); ?></p>
             <div class="icons">
                 <button class="heart">❤</button>
-                <button class="button view-detail" onclick="window.location.href='DetailPet.php?id=<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>'">
-                    Xem
-                </button>
+                <button class="view-details" data-id="<?php echo htmlspecialchars($pet['id']); ?>">Chi tiết</button>
                 <button class="button order"
                     onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ
                     hàng</button>
@@ -46,25 +44,7 @@ try {
     <p>Chưa có sản phẩm nào.</p>
     <?php endif; ?>
 </div>
-<style>
-    .breadcrumb {
-    padding: 10px 0;
-    background-color: #f5f5f5;
-    font-size: 14px;
-}
 
-.breadcrumb a {
-    color: #007bff;
-    text-decoration: none;
-}
+<?php include 'DetailPet.php'; ?>
 
-.breadcrumb a:hover {
-    text-decoration: underline;
-}
-
-.breadcrumb span {
-    margin: 0 5px;
-    color: #6c757d;
-}
-
-</style>
+<script src="../asset/js/detail.js"></script>
