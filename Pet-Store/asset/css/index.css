@@ -115,7 +115,7 @@ nav {
     background-color: rgb(67, 124, 154);
     padding: 0;
     margin-right: 0;
-    margin-bottom: 20px; /* Thay đổi giá trị này để điều chỉnh khoảng cách dưới thanh nav */
+    /* margin-bottom: 20px; */ /* Thay đổi giá trị này để điều chỉnh khoảng cách dưới thanh nav */
     display: flex;
     justify-content: space-between;
     align-items: center;

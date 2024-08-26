@@ -168,45 +168,66 @@ function updateInvoice(itemId, quantity) {
         totalAmount += itemPrice;
     });
 
-    document.querySelector('.total-amount').innerText = totalAmount.toLocaleString('vi-VN') + 'đ';
+    document.querySelectorAll('.total-amount').innerText = totalAmount.toLocaleString('vi-VN') + 'đ';
 }
 
 
 // Định nghĩa hàm selectItem ở phạm vi toàn cục
 function selectItem(petId) {
-    const truck = document.getElementById('truck');
+    const invoiceCheckDiv = document.querySelector('.invoice-check');
     const checkbox = document.querySelector(`.checkbox-btn-cart[data-id="${petId}"]`);
-    const imageElement = document.querySelector(`.invoice-item[data-id="${petId}"] .imgInvoice`);
-
-    if (!imageElement) {
-        console.error(`Hình ảnh với petId ${petId} không được tìm thấy.`);
-        return;
-    }
+    const invoiceItem = document.querySelector(`.invoice-item[data-id="${petId}"]`);
+    
+    const imageElement = invoiceItem.querySelector('.imgInvoice');
+    const nameElement = invoiceItem.querySelector('.name-pet-cart');
+    const totalPriceElement = invoiceItem.querySelector('.totalPrice');
 
     const imageSrc = imageElement.src;
+    const name = nameElement.textContent;
+    const totalPrice = totalPriceElement.textContent;
 
     if (checkbox.checked) {
-        // Tạo phần tử hình ảnh và thêm vào truck
+        // Tạo phần tử div chứa hình ảnh và thông tin sản phẩm
+        const invoiceCheckItem = document.createElement('div');
+        invoiceCheckItem.className = 'invoice-check-item';
+        invoiceCheckItem.setAttribute('data-id', petId);
+
+        // Tạo phần tử hình ảnh và thêm vào div
         const image = document.createElement('img');
         image.src = imageSrc;
-        image.className = 'truck-image'; // Thêm lớp CSS cho hình ảnh
-        truck.appendChild(image);
-        truck.style.display = 'flex'; // Hiển thị truck
+        image.alt = name;
+
+        // Tạo phần tử chứa tên sản phẩm
+        const nameParagraph = document.createElement('p');
+        nameParagraph.textContent = `Sản phẩm: ${name}`;
+
+        // Tạo phần tử chứa tổng giá sản phẩm
+        const totalPriceParagraph = document.createElement('p');
+        totalPriceParagraph.textContent = totalPrice;
+
+        // Thêm các phần tử vào trong invoiceCheckItem
+        invoiceCheckItem.appendChild(image);
+        invoiceCheckItem.appendChild(nameParagraph);
+        invoiceCheckItem.appendChild(totalPriceParagraph);
+
+        // Thêm invoiceCheckItem vào trong container truck
+        invoiceCheckDiv.appendChild(invoiceCheckItem);
+        invoiceCheckDiv.style.display = 'flex'; // Hiển thị truck
 
         // Thêm hiệu ứng rơi xuống
         setTimeout(() => {
-            image.classList.add('fall');
+            invoiceCheckItem.classList.add('fall');
         }, 10);
     } else {
-        // Xóa hình ảnh khỏi truck
-        const imageToRemove = document.querySelector(`.truck-image[src="${imageSrc}"]`);
-        if (imageToRemove) {
+        // Xóa div khỏi truck
+        const itemToRemove = invoiceCheckDiv.querySelector(`.invoice-check-item[data-id="${petId}"]`);
+        if (itemToRemove) {
             // Thêm hiệu ứng bay ngược lên
-            imageToRemove.classList.add('fly-up');
+            itemToRemove.classList.add('fly-up');
 
-            // Xóa hình ảnh khỏi truck khi hiệu ứng kết thúc
+            // Xóa div khỏi truck khi hiệu ứng kết thúc
             setTimeout(() => {
-                truck.removeChild(imageToRemove);
+                invoiceCheckDiv.removeChild(itemToRemove);
 
                 // Kiểm tra nếu không có checkbox nào được chọn, ẩn truck
                 const allCheckboxes = document.querySelectorAll('.checkbox-btn-cart');
@@ -218,7 +239,7 @@ function selectItem(petId) {
                 });
 
                 if (!anyChecked) {
-                    truck.style.display = 'none'; // Ẩn truck nếu không còn checkbox nào được chọn
+                    invoiceCheckDiv.style.display = 'none'; // Ẩn truck nếu không còn checkbox nào được chọn
                 }
             }, 500); // Thời gian của hiệu ứng bay ngược lên
         }
