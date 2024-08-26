@@ -1,6 +1,7 @@
 <script src="../asset/js/detail.js"></script>
 <?php include 'DetailPet.php'; ?>
 
+
 <?php
 // Khai báo các thông số kết nối cơ sở dữ liệu
 require '../config/config.php';
@@ -23,9 +24,11 @@ try {
 }
 ?>
 <h2>Mèo</h2>
+<h2>Mèo</h2>
 <div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
+
 
     <div class="container-pets">
         <img src="<?php echo htmlspecialchars($pet['urlImg']); ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
@@ -50,3 +53,6 @@ try {
     <p>Chưa có sản phẩm nào.</p>
     <?php endif; ?>
 </div>
+<?php include 'DetailPet.php'; ?>
+
+<script src="../asset/js/detail.js"></script>
