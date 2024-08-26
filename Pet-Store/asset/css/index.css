@@ -76,7 +76,11 @@ main{
 }   
 
 footer {
+footer {
     background-color: rgb(67, 124, 154);
+    color: white;
+    text-align: center; 
+    padding: 10px 0;
     color: white;
     text-align: center; 
     padding: 10px 0;
@@ -85,11 +89,13 @@ footer {
 
 
 /* CSS chung cho nav */
+
+
+/* CSS chung cho nav */
 nav {
     background-color: rgb(67, 124, 154);
     padding: 0;
     margin: 0;
-    margin-bottom: 80px; /* Đảm bảo có khoảng cách dưới thanh nav */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -100,7 +106,9 @@ nav {
 }
 
 ul {
+ul {
     list-style: none;
+    margin: 0;
     margin: 0;
     padding: 0;
     display: flex;
@@ -115,23 +123,35 @@ ul {
 .nav-center {
     justify-content: center; /* Căn giữa nội dung */
     display: flex;
-    justify-content: left;
+    align-items: center;
 }
 
-nav > ul > li > a {
-    color: white;
-    text-decoration: none;
-    padding: 14px 20px;
-    display: block;
+/* Điều chỉnh flex cho từng phần */
+.nav-left, .nav-right, .nav-center {
+    flex-grow: 1; /* Giãn đều cả ba phần */
 }
 
-nav>ul>li {
-    margin: 0 15px;
+.nav-center {
+    justify-content: center; /* Căn giữa nội dung */
+    display: flex;
+}
+
+.nav-right {
+    justify-content: flex-end; /* Căn phải */
+    margin-right: 20px;
+}
+
+.nav-left {
+    justify-content: flex-start; /* Căn trái */
+    margin-left: 20px;
 }
 
 /* CSS cho các mục */
 nav li a {
+/* CSS cho các mục */
+nav li a {
     color: white;
+    background-color: rgb(67, 124, 154);
     background-color: rgb(67, 124, 154);
     text-decoration: none;
     display: block;
@@ -142,12 +162,35 @@ nav li a {
 nav li a:hover {
     background-color: rgb(90, 140, 154);
 }
-
 nav li a, .dropdown-btn {
     text-align: center;
 }
 
 nav li.dropdown {
+    position: relative;
+}
+
+/* Hiển thị dropdown khi hover */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* CSS cho phần tìm kiếm */
+.search-container input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+}
+
+.search-container input[type="image"] {
+    vertical-align: middle;
     position: relative;
 }
 
@@ -181,6 +224,7 @@ nav li.dropdown {
     display: flex;
     justify-content: center;
 
+
 }
 
 .pet div {
@@ -188,6 +232,7 @@ nav li.dropdown {
     border-image: linear-gradient(45deg, #ff6b6b, #f06595, #cc5de8, #845ef7) 1;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
     margin-top: 5px;
 }
 
@@ -215,6 +260,7 @@ nav li.dropdown {
 .nav-cart > .text-cart {
     display: inline-block; /* Căn chỉnh văn bản "Giỏ hàng" để không bị chồng lên hình ảnh */
     vertical-align: middle; /* Căn chỉnh theo chiều dọc */
+    margin-right: 10px; 
     margin-right: 10px; 
 }
 
