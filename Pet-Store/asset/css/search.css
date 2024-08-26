@@ -38,15 +38,15 @@
 
 /* Định dạng nút submit */
 .search-form input[type="submit"] {
-    border: none; /* Loại bỏ đường viền của nút */
-    background-color: #007BFF; /* Đặt màu nền xanh dương cho nút */
-    color: white; /* Đặt màu chữ trắng cho nút */
-    cursor: pointer; /* Thay đổi con trỏ chuột thành dạng con trỏ tay khi hover vào nút */
-    border-radius: 5px; /* Bo tròn các góc của nút */
-    padding: 5px 10px; /* Thêm khoảng đệm bên trong nút */
+    background-color: white;
+    color: #0056b3;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-/* Hiển thị form tìm kiếm khi trỏ chuột vào biểu tượng tìm kiếm */
-.search-container:hover .search-form {
-    display: block; /* Hiển thị form tìm kiếm khi hover vào container chứa biểu tượng tìm kiếm */
+.search-form input[type="submit"]:hover {
+    background-color: #0056b3;
 }
