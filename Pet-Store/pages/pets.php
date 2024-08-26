@@ -46,4 +46,12 @@ try {
 <!-- Chèn file modal -->
 <?php include 'DetailPet.php'; ?>
 
+
 <script src="../asset/js/detail.js"></script>
+<script src="../asset/js/makecolor.js"></script>
+<style>    
+        .fly-to-cart {
+            position: absolute;
+            transition: all 1s ease-in-out;
+        }
+</style>

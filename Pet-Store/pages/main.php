@@ -23,6 +23,9 @@ switch ($page) {
     case "search":
         require_once "ketquatimkiem.php";
         break;
+    case "about":
+        require_once "about.php";
+        break;
     default:
         require_once "start.php";
         break;

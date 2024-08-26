@@ -11,8 +11,17 @@ function addToPet(petId) {
     };
 
     xhr.send("action=add&pet_id=" + encodeURIComponent(petId));
-    alert("Đã thêm vào giỏ hàng!");
+    
+    alert("Sản phẩm đã thêm vào giỏ hàng")
+
 }
+
+
+
+
+
+
+
 
 // Hàm xóa sản phẩm khỏi giỏ hàng
 function removeFromCart(petId) {
