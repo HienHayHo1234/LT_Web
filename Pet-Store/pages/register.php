@@ -14,10 +14,17 @@ try {
 
 // Xử lý form đăng ký
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<<<<<<< HEAD
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
+=======
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $confirmPassword = trim($_POST['confirmPassword']);
+>>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
 
     // Kiểm tra dữ liệu đầu vào
     if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
@@ -32,7 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $checkUser->execute();
 
         if ($checkUser->rowCount() > 0) {
+<<<<<<< HEAD
             echo "Tài khoản đã tồn tại. Vui lòng <a href='login.php'>đăng nhập</a>.";
+=======
+            echo "Tài khoản hoặc email đã tồn tại. Vui lòng <a href='index.php'>đăng nhập</a>.";
+>>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
         } else {
             // Mã hóa mật khẩu
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -46,7 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 echo "Đăng ký thành công!";
+<<<<<<< HEAD
                 header("Location: login.php");
+=======
+                header("Location: index.php");
+>>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
                 exit();
             } else {
                 echo "Đã xảy ra lỗi khi đăng ký.";
@@ -55,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,3 +105,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </html>
 
+=======
+>>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)

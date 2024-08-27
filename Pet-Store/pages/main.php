@@ -23,6 +23,12 @@ switch ($page) {
     case "search":
         require_once "ketquatimkiem.php";
         break;
+<<<<<<< HEAD
+=======
+    case "about":
+        require_once "about.php";
+        break;
+>>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
     default:
         require_once "start.php";
         break;

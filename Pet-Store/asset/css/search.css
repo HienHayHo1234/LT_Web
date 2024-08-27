@@ -3,6 +3,10 @@
     align-items: flex-end;
     justify-content: space-between;
     padding: 10px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
 }
 #btntim{
     height: 30px;
@@ -21,9 +25,15 @@
 }
 
 .search-form input[type="text"] {
+<<<<<<< HEAD
     width: 100%;
     padding: 8px 12px;
     margin-right: 10px;
+=======
+    width: 400px;
+    padding: 8px 12px;
+    margin-right: 5px;
+>>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
     border: 1px solid #ccc;
     border-radius: 50px;
     font-size: 14px;

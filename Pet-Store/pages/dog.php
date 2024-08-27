@@ -27,9 +27,13 @@ try {
             <p class="name-pet"><?php echo htmlspecialchars($pet['name']); ?></p>
             <div class="icons">
                 <button class="heart">❤</button>
+<<<<<<< HEAD
                 <button class="button view-detail" onclick="window.location.href='DetailPet.php?id=<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>'">
                     Xem
                 </button>
+=======
+                <button class="view-details" data-id="<?php echo htmlspecialchars($pet['id']); ?>">Chi tiết</button>
+>>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
                 <button class="button order"
                     onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ
                 hàng</button>
@@ -43,4 +47,11 @@ try {
     <?php else: ?>
     <p>Chưa có sản phẩm nào.</p>
     <?php endif; ?>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+<?php include 'DetailPet.php'; ?>
+
+<script src="../asset/js/detail.js"></script>
+>>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
