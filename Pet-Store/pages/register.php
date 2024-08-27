@@ -5,6 +5,8 @@ $dbname = "pet-store";
 $username = "root";
 $password = "";
 
+$showLoginModal = false; // Biến để kiểm soát hiển thị modal
+
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -34,19 +36,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($checkUser->rowCount() > 0) {
             echo "Tài khoản hoặc email đã tồn tại. Vui lòng <a href='index.php'>đăng nhập</a>.";
         } else {
-            // Mã hóa mật khẩu
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            // Thêm người dùng vào cơ sở dữ liệu
+            // Lưu mật khẩu không mã hóa
             $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $hashedPassword);
+            $stmt->bindParam(':password', $password); // Lưu mật khẩu trực tiếp
 
             if ($stmt->execute()) {
-                echo "Đăng ký thành công!";
-                header("Location: index.php");
+                // Redirect đến trang index.php với query string
+                header("Location: index.php?showlogin=true");
                 exit();
             } else {
                 echo "Đã xảy ra lỗi khi đăng ký.";

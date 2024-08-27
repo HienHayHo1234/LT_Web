@@ -13,7 +13,8 @@ try {
         PDO::ATTR_EMULATE_PREPARES => false,
     ]);
 } catch (PDOException $e) {
-    die("Kết nối thất bại: " . $e->getMessage());
+    echo json_encode(['error' => 'Lỗi kết nối cơ sở dữ liệu.']);
+    exit();
 }
 
 // Xử lý form đăng nhập
@@ -23,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Kiểm tra dữ liệu đầu vào
     if (empty($username) || empty($password)) {
-        $error = "Vui lòng nhập đầy đủ thông tin.";
+        echo json_encode(['error' => 'Vui lòng nhập đầy đủ thông tin.']);
     } else {
         try {
             // Kiểm tra thông tin đăng nhập
@@ -37,18 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Kiểm tra mật khẩu
                 if (password_verify($password, $user['password'])) {
                     $_SESSION['logged_in'] = true;
-                    $_SESSION['username'] = $username; // Lưu tên đăng nhập vào session nếu cần
-                    header("Location: index.php");
-                    exit();
+                    $_SESSION['username'] = $username;
+                    echo json_encode(['success' => true]);
                 } else {
-                    $error = "Mật khẩu không đúng.";
+                    echo json_encode(['error' => 'Mật khẩu không đúng.']);
                 }
             } else {
-                $error = "Tên đăng nhập không tồn tại.";
+                echo json_encode(['error' => 'Tên đăng nhập không tồn tại.']);
             }
         } catch (PDOException $e) {
-            $error = "Lỗi khi truy vấn cơ sở dữ liệu: " . $e->getMessage();
+            echo json_encode(['error' => 'Lỗi khi truy vấn cơ sở dữ liệu.']);
         }
     }
 }
-?>
