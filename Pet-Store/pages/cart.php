@@ -50,7 +50,7 @@ try {
         <?php if (!empty($cartItems)): ?>
         <div class="title-invoice-flex">
             <input type="checkbox" class="checkbox-all-btn-cart" data-id="<?php echo htmlspecialchars($item['id']); ?>"
-                onclick="selectItem('<?php echo htmlspecialchars($item['id']); ?>')">
+            onclick="toggleSelectAll(this)">
             <b class="title-invoice">Giỏ hàng của bạn</b>
         </div>
 
@@ -71,7 +71,7 @@ try {
                     <p class="count">
                         Số lượng:
                         <button class="quantity-btn minus" data-id="<?php echo $item['id']; ?>">-</button>
-                        <span id="quantity-"><?php echo htmlspecialchars($item['quantity']); ?></span>
+                        <span id="quantity"><?php echo htmlspecialchars($item['quantity']); ?></span>
                         <button class="quantity-btn plus" data-id="<?php echo $item['id']; ?>">+</button>
                     </p>
                     <p class="totalPrice" data-id="<?php echo $item['id']; ?>">Tổng giá:
@@ -89,9 +89,11 @@ try {
         <?php endif; ?>
     </div>
 
-    <!-- -------------------truck-kun----------  -->
+    <!-- -------------------check-list----------  -->
     <div class="invoice-check-flex">
         <div class="invoice-check">
+            <!-- khung sản phẩm đã chọn -->
+            <div class="container-invoice-check"></div>
             <!-- nút đặt tất cả -->
             <div class="order-summary">
                 <p>Tổng số tiền tất cả sản phẩm:

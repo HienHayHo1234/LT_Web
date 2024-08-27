@@ -14,6 +14,23 @@ function addToPet(petId) {
     alert("Đã thêm vào giỏ hàng!");
 }
 
+// Khởi tạo tiền ban đầu
+let totalAmountSelect = 0;
+let totalAmountStart = 0;
+
+// Hàm khởi tạo tổng tiền ban đầu khi trang tải
+function initializeTotalAmount() {
+    const totalAmountElement = document.querySelector('.total-amount');
+    if (totalAmountElement) {
+        totalAmountStart = parseInt(totalAmountElement.textContent.replace(/[^0-9]/g, ''), 10);
+    }
+}
+
+// Khởi tạo tổng tiền ban đầu khi trang được tải
+window.onload = function() {
+    initializeTotalAmount();
+};
+
 // Hàm xóa sản phẩm khỏi giỏ hàng
 function removeFromCart(petId) {
     // Select the invoice-item div element associated with the petId
@@ -144,8 +161,6 @@ function updateQuantity(itemId, quantity) {
         if (xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             if (response.success) {
-                // Cập nhật tổng số tiền
-                document.getElementById('totalAmount').textContent = response.totalAmount;
             } else {
                 alert('Lỗi: ' + response.message);
             }
@@ -168,13 +183,78 @@ function updateInvoice(itemId, quantity) {
         totalAmount += itemPrice;
     });
 
-    document.querySelectorAll('.total-amount').innerText = totalAmount.toLocaleString('vi-VN') + 'đ';
+    document.querySelector('.total-amount').innerText = totalAmount.toLocaleString('vi-VN') + 'đ';
+    
+    updateInvoiceCheck(itemId);
 }
+    
+
+function updateInvoiceCheck(petId) {
+    // Cập nhật trong invoice check
+    const invoiceCheckItem = document.querySelector(`.invoice-check-item[data-id="${petId}"]`);
+
+    if (invoiceCheckItem) {
+        // Tìm phần tử chứa giá trong invoice-check-item
+        const priceParagraph = invoiceCheckItem.querySelector('p:last-child'); // Giả sử giá nằm ở phần tử p cuối cùng
+        
+        // Cập nhật nội dung của phần tử chứa giá
+        if (priceParagraph) {
+            priceParagraph.innerText = 'Giá: ' + totalPrice.toLocaleString('vi-VN') + 'đ';
+        }
+
+        // Kiểm tra số lượng checkbox được chọn
+        const selectedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        let selectedTotalAmount = 0;
+
+        // Lặp qua các checkbox đã được chọn và tính tổng tiền
+        selectedCheckboxes.forEach(checkbox => {
+            const selectedItemId = checkbox.getAttribute('data-id');
+            const selectedInvoiceItem = document.querySelector(`.totalPrice[data-id="${selectedItemId}"]`);
+            const selectedItemPrice = parseInt(selectedInvoiceItem.innerText.replace(/[^0-9]/g, ''), 10);
+            selectedTotalAmount = selectedItemPrice;
+        });
+
+        document.querySelector('.total-amount').innerText = selectedTotalAmount.toLocaleString('vi-VN') + 'đ';
+    }
+}
+
+
+// Chọn tất cả select box
+function toggleSelectAll(selectAllCheckbox) {
+    const checkboxes = document.querySelectorAll('.checkbox-btn-cart');
+    const totalAmountElement = document.querySelector('.total-amount');
+    let totalAmount = 0;
+
+    if (selectAllCheckbox.checked) {
+        // Nếu chọn "Tất cả"
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = true; // Đánh dấu checkbox là đã chọn
+            selectItem(checkbox.getAttribute('data-id')); // Thực hiện hành động thêm vào danh sách đã chọn
+            const invoiceItem = document.querySelector(`.invoice-item[data-id="${checkbox.getAttribute('data-id')}"]`);
+            if (invoiceItem) {
+                const totalPriceElement = invoiceItem.querySelector('.totalPrice');
+                const totalPrice = parseInt(totalPriceElement.textContent.replace(/[^0-9]/g, ''), 10);
+                totalAmount += totalPrice; // Cộng dồn giá trị của tất cả các sản phẩm đã chọn
+            }
+        });
+    } else {
+        // Nếu bỏ chọn "Tất cả"
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false; // Bỏ chọn tất cả các checkbox
+            selectItem(checkbox.getAttribute('data-id')); // Thực hiện hành động loại bỏ khỏi danh sách đã chọn
+        });
+        totalAmount = totalAmountStart; // Đặt tổng tiền về 0 khi bỏ chọn tất cả
+    }
+
+    // Cập nhật tổng tiền mới
+    totalAmountElement.innerText = totalAmount.toLocaleString('vi-VN') + 'đ';
+}
+
 
 
 // Định nghĩa hàm selectItem ở phạm vi toàn cục
 function selectItem(petId) {
-    const invoiceCheckDiv = document.querySelector('.invoice-check');
+    const invoiceCheckDiv = document.querySelector('.container-invoice-check');
     const checkbox = document.querySelector(`.checkbox-btn-cart[data-id="${petId}"]`);
     const invoiceItem = document.querySelector(`.invoice-item[data-id="${petId}"]`);
     
@@ -184,7 +264,7 @@ function selectItem(petId) {
 
     const imageSrc = imageElement.src;
     const name = nameElement.textContent;
-    const totalPrice = totalPriceElement.textContent;
+    const totalPrice = parseInt(totalPriceElement.textContent.replace(/[^0-9]/g, ''), 10);
 
     if (checkbox.checked) {
         // Tạo phần tử div chứa hình ảnh và thông tin sản phẩm
@@ -203,7 +283,7 @@ function selectItem(petId) {
 
         // Tạo phần tử chứa tổng giá sản phẩm
         const totalPriceParagraph = document.createElement('p');
-        totalPriceParagraph.textContent = totalPrice;
+        totalPriceParagraph.textContent = 'Giá: ' + totalPrice.toLocaleString('vi-VN') + 'đ';
 
         // Thêm các phần tử vào trong invoiceCheckItem
         invoiceCheckItem.appendChild(image);
@@ -214,6 +294,12 @@ function selectItem(petId) {
         invoiceCheckDiv.appendChild(invoiceCheckItem);
         invoiceCheckDiv.style.display = 'flex'; // Hiển thị truck
 
+        // Cộng giá trị của sản phẩm đã chọn vào tổng tiền
+        totalAmountSelect += totalPrice;
+
+        // Cập nhật tổng tiền mới vào phần tử .total-amount
+        document.querySelector('.total-amount').innerText = totalAmountSelect.toLocaleString('vi-VN') + 'đ';
+
         // Thêm hiệu ứng rơi xuống
         setTimeout(() => {
             invoiceCheckItem.classList.add('fall');
@@ -222,26 +308,33 @@ function selectItem(petId) {
         // Xóa div khỏi truck
         const itemToRemove = invoiceCheckDiv.querySelector(`.invoice-check-item[data-id="${petId}"]`);
         if (itemToRemove) {
+            // Trừ giá trị của sản phẩm bỏ chọn khỏi tổng tiền
+            totalAmountSelect -= totalPrice;
+
             // Thêm hiệu ứng bay ngược lên
             itemToRemove.classList.add('fly-up');
 
             // Xóa div khỏi truck khi hiệu ứng kết thúc
-            setTimeout(() => {
-                invoiceCheckDiv.removeChild(itemToRemove);
+            invoiceCheckDiv.removeChild(itemToRemove);
 
-                // Kiểm tra nếu không có checkbox nào được chọn, ẩn truck
-                const allCheckboxes = document.querySelectorAll('.checkbox-btn-cart');
-                let anyChecked = false;
-                allCheckboxes.forEach(cb => {
-                    if (cb.checked) {
-                        anyChecked = true;
-                    }
-                });
+            document.querySelector('.total-amount').innerText = totalAmountSelect.toLocaleString('vi-VN') + 'đ';
 
-                if (!anyChecked) {
-                    invoiceCheckDiv.style.display = 'none'; // Ẩn truck nếu không còn checkbox nào được chọn
+            // Kiểm tra nếu không có checkbox nào được chọn, ẩn truck
+            const allCheckboxes = document.querySelectorAll('.checkbox-btn-cart');
+            let anyChecked = false;
+            allCheckboxes.forEach(cb => {
+                if (cb.checked) {
+                    anyChecked = true;
                 }
-            }, 500); // Thời gian của hiệu ứng bay ngược lên
+            });
+
+            if (!anyChecked) {
+                // xóa check tất cả
+                document.querySelector('.checkbox-all-btn-cart').checked = false;
+                // Cập nhật tổng tiền mới vào phần tử .total-amount
+                document.querySelector('.total-amount').innerText = totalAmountStart.toLocaleString('vi-VN') + 'đ';
+            }
         }
     }
 }
+
