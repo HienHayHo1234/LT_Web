@@ -33,12 +33,7 @@ try {
                     <p class="name-pet"><?php echo htmlspecialchars($pet['name']); ?></p>
                     <div class="icons">
                         <button class="heart" onclick="toggleHeart(this)">❤<i class="fas fa-heart"></i></button>
-<<<<<<< HEAD
                         <button class="button view-detail" onclick="openModal('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Chi tiết</button>
-=======
-                        <!-- Ví dụ về nút để mở modal với ID sản phẩm -->
-                        <button class="view-details" data-id="<?php echo htmlspecialchars($pet['id']); ?>">Chi tiết</button>
->>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
                         <button class="button order" onclick="addToPet('<?php echo htmlspecialchars($pet['id'], ENT_QUOTES, 'UTF-8'); ?>')">Giỏ hàng</button>
                     </div>
                 </div>

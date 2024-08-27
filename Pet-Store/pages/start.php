@@ -21,29 +21,20 @@
         <a href="index.php?page=dog"><img src="../asset/images/dog/head.png" alt="Chó"></a>
         <h3>Chó là loài vật nuôi trung thành và đáng yêu.</h3>
     </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
     <div>
         <h2>Mèo</h2>
         <a href="index.php?page=cat"><img src="../asset/images/cat/head.png" alt="Mèo"></a>
         <h3>Mèo là loài vật nuôi thanh lịch và dễ thương.</h3>
     </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
     <div>
         <h2>Vẹt</h2>
         <a href="index.php?page=parrot"><img src="../asset/images/parrot/head.png" alt="Vẹt"></a>
         <h3>Chim là loài vật nuôi đáng yêu và đáng eu</h3>
     </div>
-<<<<<<< HEAD
 <hr>
 <hr>
-=======
->>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
 </section>
 
 <section id="product">

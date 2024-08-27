@@ -1,10 +1,6 @@
 <script src="../asset/js/detail.js"></script>
 <?php include 'DetailPet.php'; ?>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
 <?php
 // Khai báo các thông số kết nối cơ sở dữ liệu
 require '../config/config.php';
@@ -27,18 +23,10 @@ try {
 }
 ?>
 <h2>Mèo</h2>
-<<<<<<< HEAD
-=======
-<h2>Mèo</h2>
->>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
 <div class="pets-grid">
     <?php if (!empty($pets)): ?>
     <?php foreach ($pets as $pet): ?>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
     <div class="container-pets">
         <img src="<?php echo htmlspecialchars($pet['urlImg']); ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
         <div class="row">
@@ -61,11 +49,4 @@ try {
     <?php else: ?>
     <p>Chưa có sản phẩm nào.</p>
     <?php endif; ?>
-<<<<<<< HEAD
 </div>
-=======
-</div>
-<?php include 'DetailPet.php'; ?>
-
-<script src="../asset/js/detail.js"></script>
->>>>>>> parent of a1b6fa5 (Delete Pet-Store directory)
